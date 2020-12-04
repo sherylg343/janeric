@@ -36,7 +36,7 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-whitept-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
@@ -118,6 +118,25 @@
                 <a href="#" data-activates="slide-out" class="btn btn-blue p-3 button-collapse"><i class="fas fa-bars"></i></a>
                 {% include 'includes/mobile-header.html' %}
             </nav>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1 my-auto py-1">
+                <form method="GET" action="">
+                    <div class="input-group w-100 md-form form-sm form-2 pl-0">
+                        <input
+                            class="form-control my-0 py-1 blue-border"
+                            type="text"
+                            name="q"
+                            placeholder="Search"
+                            aria-label="Search"
+                        />
+                        <div class="input-group-append">
+                            <span class="input-group-text blue" id="basic-text2"><i class="fas fa-search text-white"
+                            aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </header>
 

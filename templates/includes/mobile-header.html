@@ -1,8 +1,8 @@
 <!-- Sidebar navigation -->
-<div id="slide-out" class="side-nav2 side blue darken-3">
+<div id="slide-out" class="side-nav2 side blue darken-2">
   <ul class="custom-scrollbar">
     <!-- Side navigation links -->
-    <li>
+    <li class="list-inline-item">
       <ul class="collapsible collapsible-accordion">
         <li><a href="" class="collapsible-header waves-effect" >Shop All</a>
         </li>
@@ -47,6 +47,27 @@
         </li>
       </ul>
     </li>
-    <!--/. Side navigation links -->
   </ul>
 </div>
+<li class="list-inline-item">
+    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+        <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
+        />
+    </a>
+</li>
+<li class="list-inline-item">
+    <a
+    class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+    href="">
+        <div class="text-center">
+            <div><i class="fas fa-shopping-cart"></i></div>
+            <p class="my-0">
+                {% if grand_total %} 
+                    ${{ grand_total|floatformat:2 }} 
+                {% else %} 
+                    $0.00 
+                {% endif %}
+            </p>
+        </div>
+    </a>
+</li>
