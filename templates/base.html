@@ -119,7 +119,7 @@
                 {% include 'includes/mobile-header.html' %}
             </nav>
         </div>
-        <div class="row">
+        <div class="row d-lg-none">
             <div class="col-10 offset-1 my-auto py-1">
                 <form method="GET" action="">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
@@ -144,6 +144,7 @@
     {% endblock %} 
     
     {% block content %} 
+    <p>{{ MEDIA_URL }}</p>
     {% endblock %} 
     
     {% block postloadjs %}
