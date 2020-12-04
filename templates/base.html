@@ -16,25 +16,109 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Popper.js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
     {% endblock %} {% block extra_js %} {% endblock %}
 
     <title>JANERIC {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
-    <header>
+    <header class="container-fluid fixed-top">
+        <div id="topnav" class="row bg-whitept-lg-2 d-none d-lg-flex">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
+                    />
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="">
+                    <div class="input-group w-100 md-form form-sm form-2 pl-0">
+                        <input
+                            class="form-control my-0 py-1 blue-border"
+                            type="text"
+                            name="q"
+                            placeholder="Search"
+                            aria-label="Search"
+                        />
+                        <div class="input-group-append">
+                            <span class="input-group-text blue" id="basic-text1"><i class="fas fa-search text-white"
+                            aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a
+                            class="text-blue nav-link"
+                            href=""
+                            id="user-options"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0"
+                            aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %} 
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item"
+                                >Log Out</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item"
+                            >Create An Account</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item"
+                                >Log In</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a
+                        class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                        href="">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-cart"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %} 
+                                        ${{ grand_total|floatformat:2 }} 
+                                    {% else %} 
+                                        $0.00 
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar d-lg-none navbar-light w-100">
+                <!-- SideNav slide-out button -->
+                <a href="#" data-activates="slide-out" class="btn btn-blue p-3 button-collapse"><i class="fas fa-bars"></i></a>
+                {% include 'includes/mobile-header.html' %}
+            </nav>
+        </div>
     </header>
 
     {% block page_header %} 
@@ -46,6 +130,21 @@
     {% block postloadjs %}
     {% endblock %}
 
-
+    <!-- Footer -->
+    <footer class="page-footer font-small blue fixed-bottom">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://janeric.com/"> janeric.com. All Rights Reserved.</a>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+        // SideNav Button Initialization
+        $(".button-collapse").sideNav2();
+        // SideNav Scrollbar Initialization
+        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+        var ps = new PerfectScrollbar(sideNavScrollbar);
+        });
+    </script> 
   </body>
 </html>
