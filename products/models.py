@@ -3,6 +3,9 @@ from django.db.models.fields import IntegerField
 
 
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     division = models.CharField(max_length=254)
 
@@ -14,6 +17,9 @@ class Category(models.Model):
 
 
 class Product_Family(models.Model):
+    class Meta:
+        verbose_name_plural = 'Product_Families'
+
     name = models.CharField(max_length=254)
     brand_name = models.CharField(max_length=254)
 
