@@ -1,10 +1,6 @@
 from django.db import models
 from django.db.models.fields import IntegerField
-import mysql.connector
 
-
-conection= mysql.connector.connect(user='root', 
-host='localhost', port='3306', password='12345678')
 
 class Category(models.Model):
     name = models.CharField(max_length=254)
@@ -42,21 +38,17 @@ class Product(models.Model):
     product_family = models.ForeignKey(
         "Product_Family", null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
-    sku = models.CharField(
+    SKU = models.CharField(
         max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     size = models.CharField(
         max_length=254, null=True, blank=True, choices=BOTTLE_SIZES)
-    pack = models.CharField(
-        max_length=254, null=True, blank=True)
+    pack = models.IntegerField(null=True, blank=True)
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True
     )
-    description = models.ListTextField(
-        base_field=IntegerField(),
-        size=100,
-    )
-
+    description = models.TextField(
+        null=True, blank=True)
 
     def __str__(self):
         return self.name
