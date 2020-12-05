@@ -5,13 +5,12 @@
 }
 
 :root {
-    --clr-white: #ffffff;
+    --clr-white: #fafaf6;
     --clr-blue: #4285F4;
     --clr-teal: #00FFF0;
-    --clr-dkteal: #008B8B;
     --clr-ltblue: #00D1FF;
-    --clr-dkblue: #4682B4;
-    --clr-navy: #000C66;
+    --clr-dkblue: #3D6C39;
+    --clr-navy: #2C365D;
     --ff-barlow: 'Barlow', sans-serif;
     --ff-roboto: 'Roboto', sans-serif;
 }
@@ -20,7 +19,17 @@ body {
     font-family: var(--ff-roboto);
     font-weight: 300;
     color: var(--clr-navy);
-    background: var(--clr-white);
+    height: calc(100vh - 400px);
+}
+
+overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: yellow;
+    z-index: -1;
 }
 
 #main-logo-link {
@@ -31,9 +40,5 @@ body {
 .headline {
     font-family: var(--ff-barlow);
     font-weight: 400;
-    color: var(--clr-);
-}
-
-.page-link {
-    color: var(--clr-dkteal);
+    color: var(clor-dkblue);
 }

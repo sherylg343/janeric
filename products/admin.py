@@ -17,13 +17,15 @@ class ProductAdmin(admin.ModelAdmin):
         'description',
     )
 
-    ordering = ('product_family')
+    ordering = ('product_family',)
+
 
 class Product_FamilyAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'brand_name'
     )
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
