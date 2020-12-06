@@ -23,9 +23,17 @@ body {
     background: var(--clr-white);
 }
 
-#main-logo-link {
-    width: 100%;
+.nav-logo img {
+    width: 140px;
     height: auto;
+}
+
+.side-menu {
+
+}
+
+.side-menu ul {
+    list-style-type: none;
 }
 
 .headline {
@@ -34,6 +42,30 @@ body {
     color: var(--clr-);
 }
 
+.side-menu {
+    background: white;
+    color: var(--clr-blue);
+    font-weight: 400;
+}
+
 .page-link {
     color: var(--clr-dkteal);
+}
+
+.card img {
+    width: auto !important;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    .nav-logo img {
+        width: 175px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav-logo img {
+        width: 225px;
+    }
 }

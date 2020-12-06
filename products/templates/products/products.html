@@ -10,59 +10,60 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row head-row mt-5 mb-5">
-            <div class="col text-center mt-3 mb-1">
-                <h2 class="headline">Products</h2>
+        <div class="row pt-5">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 side-menu">
+                {% include 'includes/side-menu.html' %}
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="headline mb-5">Products</h2>
+                    </div> 
+                <div class="row">
+                    <div class="product-container col-10 offset-1">
+                        <div class="row">
+                            {% for product in products %}
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                    
+                                    <div class="card h-100 pt-3 pb-4 mb-4">
+                                        {% if product.image %}
+                                        <a href="#">   
+                                            <img
+                                            class="card-img-top img-fluid"
+                                            src="{{ MEDIA_URL }}{{ product.image }}"
+                                            alt="{{ product.name }}"
+                                            />
+                                        </a>    
+                                        {% else %}
+                                        <a href="#">
+                                            <img
+                                                class="card-img-top"
+                                                src="{{ MEDIA_URL }}noimage.png"
+                                                alt="{{ product.name }}"
+                                            />
+                                        </a>
+                                        {% endif %}
+                                        <div class="card-body">
+                                            {% if product.category %}
+                                                <h7 class="blue-text pb-2 pt-1">{{ product.category.name }}</h7>
+                                            {% endif %}
+                                            <h6 class="font-weight-bold card-title pb-3">{{ product.name }}</h6>
+                                            <p class="mb-0">Size: {{ product.size }}</p>
+                                            <p class="mb-0">Pack: {{ product.pack }}</p>
+                                            <p class="mb-3">Price: $ {{ product.price }}</p>
+                                        </div>
+                                        <div class="card-footer text-center mt-4">
+                                            <a class="btn blue">View</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                    </div>
+                                 </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                 </div>  
             </div>
         </div>
-    
-        <div class="row">
-            <div class="product-container col-10 offset-1">
-                <div class="row">
-                    <div class="d-flex flex-row flex-wrap justify-content-around">
-                    {% for product in products %}
-                            <!-- Card Wider -->
-                            <div class="card card-cascade wider mb-4 mr-1 ml-1">
-                            {% if product.image %}
-                                <!-- Card image -->
-                                <div class="view view-cascade overlay">
-                                    <img class="card-img-top" src="{{ MEDIA_URL }}product.image">
-                                    <a href="#">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                            {% else %}
-                                <div class="view view-cascade overlay">
-                                    <img
-                                        class="card-img-top"
-                                        src="{{ MEDIA_URL }}noimage.png"
-                                        alt="{{ product.name }}"
-                                    />
-                                    <a href="#">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                            {% endif %}
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade text-center pb-0">
-
-                                <!-- Title -->
-                                <h4 class="card-title"><strong>{{ product.name }}</strong></h4>
-                                <!-- Subtitle -->
-                                <h5 class="blue-text pb-2"><strong>Brand Name</strong></h5>
-                                <!-- Text -->
-                                <p class="card-text">Sizes Available:</p>
-                                <p class="card-text">Price: $ {{ product.price }}</p>
-                                <!-- Card footer -->
-                                <div class="card-footer text-muted text-center mt-4">
-                                    <a class="page-link" href="#">View Product</a>
-                                </div>
-                        
-                        </div>
-                    {% endfor %}
-                    </div>}
-                </div>
-            </div>
-        </div>             
     </div>
 {% endblock %}
