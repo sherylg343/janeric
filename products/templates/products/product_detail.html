@@ -17,7 +17,7 @@
             <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
                 <div class="row">
                     <div class="col-10 offset-1">
-                        <h4 class="headline mb-2">{{ product.name }}</h4>
+                        <h4 class="headline mb-2">{{ product.product_family }}</h4>
                         <h7 class="headline mb-5">{{ product.product_family.brand_name }}</h7>
                     </div> 
                 <div class="row">
@@ -40,45 +40,32 @@
                         </div>
                     </div>
                 <div class="row form-group">
-                    <div id="size-selector" class="col-8 offset-2 col-md-4 offset-md-2 col-lg-4 offset-lg-1">
-                    {% if product.size %}
+                    <div id="product-selector" class="col-10 offset-1">
                         <select class="mdb-select md-form colorful-select dropdown-primary">
-                            <option value="{{ product.size }}" select>{{ product.size }}</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                            <option value="4">Option 4</option>
-                            <option value="5">Option 5</option>
+                            <option value="{{ product.size }}-{{ item.pack }}-{{ item.price }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
+                            {% for item in family_products %}
+                                {% if item.size != product.size and item.pack != product.pack %}
+                                    <option value="{{ item.size }}-{{ product.pack }}-{{ product.price }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
+                                {% endif %}
+                            {% endfor %}
                         </select>
-                        <label class="mdb-main-label"><strong>Size</strong></label>
-                    {% endif %}
-                </div>  
-                <div id="pack-selector" class="col-8 offset-2 col-md-4 offset-md-1 col-lg-4">
-                    {% if product.pack %}
-                        <select class="mdb-select md-form colorful-select dropdown-primary">
-                            <option value="{{ product.pack }}-{{ product.price }}" select>{{ product.pack }} - ${{ product.price }}</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                            <option value="4">Option 4</option>
-                            <option value="5">Option 5</option>
-                        </select>
-                        <label class="mdb-main-label"><strong>Pack and Price</strong></label>
-                    {% endif %}
-                </div> 
-                <div class="col-4 offset-4 col-lg-4 offset-lg-4 d-flex-block justify-content-center">
-                    <label for="quantity1"><strong>Quantity  </strong></label>
-                    <div class="def-number-input number-input safari_only mb-5">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input id="quantity1" class="quantity" min="0" name="quantity" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        <label class="mdb-main-label"><strong>Size, Pack & Price</strong></label>
+                    <div class="col-10 offset-1">
+                        <label for="quantity1"><strong>Quantity  </strong></label>
+                        <div class="def-number-input number-input safari_only mb-5">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input id="quantity1" class="quantity" min="0" name="quantity" value="1" type="number">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-large blue white-text">Add to Cart</button>
-                </div>
-                <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
-                    <a href="#top-section" class="btn-floating btn-large cyan">
-                        <i class="fas fa-arrow-up"></i>
-                    </a>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-large blue white-text">Add to Cart</button>
+                    </div>
+                    <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
+                        <a href="#top-section" class="btn-floating btn-large cyan">
+                            <i class="fas fa-arrow-up"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-12 mt-5 mb-5">
                 </div>

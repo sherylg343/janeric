@@ -10,13 +10,15 @@
             PPE<i class="fas fa-angle-down rotate-icon"></i></a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#" class="waves-effect">Gowns</a>
+              <li><a href="{% url 'products' %}?category=Gowns" class="waves-effect">Gowns</a>
               </li>
-              <li><a href="#" class="waves-effect">Masks</a>
+              <li><a href="#{% url 'products' %}?category=Masks" class="waves-effect">Masks</a>
               </li>
-              <li><a href="#" class="waves-effect">Social Distancing Signage</a>
+              <li><a href="{% url 'products' %}?category=Social Distancing Signage" class="waves-effect">Social Distancing Signage</a>
               </li>
-              <li><a href="#" class="waves-effect">Thermometers</a>
+              <li><a href="{% url 'products' %}?category=Thermometer" class="waves-effect">Thermometers</a>
+              </li>
+              <li><a href="{% url 'products' %}?category=Gowns,Masks,Social Distancing Signage,Thermometer" class="waves-effect">All PPE</a>
               </li>
             </ul>
           </div>
@@ -25,9 +27,11 @@
               class="fas fa-angle-down rotate-icon"></i></a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#" class="waves-effect">Gel</a>
+              <li><a href="{% url 'products' %}?category=Gel" class="waves-effect">Gel</a>
               </li>
-              <li><a href="#" class="waves-effect">Dispensers</a>
+              <li><a href="{% url 'products' %}?category=Dispenser" class="waves-effect">Dispensers</a>
+              </li>
+              <li><a href="{% url 'products' %}?category=Gel,Dispenser" class="waves-effect">All Hand Sanitizer</a>
               </li>
             </ul>
           </div>
@@ -36,8 +40,8 @@
               class="fas fa-angle-down rotate-icon"></i></a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#" class="waves-effect">Body Wash & Shampoo</a>
-              </li>     
+              <li><a href="{% url 'products' %}?category=Body Wash & Shampoo" class="waves-effect">Body Wash & Shampoo</a>
+              </li>
             </ul>
           </div>
         </li>

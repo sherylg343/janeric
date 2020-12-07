@@ -18,7 +18,7 @@
 
 body {
     font-family: var(--ff-roboto);
-    font-weight: 300;
+    font-weight: 400;
     color: var(--clr-navy);
     background: var(--clr-white);
 }
@@ -141,6 +141,11 @@ height: 2rem;
 color: #495057;
 }
 
+/* ---------- Containers -------------*/
+#product-selector {
+    margin-left: 5rem;
+}
+
 @media not all and (min-resolution:.001dpcm) {
 @supports (-webkit-appearance: none) and (stroke-color:transparent) {
 
@@ -151,10 +156,19 @@ margin-top: -.3rem;
 }
 }
 
+@media (min-width: 768px) {
+    #product-selector {
+        margin-left: 14rem;
+    } 
+}
+
 @media (min-width: 992px) {
     .nav-logo img {
         width: 175px;
     }
+    #product-selector {
+        margin-left: 6rem;
+    } 
 }
 
 @media (min-width: 1200px) {
