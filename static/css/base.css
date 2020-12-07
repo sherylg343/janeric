@@ -42,6 +42,10 @@ body {
     color: var(--clr-);
 }
 
+.text-navy {
+    color: var(--clr-navy);
+}
+
 .side-menu {
     background: white;
     color: var(--clr-blue);

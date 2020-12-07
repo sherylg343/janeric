@@ -61,8 +61,8 @@
 </li>
 <li class="list-inline-item">
     <a
-    class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-    href="">
+    class="{% if grand_total %}text-primary font-weight-bold{% else %}text-navy{% endif %} nav-link"
+    href="{% url 'view_cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart"></i></div>
             <p class="my-0">
