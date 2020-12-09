@@ -26,19 +26,7 @@ body {
     background: var(--clr-white);
 }
 
-.nav-logo img {
-    width: 140px;
-    height: auto;
-}
-
-.side-menu {
-
-}
-
-.side-menu ul {
-    list-style-type: none;
-}
-
+/* ----- Text ----*/
 .headline {
     font-family: var(--ff-barlow);
     font-weight: 400;
@@ -49,6 +37,50 @@ body {
     color: var(--clr-navy);
 }
 
+/* ----- Images, Buttons, Links ----*/
+.card img {
+    width: auto !important;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+.cart-img img {
+    width: auto !important;
+    height: 100px !important;
+    object-fit: cover;
+}
+
+#detail-image img {
+    width: auto !important;
+    height: 225px !important;
+    object-fit: cover;
+}
+
+.page-link {
+    color: var(--clr-dkteal);
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/*------- Navigation ------*/
+.nav-logo img {
+    width: 140px;
+    height: auto;
+}
+
+.side-menu {
+    background: white;
+    color: var(--clr-blue);
+    font-weight: 400;
+    margin-left: -1.5rem;
+}
+
+.side-menu ul {
+    list-style-type: none;
+}
 /*------- Shopping Cart ------*/
 /* Code modeled after jennikayne.com ----*/
 .cart-items-head {
@@ -81,34 +113,6 @@ body {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-.side-menu {
-    background: white;
-    color: var(--clr-blue);
-    font-weight: 400;
-}
-
-.page-link {
-    color: var(--clr-dkteal);
-}
-
-.card img {
-    width: auto !important;
-    height: 200px !important;
-    object-fit: cover;
-}
-
-.cart-img img {
-    width: auto !important;
-    height: 100px !important;
-    object-fit: cover;
-}
-
-#detail-image img {
-    width: auto !important;
-    height: 225px !important;
-    object-fit: cover;
 }
 
 /*----------- Quanity Input - MD Bootstrap ----------*/

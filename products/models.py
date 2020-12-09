@@ -36,7 +36,7 @@ class Product(models.Model):
         ('16oz', "16 oz."),
         ('18oz', "18 oz."),
         ('32oz', "32 oz."),
-        ('gallon', "Gallon"),
+        ('Gallon', "Gallon"),
     )
 
     category = models.ForeignKey(

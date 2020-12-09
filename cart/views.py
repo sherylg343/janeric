@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 
-# Create your views here.
+from django.contrib import messages
+
+from products.models import Product
 
 
 def view_cart(request):
@@ -24,3 +26,40 @@ def add_to_cart(request, product_id):
     request.session['cart'] = cart
     print(request.session['cart'])
     return redirect(redirect_url)
+
+
+def adjust_cart(request, product_id):
+    """ Adjust the quantity of the specified product to the specified amount """
+
+    product = get_object_or_404(Product, pk=product_id)
+    quantity = int(request.POST.get('quantity'))
+    print(quantity)
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+        cart[product_id] = quantity
+        messages.success(request, f'Updated {product.name} quantity to {cart[product_id]}')
+    else:
+        cart.pop(product_id)
+        messages.success(request, f'Removed {product.name} from your bag')
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, product_id):
+    """Remove the item from the shopping bag"""
+
+    try:
+        product = get_object_or_404(Product, pk=product_id)
+        cart = request.session.get('bag', {})
+
+        cart.pop(product_id)
+        messages.success(request, f'Removed {product.name} from your bag')
+ 
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

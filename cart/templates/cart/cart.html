@@ -44,9 +44,7 @@
                                     <tbody>
                                         {% for item in cart_items %}
                                             <tr>
-                                                <td class="p-3 w-25 cart-img">
-                                                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ item.product.image }}">
-                                                </td>
+                                                {% include "cart/product-image.html" %}
                                                 <td class="py-3">
                                                     <p class="my-0">
                                                         {{ item.product.name }}</a>
@@ -55,24 +53,18 @@
                                                     </p>
                                                 </td>
                                                 <td class="py-3">
-                                                    <div class="col-10 offset-1">
-                                                        <div class="def-number-input number-input cart safari_only mb-5">
-                                                            <button id="minus2" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;" class="minus"></button>
-                                                            <input class="quantity" name="quantity" value="1" min="1" max="99" type="number" data_item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                                            <button id="plus2" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;" class="plus"></button>
-                                                        </div> 
-                                                    </div>
+                                                    {% include "cart/quantity-form.html" %}
                                                 </td>
                                                 <td class="py-3">
-                                                    <p class="my-0">$ {{ item.product.price }}
+                                                    <p class="my-0">${{ item.product.price }}
                                                     </p>
                                                 </td>
                                                 <td class="py-3">
-                                                    <p class="my-0">$ {{ item.product.price }}
+                                                    <p class="my-0">${{ item.product.price }}
                                                     </p>
                                                 </td>
                                                 <td>
-                                                    <a href="">
+                                                    <a href="" class="remove-item" id="remove_{{ item.product.id }}">
                                                         <button class="cart-item-remove text-right">X</button> 
                                                     </a>
                                                 </td>
@@ -113,4 +105,24 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/product_detail_script.html' %}
+<script type="text/javascript">
+    //Update quantity on click
+    $('.update-link').click(function(e) {
+        const form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    //Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        const csrfToken = "{{ csrf_token }}";
+        const productId = $(this).attr('id').split('remove_')[1];
+        const url = `/cart/remove/${productId}/`;
+        const data = {'csrfmiddlewaretoken': csrfToken}
+
+        $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
+    })
+</script>
 {% endblock %}
