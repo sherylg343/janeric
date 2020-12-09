@@ -19,12 +19,86 @@
             <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="headline mb-5">Shopping Cart</h2>
+                        <p>
+                            <h5 class="headline ml-4 mb-3">Shopping Cart</h5>
+                        </p>
+                        <p class="text-right mr-2">
+                            <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
+                        </p>
                     </div> 
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         {% if cart_items %}
-                            <div class="table-responsive"></div>
+                            <div class="table-responsive d-md-block"></div>
+                                <table class="table table-sm table-borderless text-navy">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="cart-items-head">Product Info</th>
+                                            <th scope="col" class="cart-items-head"></th>
+                                            <th scope="col" class="cart-items-head">Qty</th>
+                                            <th scope="col" class="cart-items-head">Price</th>
+                                            <th scope="col" class="cart-items-head">Subtotal</th>
+                                             <th scope="col" class="cart-items-head"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in cart_items %}
+                                            <tr>
+                                                <td class="p-3 w-25 cart-img">
+                                                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ item.product.image }}">
+                                                </td>
+                                                <td class="py-3">
+                                                    <p class="my-0">
+                                                        {{ item.product.name }}</a>
+                                                    </p>
+                                                    <p class="my-0 small text-muted">SKU: {{ item.product.SKU }}
+                                                    </p>
+                                                </td>
+                                                <td class="py-3">
+                                                    <div class="col-10 offset-1">
+                                                        <div class="def-number-input number-input cart safari_only mb-5">
+                                                            <button id="minus2" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;" class="minus"></button>
+                                                            <input class="quantity" name="quantity" value="1" min="1" max="99" type="number" data_item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                                            <button id="plus2" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;" class="plus"></button>
+                                                        </div> 
+                                                    </div>
+                                                </td>
+                                                <td class="py-3">
+                                                    <p class="my-0">$ {{ item.product.price }}
+                                                    </p>
+                                                </td>
+                                                <td class="py-3">
+                                                    <p class="my-0">$ {{ item.product.price }}
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <a href="">
+                                                        <button class="cart-item-remove text-right">X</button> 
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                            <tr>
+                                                <td colspan="5" class="pt-5 text-right">
+                                                    <h6><strong>Bag Total: $ {{ total|floatformat:2 }}</strong></h6>
+                                                    <h6>Shipping: $ {{ delivery|floatformat:2 }}</h6>
+                                                    <h5 class="mt-4"><strong>Grand Total: $ {{ grand_total|floatformat:2 }}</strong></h5>
+                                                    {% if free_shipping_delta > 0 %}
+                                                        <p class="mb-1 text-danger">
+                                                        You could get free delivery by spending just <strong>$ {{ free_shipping_delta }}</strong> more!</p>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5" class="text-right">  
+                                                    <a href="{% url 'products' %}" class="btn btn-lg btn-primary waves-effect">
+                                                        <span class="text-uppercase">Proceed to Checkout</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         {% else %}
                             <p class="mb-5">Your shopping cart is empty!</p>
                             <a href="{% url 'products' %}" class="btn btn-lg btn-primary">
@@ -35,3 +109,8 @@
                 </div>
 
 {% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/product_detail_script.html' %}
+{% endblock %}

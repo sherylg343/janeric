@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
 
 * {
     box-sizing: border-box;
@@ -12,8 +13,10 @@
     --clr-ltblue: #00D1FF;
     --clr-dkblue: #4682B4;
     --clr-navy: #000C66;
+    --clr-mdblue: #4285f4;
     --ff-barlow: 'Barlow', sans-serif;
     --ff-roboto: 'Roboto', sans-serif;
+    --ff-exo: 'Exo', sans-serif;
 }
 
 body {
@@ -46,6 +49,40 @@ body {
     color: var(--clr-navy);
 }
 
+/*------- Shopping Cart ------*/
+/* Code modeled after jennikayne.com ----*/
+.cart-items-head {
+    font-family: var(--ff-barlow);
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: var(--clr-navy);
+}    
+
+.cart-continues {
+    font-family: var(--ff-barlow);
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-weight: bold; 
+    border-bottom: 1px solid var(--clr-navy);
+    color: var(--clr-clr-navy);
+}
+
+.cart-item-remove {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 .side-menu {
     background: white;
     color: var(--clr-blue);
@@ -59,6 +96,12 @@ body {
 .card img {
     width: auto !important;
     height: 200px !important;
+    object-fit: cover;
+}
+
+.cart-img img {
+    width: auto !important;
+    height: 100px !important;
     object-fit: cover;
 }
 
@@ -106,6 +149,15 @@ height: 2px;
 transform: translate(-50%, -50%);
 }
 
+.number-input.cart button:before,
+.number-input.cart button:after {
+display: inline-block;
+position: absolute;
+content: '';
+height: 1px;
+transform: translate(-50%, -50%);
+}
+
 .number-input button.plus:after {
 transform: translate(-50%, -50%) rotate(90deg);
 }
@@ -120,18 +172,38 @@ width: 10rem;
 border-radius: .25rem;
 }
 
+.number-input.number-input.cart {
+border: none;
+width: 4rem;
+}
+
 .number-input.number-input button {
 width: 2.6rem;
 height: .7rem;
+}
+
+.number-input.number-input.cart button {
+width: 1.3rem;
+height: .4rem;
 }
 
 .number-input.number-input button.minus {
 padding-left: 10px;
 }
 
+.number-input.number-input.cart button.minus {
+padding-left: 5px;
+}
+
 .number-input.number-input button:before,
 .number-input.number-input button:after {
 width: .7rem;
+background-color: #495057;
+}
+
+.number-input.number-input.cart button:before,
+.number-input.number-input.cart button:after {
+width: .4rem;
 background-color: #495057;
 }
 
@@ -145,6 +217,23 @@ height: 2rem;
 color: #495057;
 }
 
+.number-input.number-input.cart input[type=number] {
+max-width: 3rem;
+padding: .3rem;
+border: none;
+font-size: 0.8rem;
+height: 1rem;
+color: var(--clr-navy);
+}
+
+.prod-detail-qty {
+    margin-left: 3.7rem;
+}
+
+.prod-detail-qty label {
+    color: var(--clr-mdblue);
+}
+
 @media not all and (min-resolution:.001dpcm) {
 @supports (-webkit-appearance: none) and (stroke-color:transparent) {
 
@@ -156,7 +245,7 @@ margin-top: -.3rem;
 }
 /* ---------- Containers -------------*/
 #product-selector {
-    margin-left: 5rem;
+    margin-left: 2.75rem;
 }
 
 @media not all and (min-resolution:.001dpcm) {
@@ -171,8 +260,12 @@ margin-top: -.3rem;
 
 @media (min-width: 768px) {
     #product-selector {
-        margin-left: 14rem;
+        margin-left: 1rem;
     } 
+    .select-wrapper>label.mdb-main-label.active {
+        line-height: 1.5 !important;
+        font-size: 1rem ;
+    }
 }
 
 @media (min-width: 992px) {
@@ -180,7 +273,7 @@ margin-top: -.3rem;
         width: 175px;
     }
     #product-selector {
-        margin-left: 6rem;
+        margin-left: 2rem;
     } 
 }
 
