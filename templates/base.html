@@ -140,6 +140,24 @@
         </div>
     </header>
 
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+    {% endif %} 
+
     {% block page_header %} 
     {% endblock %} 
     
@@ -158,11 +176,13 @@
     </footer>
     <script>
         $(document).ready(function() {
-        // SideNav Button Initialization
-        $(".button-collapse").sideNav2();
-        // SideNav Scrollbar Initialization
-        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-        var ps = new PerfectScrollbar(sideNavScrollbar);
+            // SideNav Button Initialization
+            $(".button-collapse").sideNav2();
+            // SideNav Scrollbar Initialization
+            var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+            var ps = new PerfectScrollbar(sideNavScrollbar);
+            //Activate Toast Messages
+            $('.toast').toast('show');
         });
     </script> 
   </body>

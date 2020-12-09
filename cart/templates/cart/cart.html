@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 
 {% block page_header %}
@@ -47,7 +48,7 @@
                                                 {% include "cart/product-image.html" %}
                                                 <td class="py-3">
                                                     <p class="my-0">
-                                                        {{ item.product.name }}</a>
+                                                        {{ item.product.name }}
                                                     </p>
                                                     <p class="my-0 small text-muted">SKU: {{ item.product.SKU }}
                                                     </p>
@@ -60,7 +61,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="py-3">
-                                                    <p class="my-0">${{ item.product.price }}
+                                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}
                                                     </p>
                                                 </td>
                                                 <td>

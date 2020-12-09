@@ -76,9 +76,14 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 'cart.contexts.cart_contents',
             ],
+            'libraries': {
+                'cart_tools': 'cart.templatetags.cart_tools',
+            }
         },
     },
 ]
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
