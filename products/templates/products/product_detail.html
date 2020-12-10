@@ -3,22 +3,23 @@
 {% block page_header %}
 <div class="container header-container">
   <div class="row mt-5 mb-5">
-    <div class="col"></div>
+    <div class="row pt-5">
+        <div class="col"></div>
   </div>
 </div>
 {% endblock %} 
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row pt-5">
-            <div class="d-none d-lg-block col-lg-4 col-xl-3 side-menu">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
                 {% include 'includes/side-menu.html' %}
             </div>
-            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 pt-5 head-row mb-5">
                 <div class="row">
                     <div class="col-10 offset-1">
                         <h5 class="headline mb-2">{{ product.product_family }}</h5>
-                        <h7 class="headline mb-5">{{ product.product_family.brand_name }}</h7>
+                        <h6 class="headline text-gray mb-5"><strong>{{ product.product_family.brand_name }}</strong></h6>
                     </div> 
                 </div>
                 <div class="row">
@@ -69,7 +70,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-large blue white-text">Add to Cart</button>
+                                    <button type="submit" class="btn btn-large btn-ltblue white-text">Add to Cart</button>
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
@@ -77,7 +78,7 @@
                         <div class="col-12 mt-3 mb-5">
                         </div>
                         <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
-                            <a href="#top-section" class="btn-floating btn-large cyan">
+                            <a href="#top-section" class="btn-floating btn-large btn-mdblue">
                                 <i class="fas fa-arrow-up"></i>
                             </a>
                         </div> 

@@ -36,7 +36,7 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex mb-2">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex mb-2 border-bottom">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left nav-logo">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
@@ -47,15 +47,16 @@
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
                         <input
-                            class="form-control my-0 py-1 blue-border"
+                            class="form-control my-0 py-1 black-border"
                             type="text"
                             name="q"
                             placeholder="Search"
                             aria-label="Search"
                         />
                         <div class="input-group-append">
-                            <span class="input-group-text blue" id="basic-text1"><i class="fas fa-search text-white"
-                            aria-hidden="true"></i></span>
+                            <i class="fas fa-search"
+                            aria-hidden="true">
+                            </i>
                         </div>
                     </div>
                 </form>
@@ -95,7 +96,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a
-                        class="text-primary{% if grand_total %}font-weight-bold{% endif %} nav-link"
+                        class="{% if grand_total %}font-weight-bold text-medblue{% else %}text-gray{% endif %} nav-link"
                         href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart"></i></div>
@@ -113,26 +114,27 @@
             </div>
         </div>
         <div class="row bg-white">
-            <nav class="navbar d-lg-none navbar-light w-100">
+            <nav class="navbar d-lg-none navbar-light w-100 border-bottom-mobile">
                 <!-- SideNav slide-out button -->
-                <a href="#" data-activates="slide-out" class="btn btn-blue p-3 button-collapse"><i class="fas fa-bars"></i></a>
+                <a href="#" data-activates="slide-out" class="btn p-3 button-collapse"><span class="stylish-color-dark-text"><i class="fas fa-bars"></i></span></a>
                 {% include 'includes/mobile-header.html' %}
             </nav>
         </div>
-        <div class="row d-lg-none white">
+        <div class="row d-lg-none bg-blush">
             <div class="col-10 offset-1 my-auto py-1">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
                         <input
-                            class="form-control my-0 py-1 blue-border"
+                            class="form-control form-control-sm my-0 py-1 black-border"
                             type="text"
                             name="q"
                             placeholder="Search"
                             aria-label="Search"
                         />
                         <div class="input-group-append">
-                            <span class="input-group-text blue" id="basic-text2"><i class="fas fa-search text-white"
-                            aria-hidden="true"></i></span>
+                            <span class="text-dkblue"><i class="fas fa-search"
+                            aria-hidden="true">
+                            </i></span>
                         </div>
                     </div>
                 </form>
@@ -168,7 +170,7 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
+    <footer class="page-footer font-small fixed-bottom">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
             <a href="https://janeric.com/" class="text-white"> janeric.com. All Rights Reserved.</a>

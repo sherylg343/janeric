@@ -10,16 +10,16 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row pt-5">
-            <div class="d-none d-lg-block col-lg-4 col-xl-3 side-menu">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 side-menu pt-5">
                 {% include 'includes/side-menu.html' %}
             </div>
-            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
                 <div class="row">
                     <div class="col-12">
                         <h5 class="headline mb-0">Products</h5>
                         {% for c in current_categories %}
-                        <h9 class="blue-text mb-5">{{ c.name }} - {{ c.division }}</h9>
+                        <h9 class="text-ltblue mb-5">{{ c.name }} - {{ c.division }}</h9>
                         {% endfor %}
                     </div> 
                     <div class="product-container mt-5 col-10 offset-1">
@@ -47,15 +47,15 @@
                                         {% endif %}
                                         <div class="card-body">
                                             {% if product.category %}
-                                                <h7 class="blue-text pb-2 pt-1">{{ product.category.name }}</h7>
+                                                <h7 class="blue-ltblue pb-2 pt-1">{{ product.category.name }}</h7>
                                             {% endif %}
                                             <h6 class="font-weight-bold card-title pb-3">{{ product.name }}</h6>
                                             <p class="mb-0">Size: {{ product.size }}</p>
                                             <p class="mb-0">Pack: {{ product.pack }}</p>
-                                            <p class="mb-3">Price: $ {{ product.price }}</p>
+                                            <p class="mb-0">Price: $ {{ product.price }}</p>
                                         </div>
                                         <div class="card-footer text-center mt-4">
-                                            <a href="{% url 'product_detail' product.id %}" class="btn blue white-text">View</a>
+                                            <a href="{% url 'product_detail' product.id %}" class="btn bg-ltblue white-text">View</a>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
@@ -66,6 +66,11 @@
                     </div>
                 </div>
             </div>
+            <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
+                <a href="#top-section" class="btn-floating btn-large btn-mdblue">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div> 
         </div>
     </div>
 {% endblock %}

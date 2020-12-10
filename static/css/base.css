@@ -7,13 +7,18 @@
 
 :root {
     --clr-white: #ffffff;
-    --clr-blue: #4285F4;
+    --clr-blue: rgb(0, 114, 187); /* revised to match logo color per client */
     --clr-teal: #00FFF0;
     --clr-dkteal: #008B8B;
     --clr-ltblue: #00D1FF;
     --clr-dkblue: #4682B4;
     --clr-navy: #000C66;
     --clr-mdblue: #4285f4;
+    --clr-palettegray: #c3ccd3;
+    --clr-paletteblush: #f6f8fa;
+    --clr-paletteltblue: #8ea6b2;
+    --clr-palettemedblue: #47646f;
+    --clr-palettedkblue: #1e383c;
     --ff-barlow: 'Barlow', sans-serif;
     --ff-roboto: 'Roboto', sans-serif;
     --ff-exo: 'Exo', sans-serif;
@@ -22,21 +27,68 @@
 body {
     font-family: var(--ff-roboto);
     font-weight: 400;
-    color: var(--clr-navy);
+    color: var(--clr-palettedkblue);
     background: var(--clr-white);
 }
 
-/* ----- Text ----*/
+/* ----- Text & Borders ----*/
 .headline {
     font-family: var(--ff-barlow);
-    font-weight: 400;
-    color: var(--clr-);
+    font-weight: 500;
+    color: var(--clr-palettedkblue);
 }
 
 .text-navy {
-    color: var(--clr-navy);
+    color: var(--clr-palettedkblue);
 }
 
+.bg-gray {
+    background: var(--clr-palettegray);
+}
+
+.bg-ltblue {
+    background: var(--clr-paletteltblue);
+}
+
+.bg-medblue {
+    background: var(--clr-palettemedblue);
+}
+
+.bg-dkblue {
+    background: var(--clr-palettedkblue);
+}
+
+.bg-blush {
+    background: var(--clr-paletteblush);
+}
+
+.text-ltblue {
+    color: var(--clr-paletteltblue);
+}
+
+.text-medblue {
+    color: var(--clr-palettemedblue);
+}
+
+.text-gray {
+    color: var(--clr-palettegray);
+}
+
+.text-dkblue {
+    color: var(--clr-palettedkblue);
+}
+
+.border-bottom {
+    border-bottom: 10px solid var(--clr-palettegray) !important;
+}
+
+.border-bottom-mobile {
+    border-bottom: 5px solid var(--clr-palettegray) !important;
+}
+
+#cart-empty p {
+    margin-left: 4rem;
+}
 /* ----- Images, Buttons, Links ----*/
 .card img {
     width: auto !important;
@@ -65,6 +117,34 @@ body {
     cursor: pointer;
 }
 
+.btn-dkblue,
+.btn-dkblue:hover,
+.btn-dkblue:active,
+.btn-dkblue:visited {
+    background-color: var(--clr-palettedkblue) !important;
+    border-color: var(--clr-palettedkblue);
+    color: var(--clr-white) !important;
+}
+
+.btn-ltblue,
+.btn-ltblue:hover,
+.btn-ltblue:active,
+.btn-ltblue:visited {
+    background-color: var(--clr-paletteltblue) !important;
+    border-color: var(--clr-paletteltblue);
+    color: var(--clr-white) !important;
+}
+
+.btn-mdblue,
+.btn-mdblue:hover,
+.btn-mdblue:active,
+.btn-mdblue:visited {
+    background-color: var(--clr-palettemedblue) !important;
+    border-color: var(--clr-palettemedblue);
+    color: var(--clr-white) !important;
+    text-transform: uppercase;
+}
+
 /*------- Navigation ------*/
 .nav-logo img {
     width: 140px;
@@ -72,14 +152,28 @@ body {
 }
 
 .side-menu {
-    background: white;
-    color: var(--clr-blue);
+    background: var(--clr-paletteblush);
+    color: var(--clr-paletteltblue);
     font-weight: 400;
     margin-left: -1.5rem;
+    min-height: 100vh;
 }
 
 .side-menu ul {
     list-style-type: none;
+}
+
+.btn {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+a {
+    color: var(--clr-paletteltblue) !important;
+}
+
+a:hover {
+    color: var(--clr-palettemedblue) !important;
 }
 /*------- Shopping Cart ------*/
 /* Code modeled after jennikayne.com ----*/
@@ -89,7 +183,7 @@ body {
     font-size: 11px;
     line-height: 15px;
     text-transform: uppercase;
-    color: var(--clr-navy);
+    color: var(--clr-palettedkblue);
 }    
 
 .cart-continues {
@@ -99,8 +193,8 @@ body {
     line-height: 15px;
     text-transform: uppercase;
     font-weight: bold; 
-    border-bottom: 1px solid var(--clr-navy);
-    color: var(--clr-clr-navy);
+    border-bottom: 1px solid var(--clr-paletteltblue);
+    color: var(--clr-paletteltblue);
 }
 
 .cart-item-remove {
@@ -235,7 +329,8 @@ color: var(--clr-navy);
 }
 
 .prod-detail-qty label {
-    color: var(--clr-mdblue);
+    color: var(--clr-paletteltblue);
+    font-size: .9rem;
 }
 
 @media not all and (min-resolution:.001dpcm) {
@@ -247,9 +342,28 @@ margin-top: -.3rem;
 }
 }
 }
+
+.select-wrapper.dropdown-primary>label.mdb-main-label.active {
+    color: var(--clr-paletteltblue);
+}
+
+/* ----------- Other Inputs -----------*/
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid var(--clr-palettedkblue);
+}
 /* ---------- Containers -------------*/
 #product-selector {
     margin-left: 2.75rem;
+}
+
+footer {
+    color: var(--clr-white);
+    background: var(--clr-paletteltblue);
+}
+
+#cart-container {
+    height: 100vh;
+    overflow: auto;
 }
 
 /* ---------- Bootstrap Toasts -------------*/

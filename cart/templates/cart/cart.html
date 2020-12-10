@@ -12,12 +12,12 @@
 {% endblock %} 
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row pt-5">
-            <div class="d-none d-lg-block col-lg-4 col-xl-3 side-menu">
+    <div class="container-fluid" id="cart-container">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
                 {% include 'includes/side-menu.html' %}
             </div>
-            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row mb-5">
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
                 <div class="row">
                     <div class="col-12">
                         <p>
@@ -31,7 +31,7 @@
                     <div class="col-12">
                         {% if cart_items %}
                             <div class="table-responsive d-md-block"></div>
-                                <table class="table table-sm table-borderless text-navy">
+                                <table class="table table-sm table-borderless text-dkblue">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="cart-items-head">Product Info</th>
@@ -92,12 +92,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                        {% else %}
-                            <p class="mb-5">Your shopping cart is empty!</p>
-                            <a href="{% url 'products' %}" class="btn btn-lg btn-primary">
-                                <span class="text-uppercase">Start Shopping</span> 
-                            </a>
-                        {% endif %}
+                    {% else %}
+                        <div class="col-12 mt-5" id="cart-empty">
+                            <p class="mb-5 text-medblue text-center">Your shopping cart is empty!</p>
+                    </div>
+                {% endif %}
                     </div>
                 </div>
 
