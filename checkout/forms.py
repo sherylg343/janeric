@@ -8,7 +8,7 @@ from django.forms.fields import CharField, Field, RegexField, Select
 from django.utils.translation import ugettext_lazy as _
 
 from django import forms
-from localflavor.gr.forms import USStateField, USZipCodeField
+from localflavor.us.forms import USStateSelect, USZipCodeField
 from .models import Order
 
 
@@ -42,10 +42,13 @@ class USZipCodeField(RegexField):
             return self.empty_value
         return value.strip()
 
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('ful_name', 'email', 'phone_number', 'street_address1', 'street_address2', 'city', 'state', 'zipcode',)
+        fields = ('full_name', 'email', 'phone_number',
+                  'street_address1', 'street_address2',
+                  'city', 'state', 'zipcode',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -59,7 +62,7 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
             'city': 'City',
             'state': 'State',
-            'zipcode': 'Zip Code',     
+            'zipcode': 'Zip Code',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
