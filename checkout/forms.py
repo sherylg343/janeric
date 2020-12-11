@@ -1,49 +1,13 @@
-from __future__ import unicode_literals
-
-import re
-
-from django.core.validators import EMPTY_VALUES
-from django.forms import ValidationError
-from django.forms.fields import CharField, Field, RegexField, Select
-from django.utils.translation import ugettext_lazy as _
-
 from django import forms
 from localflavor.us.forms import USStateSelect, USZipCodeField
 from .models import Order
 
 
-class USStateSelect(Select):
-    """A Select widget that uses a list of U.S. states/territories as its choices."""
-
-    def __init__(self, attrs=None):
-        from .us_states import STATE_CHOICES
-        super(USStateSelect, self).__init__(attrs, choices=STATE_CHOICES)
-
-
-class USZipCodeField(RegexField):
-    """
-    A form field that validates input as a U.S. ZIP code.
-
-    Valid formats are XXXXX or XXXXX-XXXX.
-
-    Whitespace around the ZIP code is accepted and automatically trimmed.
-    """
-
-    default_error_messages = {
-        'invalid': _('Enter a zip code in the format XXXXX or XXXXX-XXXX.'),
-    }
-
-    def __init__(self, *args, **kwargs):
-        super(USZipCodeField, self).__init__(r'^\d{5}(?:-\d{4})?$', *args, **kwargs)
-
-    def to_python(self, value):
-        value = super(USZipCodeField, self).to_python(value)
-        if value in self.empty_values:
-            return self.empty_value
-        return value.strip()
-
-
 class OrderForm(forms.ModelForm):
+    zipcode = USZipCodeField()
+    """ Widget code from Nafees Anwar on stackoverflow 4/30/19 """
+    state = forms.CharField(widget=USStateSelect)
+
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',
@@ -52,8 +16,10 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated labels and set autofocus on first field
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
         """
+        super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email Address',
@@ -72,5 +38,9 @@ class OrderForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-        self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-        self.fields[field].label = False
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False
+
+
+#class localflavor.us.forms.USSStateSelect(attrs=None):
+

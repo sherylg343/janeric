@@ -51,7 +51,7 @@
                                     <select class="mdb-select md-form colorful-select dropdown-primary">
                                         <option value="{{ product.size }}-{{ item.pack }}-{{ item.price }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
                                         {% for item in family_products %}
-                                            {% if item.size != product.size and item.pack != product.pack %}
+                                            {% if item.size != product.size or item.pack != product.pack %}
                                                 <option name="product-selector" value="{{ item.size }}-{{ product.pack }}-{{ product.price }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
                                             {% endif %}
                                         {% endfor %}
