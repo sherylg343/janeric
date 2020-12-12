@@ -11,12 +11,13 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
-def add_to_cart(request, product_id):
+def add_to_cart(request):
     """ Add a quantity of the specified product to the shopping cart """
 
-    product = get_object_or_404(Product, pk=product_id)
+    product_id = request.POST.get('selected_product_id')
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get('cart', {})
 
     if product_id in list(cart.keys()):
@@ -36,7 +37,6 @@ def adjust_cart(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
-    print(quantity)
     cart = request.session.get('cart', {})
 
     if quantity > 0:
@@ -55,10 +55,10 @@ def remove_from_cart(request, product_id):
 
     try:
         product = get_object_or_404(Product, pk=product_id)
-        cart = request.session.get('bag', {})
+        cart = request.session.get('cart', {})
 
         cart.pop(product_id)
-        messages.success(request, f'Removed {product.name} from your bag')
+        messages.success(request, f'Removed {product.name} from your cart')
  
         request.session['cart'] = cart
         return HttpResponse(status=200)

@@ -8,7 +8,6 @@ from products.models import Product
 # Create your models here.
 
 
-
 class Order(models.Model):
     order_number = models.CharField(
         max_length=32, null=False, editable=False)
@@ -44,7 +43,7 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added,
-        accounting for shipping costs.
+        accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_SHIPPING_THRESHOLD:
@@ -62,6 +61,9 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order_number
 
 
 class OrderLineItem(models.Model):

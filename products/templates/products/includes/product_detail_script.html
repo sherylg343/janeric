@@ -1,7 +1,9 @@
 <script type="text/javascript">
-//Material Select Initialization
+const productSelector = $('#product-detail-select')
+
+// Material Select Initialization
 $(document).ready(function() {
-    $('.mdb-select').materialSelect();
+$('.mdb-select').materialSelect();
 
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
@@ -12,7 +14,7 @@ $(document).ready(function() {
         var plusDisabled1 = currentValue1 > 98;
         var plusDisabled2 = currentValue2 > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled1);
-         $(`#decrement-qty2_${itemId}`).prop('disabled', minusDisabled2);
+            $(`#decrement-qty2_${itemId}`).prop('disabled', minusDisabled2);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled1);
         $(`#increment-qty2_${itemId}`).prop('disabled', plusDisabled2);
     }
@@ -30,6 +32,11 @@ $(document).ready(function() {
     handleEnableDisable(itemId);
     });
 
-
+    //Assign selected product id to hidden input value
+    $(productSelector).change( function() {
+        chosenProductId = $(this)[data-product-id]
+        $('#selected-product-id').val() = chosenProductId
+        print(chosenProductId)
+    })
 });
 </script>

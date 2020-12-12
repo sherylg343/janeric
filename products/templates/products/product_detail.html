@@ -48,18 +48,19 @@
                         {% csrf_token %}
                             <div class="row">
                                 <div id="product-selector" class="col-10 col-md-5">
-                                    <select class="mdb-select md-form colorful-select dropdown-primary">
-                                        <option value="{{ product.size }}-{{ item.pack }}-{{ item.price }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
+                                    <select id="prod-detail-select" class="mdb-select md-form dropdown-ins">
+                                        <option value="{{ product.size }}-{{ item.pack }}-{{ item.price }}" data-product-id="{{ product.id }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
                                         {% for item in family_products %}
                                             {% if item.size != product.size or item.pack != product.pack %}
-                                                <option name="product-selector" value="{{ item.size }}-{{ product.pack }}-{{ product.price }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
+                                                <option value="{{ item.size }}-{{ product.pack }}-{{ product.price }}" data-product-id="{{ product.id }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <label class="mdb-main-label"><strong>Size, Pack & Price</strong></label>
                                 </div>
                                 <div class="col-8 col-md-4 prod-detail-qty">
-                                    <label for="quantity1" class="text-blue"><strong>Quantity  </strong></label>
+                                    <label for="quantity1"><strong>Quantity  </strong>
+                                    </label>
                                     <div class="def-number-input number-input safari_only mb-5">
                                         <button id="decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}" 
                                         onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;" class="minus decrement-qty"></button>
@@ -73,6 +74,7 @@
                                     <button type="submit" class="btn btn-large btn-ltblue white-text">Add to Cart</button>
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <input type="hidden" id="selected-product-id" name="product_id" value="{{ product.id }}">
                             </div>
                         </form> 
                         <div class="col-12 mt-3 mb-5">
