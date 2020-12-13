@@ -13,7 +13,7 @@ import stripe
 def webhook(request):
     """Listen for webhooks from Stripe"""
     # Setup
-    wh_secret = settings.STRIPE_WH_SECRET
+    wh_secret = settings.STRIPE_WH_SECRET_JAN
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     # Get the webhook data and verify its signature
@@ -54,5 +54,3 @@ def webhook(request):
     response = event_handler(event)
     return response
 
-    print('Success!')
-    return HttpResponse(status=200)
