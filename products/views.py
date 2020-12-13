@@ -45,7 +45,7 @@ def product_detail(request, product_id):
     product_family = product.product_family
     family_products = Product.objects.filter(
         product_family=product_family)
-    
+
     context = {
         'product': product,
         'family_products': family_products,

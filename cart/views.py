@@ -11,13 +11,12 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
-def add_to_cart(request):
+def add_to_cart(request, product_id):
     """ Add a quantity of the specified product to the shopping cart """
 
-    product_id = request.POST.get('selected_product_id')
+    product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get('cart', {})
 
     if product_id in list(cart.keys()):

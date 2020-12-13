@@ -1,9 +1,8 @@
 <script type="text/javascript">
-const productSelector = $('#product-detail-select')
 
 // Material Select Initialization
 $(document).ready(function() {
-$('.mdb-select').materialSelect();
+    $('.mdb-select').materialSelect();
 
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
@@ -31,12 +30,23 @@ $('.mdb-select').materialSelect();
     var itemId = $(this).data('item_id');
     handleEnableDisable(itemId);
     });
-
-    //Assign selected product id to hidden input value
-    $(productSelector).change( function() {
-        chosenProductId = $(this)[data-product-id]
-        $('#selected-product-id').val() = chosenProductId
-        print(chosenProductId)
-    })
 });
+
+//Assign selected product id to hidden input value
+$('#prod-detail-select').change( function() {
+    var optionId = $('option:selected, this').attr('data-id');
+    $('#selected-product-id').val(optionId);
+    $('#redirect-url').val(`/products/${optionId}/`)
+    const optionIdInt = parseInt(optionId)
+    const csrfToken = "{{ csrf_token }}";
+    const url = `/products/${optionIdInt}/`;
+    const data = {"csrfmiddlewaretoken": csrfToken};
+
+    $.post(url, data)
+    .done( function() {
+        location.assign(url);
+    });
+})
+
+
 </script>

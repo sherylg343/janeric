@@ -48,11 +48,11 @@
                         {% csrf_token %}
                             <div class="row">
                                 <div id="product-selector" class="col-10 col-md-5">
-                                    <select id="prod-detail-select" class="mdb-select md-form dropdown-ins">
-                                        <option value="{{ product.size }}-{{ item.pack }}-{{ item.price }}" data-product-id="{{ product.id }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
+                                     <select id="prod-detail-select" class="mdb-select md-form">
+                                        <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
                                         {% for item in family_products %}
                                             {% if item.size != product.size or item.pack != product.pack %}
-                                                <option value="{{ item.size }}-{{ product.pack }}-{{ product.price }}" data-product-id="{{ product.id }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
+                                                <option value="{{ item.size }}-{{ item.pack }}-{{ item.price }}" data-id="{{ item.id }}">{{ item.size }}, Pack of {{ item.pack }} - ${{ item.price }}</option>
                                             {% endif %}
                                         {% endfor %}
                                     </select>
@@ -73,7 +73,7 @@
                                 <div class="col-12 text-center">
                                     <button type="submit" class="btn btn-large btn-ltblue white-text">Add to Cart</button>
                                 </div>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <input type="hidden" id="redirect-url" name="redirect_url" value="{{ request.path }}">
                                 <input type="hidden" id="selected-product-id" name="product_id" value="{{ product.id }}">
                             </div>
                         </form> 
