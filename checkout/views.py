@@ -5,6 +5,9 @@ from django.conf import settings
 from .forms import USZipCodeField, USStateSelect, OrderForm
 from .models import Order, OrderLineItem
 
+from products.models import Product
+from cart.contexts import cart_contents
+
 from cart.contexts import cart_contents
 
 import stripe
@@ -33,7 +36,6 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            order_form.save()
             for product_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=product_id)
@@ -73,6 +75,7 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
+    print(intent)
 
     order_form = OrderForm()
     state = USStateSelect()
@@ -88,6 +91,7 @@ def checkout(request):
         'state': state,
         'zipcode': zipcode,
         'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
