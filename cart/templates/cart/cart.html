@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-12">
                         <p>
-                            <h5 class="headline mb-3">Shopping Cart</h5>
+                            <h5 class="headline mb-3">Cart</h5>
                         </p>
                         <p class="text-right mr-2">
                             <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
@@ -135,10 +135,11 @@
                 {% else %}
                     <div class="col-12 mt-5" id="cart-empty">
                         <p class="mb-5 text-medblue text-center">Your shopping cart is empty!</p>
-                </div>
-            {% endif %}
-                </div>
+                    </div>
+                {% endif %}
             </div>
+        </div>
+    </div>
 
 {% endblock%}
 

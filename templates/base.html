@@ -48,7 +48,7 @@
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
                         <input
-                            class="form-control my-0 py-1 black-border"
+                            class="form-control my-0 py-1 black-border text-gray
                             type="text"
                             name="q"
                             placeholder="Search"
@@ -74,7 +74,7 @@
                             aria-expanded="false"
                         >
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <div><i class="fas fa-user"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
@@ -97,7 +97,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a
-                        class="{% if grand_total %}font-weight-bold text-medblue{% else %}text-gray{% endif %} nav-link"
+                        class="{% if grand_total %}font-weight-bold{% else %}text-gray{% endif %} nav-link"
                         href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart"></i></div>
@@ -171,12 +171,24 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer font-small fixed-bottom">
+    <footer class="page-footer font-small pt-4 pl-0 pr-0">
+        <!-- Footer Text -->
+        <div class="text-center footer-main pt-3">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-inline d-flex justify-content-around">
+                        <li class="list-inline-item pr-5"><a href="#"><strong>Shipping & Returns</strong></a></li>
+                        <li class="list-inline-item pl-5"><a href="#">Contact Us</strong></a></li>     
+                   </ul>
+                </div>
+            </div>
+        </div>
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://janeric.com/" class="text-white"> janeric.com. All Rights Reserved.</a>
+            <a href="https://janeric.com/" class="text-left"> janeric.com.</a> All Rights Reserved.        
         </div>
     </footer>
+
     <script>
         $(document).ready(function() {
             // SideNav Button Initialization

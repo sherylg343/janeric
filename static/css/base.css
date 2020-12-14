@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
+/* Font provided by client that matches logo fonts */
+@font-face {
+    font-family: 'Caslon 3 Roman';
+    src: local('caslon-3-roman'),
+        url('../fonts/caslon-3-roman.otf') format('opentype');
+}
+
 
 * {
     box-sizing: border-box;
@@ -7,7 +14,7 @@
 
 :root {
     --clr-white: #ffffff;
-    --clr-blue: rgb(0, 114, 187); /* revised to match logo color per client */
+    --clr-logoblue: rgb(0, 114, 187); /* revised to match logo color per client */
     --clr-teal: #00FFF0;
     --clr-dkteal: #008B8B;
     --clr-ltblue: #00D1FF;
@@ -22,6 +29,13 @@
     --ff-barlow: 'Barlow', sans-serif;
     --ff-roboto: 'Roboto', sans-serif;
     --ff-exo: 'Exo', sans-serif;
+    --ff-caslon: 'Caslon 3 Roman';
+}
+
+/* ----- Text & Borders ----*/
+header {
+    font-family: var(--ff-caslon);
+    font-weight: 400; 
 }
 
 body {
@@ -29,11 +43,11 @@ body {
     font-weight: 400;
     color: var(--clr-palettedkblue);
     background: var(--clr-white);
+    height: calc(100vh - 200px);
 }
 
-/* ----- Text & Borders ----*/
 .headline {
-    font-family: var(--ff-barlow);
+    font-family: var(--ff-caslon);
     font-weight: 500;
     color: var(--clr-palettedkblue);
 }
@@ -79,7 +93,7 @@ body {
 }
 
 .border-bottom {
-    border-bottom: 10px solid var(--clr-palettegray) !important;
+    border-bottom: 6spx solid var(--clr-palettegray) !important;
 }
 
 .border-bottom-mobile {
@@ -159,6 +173,7 @@ body {
     font-weight: 400;
     margin-left: -1.5rem;
     min-height: 100vh;
+    font-family: var(--ff-caslon) !important;
 }
 
 .side-menu ul {
@@ -177,6 +192,16 @@ a {
 a:hover {
     color: var(--clr-palettemedblue) !important;
 }
+
+.top-nav-header.navbar-collapse {
+    background: var(--clr-white); 
+}
+
+#top-nav-header a {
+    font-family: var(--ff-caslon) !important;
+    color: var(--clr-logoblue) !important;
+}
+
 /*------- Shopping Cart ------*/
 /* Code modeled after jennikayne.com ----*/
 .cart-items-head {
@@ -358,9 +383,18 @@ margin-top: -.3rem;
     margin-left: 2.75rem;
 }
 
-footer {
-    color: var(--clr-white);
-    background: var(--clr-paletteltblue);
+.footer-main {
+    color: var(--clr-white) !important;
+    background: var(--clr-palettemedblue) !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footer-copyright {
+    color: var(--clr-white) !important;
+    background: var(--clr-palettedkblue) !important;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #cart-container {

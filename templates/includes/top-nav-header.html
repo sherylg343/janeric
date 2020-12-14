@@ -1,0 +1,50 @@
+<div class="collapse navbar-collapse navbar-expand-lg top-nav-header d-none d-lg-block" id="top-nav-header">
+    <ul class="navbar-nav border-bottom w-auto mx-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Shop All</a>
+        </li>   
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                PPE
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="ppe-link">
+                <a href="{% url 'products' %}?category=Gowns" class="dropdown-item">Gowns</a>
+                <a href="{% url 'products' %}?category=Masks" class="dropdown-item">Masks</a>
+                <a href="{% url 'products' %}?category=Social Distancing Signage" class="dropdown-item">Social Distancing Signage</a>
+                <a href="{% url 'products' %}?category=Thermometer" class="dropdown-item">Thermometers</a>
+                <a href="{% url 'products' %}?category=Gowns,Masks,Social Distancing Signage,Thermometer" class="dropdown-item">All PPE</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+                Hand Sanitizer
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="hand-sanitizer-link">
+                <a href="{% url 'products' %}?category=Gel" class="dropdown-item">
+                    Gel
+                </a>
+                <a href="{% url 'products' %}?category=Dispenser" class="dropdown-item">
+                    Dispensers
+                </a>
+                <a href="{% url 'products' %}?category=Gel,Dispenser" class="dropdown-item">
+                    All Hand Sanitizer
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal</a>
+            <div class="dropdown-menu border-0"     aria-labelledby="personal-link">
+                <a href="{% url 'products' %}?category=Body Wash and Shampoo" class="dropdown-item">
+                    Body Wash and Shampoo
+                </a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link" >
+                Contact Us
+            </a>
+        </li>
+    </ul>
+</div>
