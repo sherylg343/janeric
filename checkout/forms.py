@@ -42,5 +42,3 @@ class OrderForm(forms.ModelForm):
             self.fields[field].label = False
 
 
-#class localflavor.us.forms.USSStateSelect(attrs=None):
-

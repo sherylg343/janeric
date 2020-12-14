@@ -32,7 +32,7 @@
                         </p>
                     </div> 
                 <div class="row">
-                    <div class="col-12 col-lg-6 order-lg-last mb-5">
+                    <div class="col-10 offset-1 col-lg-6 offset-lg-0 order-lg-last mb-0 bg-blush">
                         <p class="text-gray text-left">Order Summary ({{ product_count }})</p>
                         <div class="row">
                             <div class="col-7 offset-2">
@@ -53,7 +53,7 @@
                                         {% endif %}
                                     </a>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-7 mb-4">
                                     <p class="my-0">{{ item.product.name }}</p>
                                     <p class="my-0 small">Size: {% if item.product.size %}{{ item.size }}{% else %}N/A{% endif %}</p>
                                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
@@ -64,7 +64,7 @@
                             </div>
                         {% endfor %}
                         <hr class="my-0">
-                        <div class="row text-black text-right">
+                        <div class="row text-right">
                             <div class="col-7 offset-2">
                                 <p class="my-0">Order Total:</p>
                                 <p class="my-0">Shipping:</p>
@@ -72,32 +72,35 @@
                             </div>
                             <div class="col-3">
                                 <p class="my-0">${{ total | floatformat:2 }}</p>
-                                <p class="my-0">${{ shipping | floatformat:2 }}</p>
+                                <p class="my-0 text-right">${{ shipping | floatformat:2 }}</p>
                                 <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p class="text-muted ml-2 text-left">Please fill out the form below to complete your order</p>
+                        <p class="text-muted ml-2 text-left">Please fill out the form below to complete your order.</p>
                         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                             {% csrf_token %}
                             <fieldset class="rounded px-3 mb-5">
-                                <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                                <legend class="fieldset-label small text-left px-2 w-auto">Contact Information</legend>
                                 {{ order_form.full_name | as_crispy_field }}
                                 {{ order_form.email | as_crispy_field }}
                             </fieldset>
                             <fieldset class="rounded px-3 mb-5">
-                                <legend class="fieldset-label small text-black px-2 w-auto">Shipping Information</legend>
+                                <legend class="fieldset-label small text-left px-2 w-auto">Shipping Information</legend>
                                 {{ order_form.phone_number | as_crispy_field }}
                                 {{ order_form.street_address1 | as_crispy_field }}
                                 {{ order_form.street_address2 | as_crispy_field }}
                                 {{ order_form.city | as_crispy_field }}
                                 {{ order_form.state | as_crispy_field }}
                                 {{ order_form.zipcode | as_crispy_field }}
-                                <div class="form-check form-check-inline float-right mr-0">
+                                <p class="small text-left">Save my information for a quicker checkout next time</p>
+                                <div class="form-check form-check-inline mr-0 float-left">
                                     {% if user.is_authenticated %}
-                                        <label class="form-check-label" for="id-save-info">Save this shipping information to my profile</label>
+                                    <div class="form-check text-left">
                                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                        <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
+                                    </div>
                                     {% else %}
                                         <label class="form-check-label" for="id-save-info">
                                             <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
@@ -107,7 +110,7 @@
                                 </div>
                             </fieldset>
                             <fieldset class="px-3">
-                                <legend class="fieldset-label small text-black px-2 w-auto">Payment Information</legend>
+                                <legend class="fieldset-label small text-left px-2 w-auto">Payment Information</legend>
                                 <!-- A Stripe card element will go here -->
                                 <div class="mb-3" id="card-element"></div>
                                 <!-- Used to display form errors -->

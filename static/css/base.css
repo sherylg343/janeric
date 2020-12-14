@@ -100,6 +100,8 @@ body {
     width: auto !important;
     height: 100px !important;
     object-fit: cover;
+    text-align: center;
+    margin-left: 2rem;
 }
 
 #detail-image img {
@@ -406,6 +408,12 @@ margin-top: -.3rem;
         line-height: 1.5 !important;
         font-size: 1rem ;
     }
+    .cart-img img {
+        margin-left: 0rem;
+    }
+   .prod-detail-qty label {
+        margin-right: 1.5rem;
+    } 
 }
 
 @media (min-width: 992px) {
@@ -415,10 +423,16 @@ margin-top: -.3rem;
     #product-selector {
         margin-left: 2rem;
     } 
+    .prod-detail-qty label {
+        margin-left: 1.5rem;
+    }
 }
 
 @media (min-width: 1200px) {
     .nav-logo img {
         width: 225px;
+    }
+    .prod-detail-qty label {
+        margin-right: 4.5rem;
     }
 }

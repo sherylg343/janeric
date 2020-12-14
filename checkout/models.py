@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
+from phone_field import PhoneField
 from django.conf import settings
 
 from products.models import Product
@@ -15,8 +16,7 @@ class Order(models.Model):
         max_length=50, null=False, blank=False)
     email = models.EmailField(
         max_length=254, null=False, blank=False)
-    phone_number = models.CharField(
-        max_length=20, null=False, blank=False)
+    phone_number = PhoneField(null= True, blank=True)
     street_address1 = models.CharField(
         max_length=80, null=False, blank=False)
     street_address2 = models.CharField(
