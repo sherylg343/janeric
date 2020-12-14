@@ -30,75 +30,115 @@
                 <div class="row">
                     <div class="col-12">
                         {% if cart_items %}
-                            <div class="table-responsive d-md-block"></div>
-                                <table class="table table-sm table-borderless text-dkblue">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="cart-items-head">Product Info</th>
-                                            <th scope="col" class="cart-items-head"></th>
-                                            <th scope="col" class="cart-items-head">Qty</th>
-                                            <th scope="col" class="cart-items-head">Price</th>
-                                            <th scope="col" class="cart-items-head">Subtotal</th>
-                                             <th scope="col" class="cart-items-head"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for item in cart_items %}
-                                            <tr>
-                                                {% include "cart/product-image.html" %}
-                                                <td class="py-3">
-                                                    <p class="my-0">
-                                                        {{ item.product.name }}
-                                                    </p>
-                                                    <p class="my-0 small text-muted">SKU: {{ item.product.SKU }}
-                                                    </p>
-                                                </td>
-                                                <td class="py-3">
-                                                    {% include "cart/quantity-form.html" %}
-                                                </td>
-                                                <td class="py-3">
-                                                    <p class="my-0">${{ item.product.price }}
-                                                    </p>
-                                                </td>
-                                                <td class="py-3">
-                                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <a href="" class="remove-item" id="remove_{{ item.product.id }}">
-                                                        <button class="cart-item-remove text-right">X</button> 
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                            <tr>
-                                                <td colspan="5" class="pt-5 text-right">
-                                                    <h6><strong>Bag Total: $ {{ total|floatformat:2 }}</strong></h6>
-                                                    <h6>Shipping: $ {{ shipping|floatformat:2 }}</h6>
-                                                    <h5 class="mt-4"><strong>Grand Total: $ {{ grand_total|floatformat:2 }}</strong></h5>
-                                                    {% if free_shipping_delta > 0 %}
-                                                        <p class="mb-1 text-danger">
-                                                        You could get free delivery by spending just <strong>$ {{ free_shipping_delta }}</strong> more!</p>
-                                                    {% endif %}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5" class="text-right">  
-                                                    <a href="{% url 'checkout' %}" class="btn btn-large btn-ltblue white-text">
-                                                        <span class="text-uppercase">Proceed to Checkout</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
+                            <div class="d-block d-md-none">
+                                <div class="row">
+                                    <div class="col">   
+                                        {% include 'cart/cart-total.html' %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">   
+                                        <a href="{% url 'checkout' %}" class="btn btn-large btn-ltblue white-text">
+                                            <span class="text-uppercase">Proceed to Checkout</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% for item in cart_items %}
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 mb-2">
+                                            {% include "cart/product-image.html" %}
+                                         </div>       
+                                        <div class="col-12 col-sm-6 mb-2">  
+                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                            <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        </div>
+                                        <div class="col-12 col-sm-6 mb-2">  
+                                            <p class="my-0">Price Each: ${{ item.product.price }}</p>
+                                            <p><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            {% include "cart/quantity-form.html" %}
+                                            {% include "cart/remove-product-link.html" %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
+                                    <a href="#top-section" class="btn-floating btn-large btn-mdblue">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </a>
+                                </div> 
                             </div>
-                    {% else %}
-                        <div class="col-12 mt-5" id="cart-empty">
-                            <p class="mb-5 text-medblue text-center">Your shopping cart is empty!</p>
-                    </div>
-                {% endif %}
-                    </div>
+    
+                            <div class="table-responsive d-none d-md-block"></div>
+                            <table class="table table-sm table-borderless text-dkblue">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="cart-items-head">Product Info</th>
+                                        <th scope="col" class="cart-items-head"></th>
+                                        <th scope="col" class="cart-items-head">Qty</th>
+                                        <th scope="col" class="cart-items-head">Price</th>
+                                        <th scope="col" class="cart-items-head">Subtotal</th>
+                                        <th scope="col" class="cart-items-head"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cart_items %}
+                                        <tr>
+                                            <td>
+                                                {% include "cart/product-image.html" %}
+                                            </td>
+                                            <td class="py-3">
+                                                <p class="my-0">
+                                                    {{ item.product.name }}
+                                                </p>
+                                                <p class="my-0 small text-muted">SKU: {{ item.product.SKU }}
+                                                </p>
+                                            </td>
+                                            <td class="py-3">
+                                                {% include "cart/quantity-form.html" %}
+                                            </td>
+                                            <td class="py-3">
+                                                <p class="my-0">${{ item.product.price }}
+                                                </p>
+                                            </td>
+                                            <td class="py-3">
+                                                <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                {% include "cart/remove-product-link.html" %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                        <tr>
+                                            <td colspan="5" class="pt-5 text-right">
+                                                <h6><strong>Bag Total: $ {{ total|floatformat:2 }}</strong></h6>
+                                                <h6>Shipping: $ {{ shipping|floatformat:2 }}</h6>
+                                                <h5 class="mt-4"><strong>Grand Total: $ {{ grand_total|floatformat:2 }}</strong></h5>
+                                                {% if free_shipping_delta > 0 %}
+                                                    <p class="mb-1 text-danger">
+                                                    You could get free delivery by spending just <strong>$ {{ free_shipping_delta }}</strong> more!</p>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="text-right">  
+                                                <a href="{% url 'checkout' %}" class="btn btn-large btn-ltblue white-text">
+                                                    <span class="text-uppercase">Proceed to Checkout</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                {% else %}
+                    <div class="col-12 mt-5" id="cart-empty">
+                        <p class="mb-5 text-medblue text-center">Your shopping cart is empty!</p>
                 </div>
+            {% endif %}
+                </div>
+            </div>
 
 {% endblock%}
 

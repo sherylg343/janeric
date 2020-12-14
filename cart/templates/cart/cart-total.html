@@ -1,0 +1,8 @@
+<h7><strong>Subotal: ${{ total|floatformat:2 }}</strong></h7>
+<h6>Shipping: ${{ shipping|floatformat:2 }}</h6>
+<h4 class="mt-4"><strong>Order Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+{% if free_shipping_delta > 0 %}
+    <p class="mb-1 text-danger">
+        You could get free delivery by spending just <strong>${{ free_shipping_delta }}</strong> more!
+    </p>
+{% endif %}

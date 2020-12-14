@@ -64,3 +64,11 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.conf-border {
+    border-bottom: 1px solid #1e383c;
+}
+
+.conf-wrapper-border {
+    border-bottom: 1px solid #1e383c;
+}
