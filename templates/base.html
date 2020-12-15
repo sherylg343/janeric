@@ -73,24 +73,24 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            <div class="text-center">
+                            <div class="text-center text-ltblue">
                                 <div><i class="fas fa-user"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-0"
+                        <div class="dropdown-menu border-0 account text-ltblue"
                             aria-labelledby="user-options">
                             {% if request.user.is_authenticated %} 
                                 {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Product Management</a>
+                                    <a href="" class="dropdown-item text-ltblue">Product Management</a>
                                 {% endif %}
-                                <a href="" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item"
+                                <a href="{% url 'profile' %}" class="dropdown-item text-ltblue">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item text-ltblue"
                                 >Log Out</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item"
-                            >Create An Account</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item"
+                                <a href="{% url 'account_signup' %}" class="dropdown-item text-ltblue"
+                            >Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item text-ltblue"
                                 >Log In</a>
                             {% endif %}
                         </div>

@@ -104,5 +104,3 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.SKU} on order {self.order.order_number}'
-
-

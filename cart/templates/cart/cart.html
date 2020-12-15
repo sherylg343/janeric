@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-12">
                         {% if cart_items %}
-                            <div class="d-block d-md-none"></div>
+                            <div class="d-block d-md-none">
                                 <div class="row d-block d-md-none">
                                     <div class="col-12">   
                                         {% include 'cart/cart-total.html' %}
@@ -70,7 +70,7 @@
                                     </a>
                                 </div> 
                             </div>
-                            <div class="table-responsive d-none d-md-block"></div>
+                            <div class="table-responsive d-none d-md-block">
                                 <table class="table table-sm table-borderless text-dkblue d-none d-md-block">
                                     <thead>
                                         <tr>
@@ -131,16 +131,18 @@
                                             </tr>
                                     </tbody>
                                 </table>
-                        </div>
-                {% else %}
-                    <div class="col-12 mt-5" id="cart-empty">
-                        <p class="mb-5 text-medblue text-center">Your shopping cart is empty!</p>
+                            </div>
+                        {% else %}
+                            <div class=" mt-5" id="cart-empty">
+                                <p class="mb-5 text-medblue text-center">Your shopping cart is empty!
+                                </p>
+                            </div>
+                        {% endif %}    
                     </div>
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock%}
 
 {% block postloadjs %}

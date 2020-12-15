@@ -112,6 +112,15 @@ header {
     margin-left: 4rem;
 }
 /* ----- Images, Buttons, Links ----*/
+a:hover, a:focus,
+nav-link:focus, nav-link:hover {
+    color: var(--clr-logoblue) !important;
+}
+
+a {
+    color: var(--clr-palettegray);
+}
+
 .card img {
     width: auto !important;
     height: 200px !important;
@@ -177,12 +186,16 @@ header {
 
 .side-menu {
     background: var(--clr-paletteblush);
-    color: var(--clr-paletteltblue);
     font-weight: 400;
     margin-left: -1.5rem;
     min-height: 100vh;
+    
+}
+
+.side-menu a {
     font-family: var(--ff-caslon) !important;
     font-size: 1.1rem;
+    color: var(--clr-paletteltblue) !important;
 }
 
 .side-menu ul {
@@ -194,13 +207,14 @@ header {
     box-shadow: none;
 }
 
-.top-nav-header.navbar-collapse {
+#top-nav-header.navbar-collapse {
     background: var(--clr-paletteblush);
     color: var(--clr-logoblue);
 }
 
 #top-nav-header, ul.navbar-nav {
     margin-left: -15px;
+    margin-right: -15px;
 }
 
 ul.navbar-nav {
@@ -217,6 +231,10 @@ ul.navbar-nav {
 
 #topnav.row {
     margin-bottom: 0rem !important;
+}
+
+.side-nav2 .collapsible a {
+    width: 175px;
 }
 
 /*------- Shopping Cart ------*/
@@ -394,6 +412,7 @@ margin-top: -.3rem;
 .md-form input[type="text"]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid var(--clr-palettedkblue);
 }
+
 /* ---------- Containers -------------*/
 #search-row.row {
    margin-bottom: -1.5rem;
@@ -404,7 +423,7 @@ margin-top: -.3rem;
 }
 
 .footer-main {
-    color: var(--clr-white) !important;
+    color: var(--clr-paletteltblue) !important;
     background: var(--clr-paletteblush) !important;
     padding-left: 0;
     padding-right: 0;
@@ -420,7 +439,7 @@ margin-top: -.3rem;
 }
 
 .footer-main a {
-    color: var(--clr-logoblue) !important;
+    color: var(--clr-paletteltblue) !important;
     font-family: var(--ff-caslon) !important;
 }
 
@@ -456,6 +475,68 @@ margin-top: -.3rem;
     overflow-y: auto;
 }
 
+/* ------------- Allauth form formatting -------- */
+.allauth-form-inner-content {
+    margin-left:
+}
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: var(--clr-palettemedblue);  /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: var(--clr-palettemedblue);
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: var(--clr-palettegray);
+    font-weight: normal;
+    font-size: .75rem;
+    font-family: var(--ff-roboto);
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--clr-paletteltblue);
+    border: 1px solid var(--clr-paletteltblue);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #fff;
+    background-color: var(--clr-logoblue);
+    border-color: var(--clr-logoblue);
+}
+
+.allauth-form-inner-content a {
+    color: var(--clr-palettegray); /* text-info */
+    font-weight: bold;
+}
+
+
 @media not all and (min-resolution:.001dpcm) {
 @supports (-webkit-appearance: none) and (stroke-color:transparent) {
 
@@ -466,6 +547,7 @@ margin-top: -.3rem;
 }
 }
 
+/* -------- Media Queries ----------------*/
 @media (min-width: 768px) {
     .nav-logo img {
         width: 140px;

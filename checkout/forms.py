@@ -33,7 +33,7 @@ class OrderForm(forms.ModelForm):
             'ship_city': 'City',
             'ship_state': 'State',
             'ship_zipcode': 'Zip Code',
-            'ship_full_name': 'Full Name',
+            'bill_full_name': 'Full Name',
             'bill_phone_number': 'Phone',
             'bill_street_address1': 'Street Address 1',
             'bill_street_address2': 'Street Address 2',
@@ -51,5 +51,3 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-
-

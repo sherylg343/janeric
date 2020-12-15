@@ -23,8 +23,7 @@
             </ul>
           </div>
         </li>
-        <li><a class="collapsible-header waves-effect arrow-r">Hand Sanitizer <i
-              class="fas fa-angle-down rotate-icon"></i></a>
+        <li><a class="collapsible-header waves-effect arrow-r">Hand Sanitizer <i class="fas fa-angle-down rotate-icon"></i></a>
           <div class="collapsible-body">
             <ul>
               <li><a href="{% url 'products' %}?category=Gel" class="waves-effect">Gel</a>
@@ -45,7 +44,26 @@
             </ul>
           </div>
         </li>
-        <li><a href="" class="collapsible-header waves-effect" >Shipping & Returns</a>
+        <li><a class="collapsible-header waves-effect arrow-r">My Account<i
+              class="fas fa-angle-down rotate-icon"></i></a>
+            <div class="collapsible-body">
+                <ul> 
+                    {% if request.user.is_authenticated %} 
+                        {% if request.user.is_superuser %}
+                            <li><a href="" class="waves-effect">Product Management</a>
+                            </li>
+                        {% endif %}
+                            <li><a href="{% url 'profile' %}" class="waves-effect">My Profile</a>
+                            </li>
+                            <li><a href="{% url 'account_logout' %}" class="waves-effect">Log Out</a>
+                            </li>
+                    {% else %}
+                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                        <li><a href="{% url 'account_login' %}" class="dropdown-item"
+                        >Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </li>
         <li><a href="" class="collapsible-header waves-effect" >Contact Us</a>
         </li>

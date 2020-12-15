@@ -42,12 +42,12 @@
                         <span class="float-right">${{ total|floatformat:2 }}</span>
                     </p></strong>
                     {% if free_shipping_delta > 0 %}
-                        <p class="mb-0 p-2 bg-warning shadow-sm text-navy text-center">
+                        <p class="mb-0 p-2 bg-blush shadow-sm text-dkblue text-center">
                             Spend <strong>${{ free_shipping_delta }}</strong> more to get free next day delivery!
                         </p>
                     {% endif %}
                     <a href="{% url 'view_cart' %}" class="btn btn-large btn-ltblue white-text">
-                        <span class="text-uppercase">Proceed To Checkout</span>
+                        <span class="text-uppercase">View Cart</span>
                     </a>
                 </div>
             </div>

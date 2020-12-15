@@ -5,9 +5,18 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-{% block content %}
+{% block inner_content %}
 
-<h1>{% trans "Sign In" %}</h1>
+<div class="row  mt-5">
+    <div class="col-12">
+        <p>
+            <h5 class="headline ml-4 mb-3">Sign in</h5>
+        </p>
+        <p class="text-right mr-2">
+            <a href="{% url 'home' %}" class="cart-continues">Home</a>  
+        </p>
+    </div>
+</div>
 
 {% get_providers as socialaccount_providers %}
 
@@ -35,12 +44,14 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <p class="mt-2">
+    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  </p>
 </form>
 
 {% endblock %}
