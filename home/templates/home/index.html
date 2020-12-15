@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block top_nav %} 
+    {% include 'includes/top-nav-header.html' %}
+{% endblock %} 
+    
 {% block page_header %}
 <div class="container header-container">
   <div class="row mt-5 mb-5">
@@ -11,5 +15,21 @@
 
 
 {% block content %}
-   {% include 'includes/top-nav-header.html' %}
+<!-- Full Page Intro -->
+<div class="view" style="background-image: url('/media/cover-sample1.png'); background-repeat: no-repeat; background-size: cover;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+      <!-- Content -->
+      <div class="text-center white-text mx-5 wow fadeIn">
+        <h3 class="mb-4">
+          <strong>Clean and effective solutions to help keep those you care about safe</strong>
+        </h3>
+
+        <a target="_blank" href="{% url 'products' %}" class="btn btn-outline-white btn-lg">Shop Now
+        </a>
+      </div>
+    </div>
+</div>
 {% endblock %}
