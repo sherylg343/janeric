@@ -48,7 +48,7 @@
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
                         <input
-                            class="form-control my-0 py-1 black-border text-gray
+                            class="form-control my-0 py-1 black-border text-gray"
                             type="text"
                             name="q"
                             placeholder="Search"
@@ -97,7 +97,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a
-                        class="{% if grand_total %}font-weight-bold{% else %}text-gray{% endif %} nav-link"
+                        class="{% if grand_total %}font-weight-bold{% endif %} nav-link"
                         href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart"></i></div>
@@ -141,6 +141,8 @@
                 </form>
             </div>
         </div>
+        {% block top_nav %} 
+        {% endblock %} 
     </header>
 
     {% if messages %}
@@ -171,7 +173,7 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4 pl-0 pr-0">
+    <footer class="page-footer font-small pl-0 pr-0">
         <!-- Footer Text -->
         <div class="text-center footer-main pt-3">
             <div class="row">

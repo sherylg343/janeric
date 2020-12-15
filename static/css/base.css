@@ -32,18 +32,22 @@
     --ff-caslon: 'Caslon 3 Roman';
 }
 
-/* ----- Text & Borders ----*/
-header {
+/* Required height of parents of the Full Page Intro and Intro itself */
+html,
+body,
+.view {
+    height: 100%; 
+}
+
+h3 {
     font-family: var(--ff-caslon);
     font-weight: 400; 
 }
 
-body {
-    font-family: var(--ff-roboto);
-    font-weight: 400;
-    color: var(--clr-palettedkblue);
-    background: var(--clr-white);
-    height: calc(100vh - 200px);
+/* ----- Text & Borders ----*/
+header {
+    font-family: var(--ff-caslon);
+    font-weight: 400; 
 }
 
 .headline {
@@ -174,6 +178,7 @@ body {
     margin-left: -1.5rem;
     min-height: 100vh;
     font-family: var(--ff-caslon) !important;
+    font-size: 1.1rem;
 }
 
 .side-menu ul {
@@ -194,12 +199,24 @@ a:hover {
 }
 
 .top-nav-header.navbar-collapse {
-    background: var(--clr-white); 
+    background: var(--clr-paletteblush);
+    color: var(--clr-logoblue);
+}
+
+ul.navbar-nav {
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    border-bottom: 6px solid var(--clr-palettegray) !important;
 }
 
 #top-nav-header a {
     font-family: var(--ff-caslon) !important;
     color: var(--clr-logoblue) !important;
+}
+
+#topnav.row {
+    margin-bottom: 0rem !important;
 }
 
 /*------- Shopping Cart ------*/
@@ -459,6 +476,9 @@ margin-top: -.3rem;
     } 
     .prod-detail-qty label {
         margin-left: 1.5rem;
+    }
+    #top-nav-header, ul.navbar-nav {
+        font-size: 1rem !important;
     }
 }
 
