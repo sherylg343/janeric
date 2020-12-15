@@ -60,6 +60,10 @@ header {
     color: var(--clr-palettedkblue);
 }
 
+.bg-logoblue {
+    background: var(--clr-logoblue);
+}
+
 .bg-gray {
     background: var(--clr-palettegray);
 }
@@ -167,7 +171,7 @@ header {
 
 /*------- Navigation ------*/
 .nav-logo img {
-    width: 140px;
+    width: 100px;
     height: auto;
 }
 
@@ -190,17 +194,13 @@ header {
     box-shadow: none;
 }
 
-a {
-    color: var(--clr-paletteltblue) !important;
-}
-
-a:hover {
-    color: var(--clr-palettemedblue) !important;
-}
-
 .top-nav-header.navbar-collapse {
     background: var(--clr-paletteblush);
     color: var(--clr-logoblue);
+}
+
+#top-nav-header, ul.navbar-nav {
+    margin-left: -15px;
 }
 
 ul.navbar-nav {
@@ -220,7 +220,6 @@ ul.navbar-nav {
 }
 
 /*------- Shopping Cart ------*/
-/* Code modeled after jennikayne.com ----*/
 .cart-items-head {
     font-family: var(--ff-barlow);
     letter-spacing: 0.1em;
@@ -396,22 +395,38 @@ margin-top: -.3rem;
     border-bottom: 1px solid var(--clr-palettedkblue);
 }
 /* ---------- Containers -------------*/
+#search-row.row {
+   margin-bottom: -1.5rem;
+}
+
 #product-selector {
     margin-left: 2.75rem;
 }
 
 .footer-main {
     color: var(--clr-white) !important;
-    background: var(--clr-palettemedblue) !important;
+    background: var(--clr-paletteblush) !important;
     padding-left: 0;
     padding-right: 0;
+    font-family: var(--ff-caslon) !important;
 }
 
 .footer-copyright {
     color: var(--clr-white) !important;
-    background: var(--clr-palettedkblue) !important;
+    background: var(--clr-logoblue) !important;
     padding-left: 0;
     padding-right: 0;
+    font-family: var(--ff-caslon) !important;
+}
+
+.footer-main a {
+    color: var(--clr-logoblue) !important;
+    font-family: var(--ff-caslon) !important;
+}
+
+.footer-copyright a {
+    color: var(--clr-white) !important;
+    font-family: var(--ff-caslon) !important;
 }
 
 #cart-container {
@@ -452,6 +467,9 @@ margin-top: -.3rem;
 }
 
 @media (min-width: 768px) {
+    .nav-logo img {
+        width: 140px;
+    }
     #product-selector {
         margin-left: 1rem;
     } 

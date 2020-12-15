@@ -66,7 +66,7 @@
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
                         <a
-                            class="text-blue nav-link"
+                            class="nav-link"
                             href=""
                             id="user-options"
                             data-toggle="dropdown"
@@ -97,7 +97,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a
-                        class="{% if grand_total %}font-weight-bold{% endif %} nav-link"
+                        class="{% if grand_total %}font-weight-bold{% endif %}nav-link text-ltblue"
                         href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart"></i></div>
@@ -121,7 +121,7 @@
                 {% include 'includes/mobile-header.html' %}
             </nav>
         </div>
-        <div class="row d-lg-none bg-blush">
+        <div class="row d-lg-none bg-blush" id="search-row">
             <div class="col-10 offset-1 my-auto py-1">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 md-form form-sm form-2 pl-0">
@@ -175,12 +175,12 @@
     <!-- Footer -->
     <footer class="page-footer font-small pl-0 pr-0">
         <!-- Footer Text -->
-        <div class="text-center footer-main pt-3">
+        <div class="text-center footer-main d-flex justify-content-around">
             <div class="row">
-                <div class="col">
-                    <ul class="list-inline d-flex justify-content-around">
+                <div class="col pt-2">
+                    <ul class="list-inline">
                         <li class="list-inline-item pr-5"><a href="#"><strong>Shipping & Returns</strong></a></li>
-                        <li class="list-inline-item pl-5"><a href="#">Contact Us</strong></a></li>     
+                        <li class="list-inline-item pl-5"><a href="#"><strong>Contact Us</strong></a></li>     
                    </ul>
                 </div>
             </div>
