@@ -83,17 +83,17 @@
                             {% csrf_token %}
                             <fieldset class="rounded px-3 mb-5">
                                 <legend class="fieldset-label small text-left px-2 w-auto">Contact Information</legend>
-                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.ship_full_name | as_crispy_field }}
                                 {{ order_form.email | as_crispy_field }}
                             </fieldset>
                             <fieldset class="rounded px-3 mb-5">
                                 <legend class="fieldset-label small text-left px-2 w-auto">Shipping Information</legend>
                                 {{ order_form.phone_number | as_crispy_field }}
-                                {{ order_form.street_address1 | as_crispy_field }}
-                                {{ order_form.street_address2 | as_crispy_field }}
-                                {{ order_form.city | as_crispy_field }}
-                                {{ order_form.state | as_crispy_field }}
-                                {{ order_form.zipcode | as_crispy_field }}
+                                {{ order_form.ship_street_address1 | as_crispy_field }}
+                                {{ order_form.ship_street_address2 | as_crispy_field }}
+                                {{ order_form.ship_city | as_crispy_field }}
+                                {{ order_form.ship_state | as_crispy_field }}
+                                {{ order_form.ship_zipcode | as_crispy_field }}
                                 <p class="small text-left">Save my information for a quicker checkout next time</p>
                                 <div class="form-check form-check-inline mr-0 float-left">
                                     {% if user.is_authenticated %}

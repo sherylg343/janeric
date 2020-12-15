@@ -45,11 +45,12 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
+    'profiles',
 
     #Other
     'localflavor',
     'crispy_forms',
-    'phone_field'
+    'phone_field',
 ]
 
 MIDDLEWARE = [

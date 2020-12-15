@@ -6,27 +6,42 @@ from phone_field import PhoneField
 from django.conf import settings
 
 from products.models import Product
-# Create your models here.
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
     order_number = models.CharField(
         max_length=32, null=False, editable=False)
-    full_name = models.CharField(
-        max_length=50, null=False, blank=False)
     email = models.EmailField(
         max_length=254, null=False, blank=False)
-    phone_number = PhoneField(null= True, blank=True)
-    street_address1 = models.CharField(
-        max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(
+    ship_full_name = models.CharField(
+        max_length=50, null=True, blank=True)
+    ship_street_address1 = models.CharField(
         max_length=80, null=True, blank=True)
-    city = models.CharField(
-        max_length=40, null=False, blank=False)
-    state = models.CharField(
+    ship_street_address2 = models.CharField(
+        max_length=80, null=True, blank=True)
+    ship_city = models.CharField(
+        max_length=40, null=True, blank=True)
+    ship_state = models.CharField(
         max_length=2, null=True, blank=True)
-    zipcode = models.CharField(
+    ship_zipcode = models.CharField(
         max_length=10, null=True, blank=True)
+    ship_phone_number = PhoneField(null= True, blank=True)
+    bill_full_name = models.CharField(
+        max_length=50, null=True, blank=True)
+    bill_street_address1 = models.CharField(
+        max_length=80, null=True, blank=True)
+    bill_street_address2 = models.CharField(
+        max_length=80, null=True, blank=True)
+    bill_city = models.CharField(
+        max_length=40, null=True, blank=True)
+    bill_state = models.CharField(
+        max_length=2, null=True, blank=True)
+    bill_zipcode = models.CharField(
+        max_length=10, null=True, blank=True)
+    bill_phone_number = PhoneField(null= True, blank=True)
+    credit_card_partial = models.CharField(
+        max_length=80, null=True, blank=True)
     order_date = models.DateTimeField(
         auto_now_add=True)
     shipping_cost = models.DecimalField(

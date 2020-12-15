@@ -10,9 +10,13 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                  'street_address1', 'street_address2',
-                  'city', 'state', 'zipcode',)
+        fields = ('ship_full_name', 'email', 'ship_phone_number',
+                  'ship_street_address1', 'ship_street_address2',
+                  'ship_city', 'ship_state', 'ship_zipcode',
+                  'bill_full_name', 'bill_phone_number',
+                  'bill_street_address1', 'bill_street_address2',
+                  'bill_city', 'bill_state', 'bill_zipcode',
+                  'credit_card_partial',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -21,17 +25,24 @@ class OrderForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'full_name': 'Full Name',
+            'ship_full_name': 'Full Name',
             'email': 'Email Address',
-            'phone_number': 'Phone Number',
-            'street_address1': 'Street Address 1',
-            'street_address2': 'Street Address 2',
-            'city': 'City',
-            'state': 'State',
-            'zipcode': 'Zip Code',
+            'ship_phone_number': 'Phone',
+            'ship_street_address1': 'Street Address 1',
+            'ship_street_address2': 'Street Address 2',
+            'ship_city': 'City',
+            'ship_state': 'State',
+            'ship_zipcode': 'Zip Code',
+            'ship_full_name': 'Full Name',
+            'bill_phone_number': 'Phone',
+            'bill_street_address1': 'Street Address 1',
+            'bill_street_address2': 'Street Address 2',
+            'bill_city': 'City',
+            'bill_state': 'State',
+            'bill_zipcode': 'Zip Code',
         }
 
-        self.fields['full_name'].widget.attrs['autofocus'] = True
+        self.fields['email'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'

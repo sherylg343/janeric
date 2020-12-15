@@ -41,14 +41,14 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         form_data = {
-            'full_name': request.POST['full_name'],
+            'ship_full_name': request.POST['full_name'],
             'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'city': request.POST['city'],
-            'state': request.POST['state'],
-            'zipcode': request.POST['zipcode'],
+            'ship_phone_number': request.POST['phone_number'],
+            'ship_street_address1': request.POST['street_address1'],
+            'ship_street_address2': request.POST['street_address2'],
+            'ship_city': request.POST['city'],
+            'ship_state': request.POST['state'],
+            'ship_zipcode': request.POST['zipcode'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -99,8 +99,8 @@ def checkout(request):
     print(intent)
 
     order_form = OrderForm()
-    state = USStateSelect()
-    zipcode = USZipCodeField()
+    ship_state = USStateSelect()
+    ship_zipcode = USZipCodeField()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -109,8 +109,8 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'state': state,
-        'zipcode': zipcode,
+        'state': ship_state,
+        'zipcode': ship_zipcode,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
