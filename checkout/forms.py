@@ -4,7 +4,8 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
-    zipcode = USZipCodeField()
+    ship_zipcode = USZipCodeField()
+    bill_zipcode = USZipCodeField()
     """ Widget code from Nafees Anwar on stackoverflow 4/30/19 """
     state = forms.CharField(widget=USStateSelect)
 
@@ -15,8 +16,7 @@ class OrderForm(forms.ModelForm):
                   'ship_city', 'ship_state', 'ship_zipcode',
                   'bill_full_name', 'bill_phone_number',
                   'bill_street_address1', 'bill_street_address2',
-                  'bill_city', 'bill_state', 'bill_zipcode',
-                  'credit_card_partial',)
+                  'bill_city', 'bill_state', 'bill_zipcode',)
 
     def __init__(self, *args, **kwargs):
         """

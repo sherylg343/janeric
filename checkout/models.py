@@ -40,8 +40,6 @@ class Order(models.Model):
     bill_zipcode = models.CharField(
         max_length=10, null=True, blank=True)
     bill_phone_number = PhoneField(null= True, blank=True)
-    credit_card_partial = models.CharField(
-        max_length=80, null=True, blank=True)
     order_date = models.DateTimeField(
         auto_now_add=True)
     shipping_cost = models.DecimalField(

@@ -11,7 +11,7 @@ class StripeWH_Handler:
     """ Handle Stripe webhooks """
 
     def __init__(self, request):
-        self.request =  request
+        self.request = request
 
     def handle_event(self, event):
         """
@@ -38,23 +38,32 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+                billing_details.address[field] = None
 
         order_exists = False
         attempt = 1
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    full_name__iexact=shipping_details.name,
+                    ship_full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone_number__iexact=shipping_details.phone,
-                    street_address1__iexact=shipping_details.address.line1,
-                    street_address2__iexact=shipping_details.address.line2,
-                    city__iexact=shipping_details.address.city,  
-                    state__iexact=shipping_details.address.state,
-                    zipcode__iexact=shipping_details.address.postal_code,
+                    ship_phone_number__iexact=shipping_details.phone,
+                    ship_street_address1__iexact=shipping_details.address.line1,
+                    ship_street_address2__iexact=shipping_details.address.line2,
+                    ship_city__iexact=shipping_details.address.city,  
+                    ship_state__iexact=shipping_details.address.state,
+                    ship_zipcode__iexact=shipping_details.address.postal_code,
+                    bill_full_name__iexact=billing_details.name,
+                    bill_phone_number__iexact=billing_details.phone,
+                    bill_street_address1__iexact=billing_details.address.line1,
+                    bill_street_address2__iexact=billing_details.address.line2,
+                    bill_city__iexact=billing_details.address.city,  
+                    bill_state__iexact=billing_details.address.state,
+                    bill_zipcode__iexact=billing_details.address.postal_code,
                     grand_total=grand_total,
                     original_cart=cart,
                     stripe_pid=pid,
+                    credit_card_partial=billing_details.payment_method_details.last4
                 )
                 order_exists = True
                 break
@@ -69,15 +78,22 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=shipping_details.name,
+                    ship_full_name=shipping_details.name,
                     email=billing_details.email,
-                    phone_number=shipping_details.phone,
-                    country=shipping_details.address.country,
-                    postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,
-                    street_address1=shipping_details.address.line1,
-                    street_address2=shipping_details.address.line2,
-                    county=shipping_details.address.state,
+                    ship_phone_number=shipping_details.phone,
+                    ship_street_address1__iexact=shipping_details.address.line1,
+                    ship_street_address2__iexact=shipping_details.address.line2,
+                    ship_city__iexact=shipping_details.address.city,  
+                    ship_state__iexact=shipping_details.address.state,
+                    ship_zipcode__iexact=shipping_details.address.postal_code,
+                    bill_full_name__iexact=billing_details.name,
+                    bill_phone_number__iexact=billing_details.phone,
+                    bill_street_address1__iexact=billing_details.address.line1,
+                    bill_street_address2__iexact=billing_details.address.line2,
+                    bill_city__iexact=billing_details.address.city,  
+                    bill_state__iexact=billing_details.address.state,
+                    bill_zipcode__iexact=billing_details.address.postal_code,
+                    grand_total=grand_total,
                     original_cart=cart,
                     stripe_pid=pid,
                 )

@@ -17,6 +17,7 @@ class UserProfile(models.Model):
     defaultship_city = models.CharField(max_length=40, null=True, blank=True)
     defaultship_state = models.CharField(max_length=80, null=True, blank=True)
     defaultship_zipcode = models.CharField(max_length=20, null=True, blank=True)
+    birthday = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.user.username

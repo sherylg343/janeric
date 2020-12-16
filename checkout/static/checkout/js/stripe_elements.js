@@ -73,15 +73,15 @@ form.addEventListener('submit', function(ev) {
             payment_method: {
                 card: card,
                 billing_details: {
-                    name: $.trim(form.full_name.value),
-                    phone: $.trim(form.phone_number.value),
+                    name: $.trim(form.bill_full_name.value),
+                    phone: $.trim(form.bill_phone_number.value),
                     email: $.trim(form.email.value),
                     address:{
-                        line1: $.trim(form.street_address1.value),
-                        line2: $.trim(form.street_address2.value),
-                        city: $.trim(form.city.value),
-                        state: $.trim(form.state.value),
-                        postal_code: $.trim(form.zipcode.value),
+                        line1: $.trim(form.bill_street_address1.value),
+                        line2: $.trim(form.bill_street_address2.value),
+                        city: $.trim(form.bill_city.value),
+                        state: $.trim(form.bill_state.value),
+                        postal_code: $.trim(form.bill_zipcode.value),
                     }
                 }    
             },
@@ -89,11 +89,11 @@ form.addEventListener('submit', function(ev) {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
-                    line1: $.trim(form.street_address1.value),
-                    line2: $.trim(form.street_address2.value),
-                    city: $.trim(form.city.value),
-                    state: $.trim(form.state.value),
-                    postal_code: $.trim(form.zipcode.value),
+                    line1: $.trim(form.ship_street_address1.value),
+                    line2: $.trim(form.ship_street_address2.value),
+                    city: $.trim(form.ship_city.value),
+                    state: $.trim(form.ship_state.value),
+                    postal_code: $.trim(form.ship_zipcode.value),
                 }
             },
         }).then(function(result) {

@@ -41,15 +41,22 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         form_data = {
-            'ship_full_name': request.POST['full_name'],
+            'ship_full_name': request.POST['ship_full_name'],
             'email': request.POST['email'],
-            'ship_phone_number': request.POST['phone_number'],
-            'ship_street_address1': request.POST['street_address1'],
-            'ship_street_address2': request.POST['street_address2'],
-            'ship_city': request.POST['city'],
-            'ship_state': request.POST['state'],
-            'ship_zipcode': request.POST['zipcode'],
+            'ship_phone_number': request.POST['ship_phone_number'],
+            'ship_street_address1': request.POST['ship_street_address1'],
+            'ship_street_address2': request.POST['ship_street_address2'],
+            'ship_city': request.POST['ship_city'],
+            'ship_state': request.POST['ship_state'],
+            'ship_zipcode': request.POST['ship_zipcode'],
+            'bill_phone_number': request.POST['bill_phone_number'],
+            'bill_street_address1': request.POST['bill_street_address1'],
+            'bill_street_address2': request.POST['bill_street_address2'],
+            'bill_city': request.POST['bill_city'],
+            'bill_state': request.POST['bill_state'],
+            'bill_zipcode': request.POST['bill_zipcode'],
         }
+       
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -96,11 +103,12 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-    print(intent)
 
     order_form = OrderForm()
     ship_state = USStateSelect()
+    bill_state = USStateSelect()
     ship_zipcode = USZipCodeField()
+    bill_zipcode = USZipCodeField()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -109,10 +117,12 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'state': ship_state,
-        'zipcode': ship_zipcode,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'ship_state': ship_state,
+        'bill_state': bill_state,
+        'ship_zipcode': ship_zipcode,
+        'bill_zipcode': bill_zipcode,
     }
 
     return render(request, template, context)
