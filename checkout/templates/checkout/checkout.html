@@ -4,7 +4,13 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/addons-pro/steppers.min.css' %}">
 {% endblock %}
+
+{% block extra_js %}
+   <script type="text/javascript" src="{% static 'js/addons-pro/steppers.min.js' %}"></script> 
+{% endblock %}
+
 
 
 {% block page_header %}
@@ -28,7 +34,7 @@
                             <h5 class="headline ml-4 mb-3">Checkout</h5>
                         </p>
                         <p class="text-right mr-2">
-                            <a href="{% url 'view_cart' %}" class="cart-continues">Revise Shopping Cart</a>  
+                            <a href="{% url 'view_cart' %}" class="cart-continues">Return to Cart</a>  
                         </p>
                     </div> 
                 <div class="row">
@@ -78,60 +84,111 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p class="text-muted ml-2 text-left">Please fill out the form below to complete your order.</p>
+                        <p class="checkout-subhead small text-left ml-2">
+                            Cart  >  Information  >  Shipping  >  Payment
+                        </p>
                         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                             {% csrf_token %}
-                            <fieldset class="rounded px-3 mb-5">
-                                <legend class="fieldset-label small text-left px-2 w-auto">Contact Information</legend>
-                                {{ order_form.email | as_crispy_field }}
-                            </fieldset>
-                            <fieldset class="rounded px-3 mb-5">
-                                <legend class="fieldset-label small text-left px-2 w-auto">Shipping Information</legend>
-                                {{ order_form.ship_full_name | as_crispy_field }}
-                                {{ order_form.ship_comp_name | as_crispy_field }}
-                                {{ order_form.ship_street_address1 | as_crispy_field }}
-                                {{ order_form.ship_street_address2 | as_crispy_field }}
-                                {{ order_form.ship_city | as_crispy_field }}
-                                {{ order_form.ship_state | as_crispy_field }}
-                                {{ order_form.ship_zipcode | as_crispy_field }}
-                                {{ order_form.ship_phone_number | as_crispy_field }}
-                                <p class="small text-left">Save my information for a quicker checkout next time</p>
-                                <div class="form-check form-check-inline mr-0 float-left">
-                                    {% if user.is_authenticated %}
-                                    <div class="form-check text-left">
-                                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                                        <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
-                                    </div>
-                                    {% else %}
-                                        <label class="form-check-label" for="id-save-info">
-                                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                            <a class="text-info" href="{% url 'account_login' %}">log in</a> to save this information
-                                        </label>
-                                    {% endif %}
-                                </div>
-                            </fieldset>
-                            <fieldset class="px-3">
-                                <legend class="fieldset-label small text-left px-2 w-auto">Payment Information</legend>
-                                <!-- A Stripe card element will go here -->
-                                <div class="mb-3" id="card-element"></div>
-                                <!-- Used to display form errors -->
-                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                                <!-- Pass the client secret to the view so we can get the payment intent id -->
-                                <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                            </fieldset>
-
-                            <div class="submit-button text-right mt-5 mb-2">                 <button id="submit-button" class="btn btn-large            btn-ltblue white-text">
-                                    <span class="text-uppercase">Complete Order</span>
-                                </button>   
-                                <p class="small text-danger my-0">
-                                    <span class="icon">
-                                        <i class="fas fa-exclamation-circle"></i>
-                                    </span>
-                                    <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
-                                </p>
-                            </div>
+                                <ul class="stepper linear">
+                                    <li class="step active">
+                                        <div data-step-label="Contact Information" class="step-title waves-effect waves-light"></div>
+                                        <div class="step-new-content">
+                                            <div class="row">
+                                                <div class="md-form col-12 ml-auto">
+                                                <fieldset class="rounded px-3 mb-5">
+                                                    {{ order_form.email | as_crispy_field }}
+                                                    <legend class="fieldset-label small text-left px-2 w-auto">
+                                                        Already have an account? 
+                                                        <a class="text-info" href="{% url 'account_login' %}">Log in</a> 
+                                                    </legend>
+                                                 </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="step-actions">
+                                                <button class="waves-effect waves-dark btn btn-sm next-step white-text bg-ltblue">CONTINUE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="step">
+                                        <div data-step-label="Shipping Information"  class="step-title waves-effect waves-dark"></div>
+                                        <div class="step-new-content">
+                                            <div class="row">
+                                                <div class="md-form col-12 ml-auto">
+                                                <fieldset class="rounded px-3 mb-5">
+                                                    <legend class="fieldset-label small text-left px-2 w-auto">Shipping Information</legend>
+                                                    {{ order_form.ship_full_name | as_crispy_field }}
+                                                    {{ order_form.ship_comp_name | as_crispy_field }}
+                                                    {{ order_form.ship_street_address1 | as_crispy_field }}
+                                                    {{ order_form.ship_street_address2 | as_crispy_field }}
+                                                    {{ order_form.ship_city | as_crispy_field }}
+                                                    {{ order_form.ship_state | as_crispy_field }}
+                                                    {{ order_form.ship_zipcode | as_crispy_field }}
+                                                    {{ order_form.ship_phone_number | as_crispy_field }}
+                                                    <div class="form-check form-check-inline mr-0 float-left">
+                                                        {% if user.is_authenticated %}
+                                                        <p class="small text-left">Save my information for a quicker checkout next time</p>
+                                                        <p>
+                                                            <div class="form-check float-left">
+                                                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                                                <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
+                                                            </div>
+                                                        </p>
+                                                        {% endif %}
+                                                    </div>
+                                                </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="step-actions">
+                                                <span class="small text-left">
+                                                    <a href="{% url 'view_cart' %}" class="cart-continues">Return to Cart</a> 
+                                                </span>
+                                                <button class="float-right waves-effect waves-dark btn btn-sm bg-ltblue  white-text next-step">CONTINUE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="step">
+                                        <div data-step-label="Payment Information"  class="step-title waves-effect waves-dark"></div>
+                                        <div class="step-new-content">
+                                            <div class="row">
+                                                <div class="md-form col-12 ml-auto">
+                                                <fieldset class="rounded px-3 mb-5">
+                                                    <legend class="fieldset-label small text-left px-2 w-auto">Billing Information</legend>
+                                                    {{ order_form.bill_full_name | as_crispy_field }}
+                                                    {{ order_form.bill_street_address1 | as_crispy_field }}
+                                                    {{ order_form.bill_street_address2 | as_crispy_field }}
+                                                    {{ order_form.bill_city | as_crispy_field }}
+                                                    {{ order_form.bill_state | as_crispy_field }}
+                                                    {{ order_form.bill_zipcode | as_crispy_field }}
+                                                    {{ order_form.bill_phone_number | as_crispy_field }}
+                                                </fieldset>
+                                                <fieldset class="px-3">
+                                                    <legend class="fieldset-label small text-left px-2 w-auto">Payment Information</legend>
+                                                    <!-- A Stripe card element will go here -->
+                                                    <div class="mb-3" id="card-element"></div>
+                                                    <!-- Used to display form errors -->
+                                                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                                                </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="step-actions">
+                                                <div class="submit-button text-right mt-5 mb-2">                 
+                                                    <button id="submit-button" class="btn btn-large bg-ltblue white-text">
+                                                    PAY NOW
+                                                    </button>   
+                                                    <p class="small text-danger my-0">
+                                                        <span class="icon">
+                                                            <i class="fas fa-exclamation-circle"></i>
+                                                        </span>
+                                                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                                              
+                                    </li>
+                                </ul>
                         </form> 
-                    
                     </div>
                 </div>
             </div>
@@ -153,5 +210,11 @@
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    <script type="text/javascript">
+        //MD Bootstrap payment stepper
+        $(document).ready(function () {
+        $('.stepper').mdbStepper();
+    })
+    </script>
 {% endblock %}
 

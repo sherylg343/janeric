@@ -15,12 +15,6 @@
 :root {
     --clr-white: #ffffff;
     --clr-logoblue: rgb(0, 114, 187); /* revised to match logo color per client */
-    --clr-teal: #00FFF0;
-    --clr-dkteal: #008B8B;
-    --clr-ltblue: #00D1FF;
-    --clr-dkblue: #4682B4;
-    --clr-navy: #000C66;
-    --clr-mdblue: #4285f4;
     --clr-palettegray: #c3ccd3;
     --clr-paletteblush: #f6f8fa;
     --clr-paletteltblue: #8ea6b2;

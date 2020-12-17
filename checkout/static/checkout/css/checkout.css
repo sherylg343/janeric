@@ -88,3 +88,22 @@ select option[value=""] {
     width: auto;
     box-shadow: none;
 }
+
+/* ------ Stepper Styling ----- */
+.steps-form.steps-step button {
+    border: 2px solid rgb(0, 114, 187);
+    background:  rgb(0, 114, 187);
+}
+
+.steps-form.steps-step button i {
+    color: #ffffff;
+}
+
+.checkout-subhead {
+    font-family: var(--ff-barlow);
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: var(--clr-palettemedblue);
+}

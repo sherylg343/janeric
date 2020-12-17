@@ -134,3 +134,8 @@ $('#id_ship_state').change(function() {
         $(this).css('color', '#47646f');
     }
 });
+
+//MD Bootstrap payment stepper
+$(document).ready(function () {
+    $('.stepper').mdbStepper();
+})
