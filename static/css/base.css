@@ -413,6 +413,11 @@ margin-top: -.3rem;
     border-bottom: 1px solid var(--clr-palettedkblue);
 }
 
+.input-border {
+    color: var(--clr-palettedkblue);
+    border: 1px solid var(--clr-palettedkblue);
+}
+
 /* ---------- Containers -------------*/
 #search-row.row {
    margin-bottom: -1.5rem;

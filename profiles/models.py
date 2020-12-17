@@ -11,13 +11,14 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    defaultship_phone_number = PhoneField(null= True, blank=True)
+    defaultship_full_name = models.CharField(max_length=80, null=True, blank=True)
+    defaultship_comp_name = models.CharField(max_length=100, null=True, blank=True)
     defaultship_street_address1 = models.CharField(max_length=80, null=True, blank=True)
     defaultship_street_address2 = models.CharField(max_length=80, null=True, blank=True)
     defaultship_city = models.CharField(max_length=40, null=True, blank=True)
     defaultship_state = models.CharField(max_length=80, null=True, blank=True)
     defaultship_zipcode = models.CharField(max_length=20, null=True, blank=True)
-    birthday = models.DateTimeField(null=True, blank=True)
+    defaultship_phone_number = PhoneField(null= True, blank=True)
 
     def __str__(self):
         return self.user.username

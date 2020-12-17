@@ -43,6 +43,7 @@ def checkout(request):
         form_data = {
             'ship_full_name': request.POST['ship_full_name'],
             'email': request.POST['email'],
+            'ship_comp_name': request.POST('ship_comp_name'),
             'ship_phone_number': request.POST['ship_phone_number'],
             'ship_street_address1': request.POST['ship_street_address1'],
             'ship_street_address2': request.POST['ship_street_address2'],

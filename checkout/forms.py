@@ -7,16 +7,17 @@ class OrderForm(forms.ModelForm):
     ship_zipcode = USZipCodeField()
     bill_zipcode = USZipCodeField()
     """ Widget code from Nafees Anwar on stackoverflow 4/30/19 """
-    state = forms.CharField(widget=USStateSelect)
+    ship_state = forms.CharField(widget=USStateSelect)
 
     class Meta:
         model = Order
-        fields = ('ship_full_name', 'email', 'ship_phone_number',
-                  'ship_street_address1', 'ship_street_address2',
-                  'ship_city', 'ship_state', 'ship_zipcode',
-                  'bill_full_name', 'bill_phone_number',
-                  'bill_street_address1', 'bill_street_address2',
-                  'bill_city', 'bill_state', 'bill_zipcode',)
+        fields = (
+            'ship_full_name', 'email', 'ship_comp_name',
+            'ship_phone_number', 'ship_street_address1',
+            'ship_street_address2', 'ship_city', 'ship_state',
+            'ship_zipcode', 'bill_full_name', 'bill_phone_number',
+            'bill_street_address1', 'bill_street_address2',
+            'bill_city', 'bill_state', 'bill_zipcode',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -26,6 +27,7 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'ship_full_name': 'Full Name',
+            'ship_comp_name': 'Organization',
             'email': 'Email Address',
             'ship_phone_number': 'Phone',
             'ship_street_address1': 'Street Address 1',

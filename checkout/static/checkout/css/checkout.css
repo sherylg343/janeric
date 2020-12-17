@@ -36,6 +36,20 @@
     border: 1px solid #1e383c;
 }
 
+#payment-form input::placeholder {
+    color: #c3ccd3;
+    font-size: .8rem !important;
+}
+
+#id_ship_state,
+#id_ship_state option:not(:first-child) {
+    color: #1e383c;
+}
+
+#id_default_state option::first-child {
+    color: #c3ccd3;
+}
+
 select,
 select option {
     color: #000000;
