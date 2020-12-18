@@ -44,6 +44,11 @@ header {
     font-weight: 400; 
 }
 
+body {
+    font-family: var(--ff-roboto);
+    color: var(--clr-palettedkblue);
+}
+
 .headline {
     font-family: var(--ff-caslon);
     font-weight: 500;
@@ -111,8 +116,12 @@ nav-link:focus, nav-link:hover {
     color: var(--clr-logoblue) !important;
 }
 
-a {
-    color: var(--clr-palettegray);
+a, .nav-link {
+    color: var(--clr-paletteltblue) !important;
+}
+
+a:hover, a:active, .nav-link:hover, .nav-link:active  {
+    color: var(--clr-logoblue) !important;
 }
 
 .card img {
@@ -203,7 +212,6 @@ a {
 
 #top-nav-header.navbar-collapse {
     background: var(--clr-paletteblush);
-    color: var(--clr-logoblue);
 }
 
 #top-nav-header, ul.navbar-nav {
@@ -220,15 +228,22 @@ ul.navbar-nav {
 
 #top-nav-header a {
     font-family: var(--ff-caslon) !important;
-    color: var(--clr-logoblue) !important;
 }
 
 #topnav.row {
     margin-bottom: 0rem !important;
 }
 
+.dropdown .dropdown-menu .dropdown-item:hover, .dropdown .dropdown-menu .dropdown-item:active, .dropup .dropdown-menu .dropdown-item:hover, .dropup .dropdown-menu .dropdown-item:active, .dropleft .dropdown-menu .dropdown-item:hover, .dropleft .dropdown-menu .dropdown-item:active, .dropright .dropdown-menu .dropdown-item:hover, .dropright .dropdown-menu .dropdown-item:active {
+    background-color: var(--clr-palettegray);
+}
+
 .side-nav2 .collapsible a {
-    width: 175px;
+    width: fit-content;
+}
+
+.side-nav2.collapsible-header li i {
+    text-align: right;
 }
 
 /*------- Shopping Cart ------*/

@@ -1,0 +1,32 @@
+Hi {{ order.bill_full_name }},
+
+Thank you for shopping at Janericllc.com!
+
+Your order is confirmed and details are listed below. If you have any questions, please contact us at {{ contact_email }}.
+
+Sincerely,
+
+Janeric LLC
+
+
+Order placed on {{ order.order_date }}
+Order Number:  {{ order.order_date }}
+
+Order details
+
+BILLING ADDRESS
+{{ order.bill_full_name }}
+{{ order.bill_street_address1 }}
+{{ order.bill_city }}, {{ order.bill_state }}  {{ order.bill_zipcode }}
+{{ order.bill_phone_number }}
+
+SHIPPING ADDRESS
+{{ order.ship_full_name }}
+{{ order.ship_street_address1 }}
+{{ order.ship_city }}, {{ order.ship_state }}  {{ order.ship_zipcode }}
+{{ order.ship_phone_number }}
+
+ORDER SUMMARY
+Order Subtotal:  ${{ order.order_total }}
+Shipping:  ${{ order.shipping_cost }}
+Order Total:  ${{ order.grand_total }}

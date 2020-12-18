@@ -51,6 +51,9 @@
                     <div class="col-12 col-md-7">
                         <p class="text-uppercase text-left">Shipping Address</p>
                         <p class="mb-0 text-left">{{ order.ship_full_name }}</p>
+                        {% if order.ship_comp_name %}
+                            <p class="mb-0 text-left">{{ order.ship_comp_name }}</p>
+                        {% endif %}
                         <p class="mb-0 text-left">{{ order.ship_street_address1 }}</p>
                         {% if order.ship_street_address2 %}
                             <p class="mb-0 text-left">{{ order.ship_street_address2 }}</p>
@@ -60,7 +63,9 @@
                     </div>
                     <div class="col-12 col-md-5 pb-2">
                         <p class="text-uppercase text-left">Billing Address</p>
-                        <p class="mb-0 text-left">{{ order.bill_full_name }}</p>
+                        {% if order.bill_full_name %}
+                            <p class="mb-0 text-left">{{ order.bill_full_name }}</p>
+                        {% endif %}
                         <p class="mb-0 text-left">{{ order.bill_street_address1 }}</p>
                         {% if order.bill_street_address2 %}
                             <p class="mb-0 text-left">{{ order.bill_street_address2 }}</p>
@@ -137,7 +142,7 @@
                         <div class="col-12 col-lg-7 text-right mb-5">
                             {% if from_profile %}
                                 <a href="{% url 'profile' %}" class="btn btn-medblue my-2">
-                                    <span class="text-uppercase">Profile</span>
+                                    <span class="text-uppercase">Return to Profile</span>
                                 </a>
                             {% endif %}
                         </div>

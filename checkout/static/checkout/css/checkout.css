@@ -110,5 +110,4 @@ select option[value=""] {
 
 .form-check-input[type="checkbox"]+label, label.btn input[type="checkbox"]+label {
     font-size: 0.9rem;
-    margin-left: -33rem;
 }

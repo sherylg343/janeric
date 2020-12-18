@@ -21,3 +21,8 @@
 #id_default_state option::first-child {
     color: #c3ccd3;
 }
+
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}

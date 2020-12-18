@@ -12,9 +12,9 @@ var style = {
         color: '#1e383c',
         fontFamily: '"Roboto", sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '12px',
         '::placeholder': {
-            color: '#aab7c4'
+            color: '#c3ccd3'
         }
     },
     invalid: {
@@ -49,15 +49,6 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    var saveInfo = Boolean($('#id-save-info').attr('checked'));
-    // From using {% csrf_token %} in the form
-    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    var postData = {
-        'csrfmiddlewaretoken': csrfToken,
-        'client_secret': clientSecret,
-        'save_info': saveInfo,
-    };
-
    var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -86,8 +77,8 @@ form.addEventListener('submit', function(ev) {
                 }    
             },
             shipping: {
-                name: $.trim(form.full_name.value),
-                phone: $.trim(form.phone_number.value),
+                name: $.trim(form.ship_full_name.value),
+                phone: $.trim(form.ship_phone_number.value),
                 address: {
                     line1: $.trim(form.ship_street_address1.value),
                     line2: $.trim(form.ship_street_address2.value),
@@ -122,18 +113,18 @@ form.addEventListener('submit', function(ev) {
 });
 
 //make state select placeholder gray
-const stateSelected = $('#id_ship_state').val();
-if(!stateSelected) {
-    $('#id_ship_state').css('color', '#c3ccd3');
-};
-$('#id_ship_state').change(function() {
-     stateSelected = $(this).val();
-    if(! stateSelected) {
-        $(this).css('color', '#c3ccd3');
-    } else {
-        $(this).css('color', '#47646f');
-    }
-});
+//const stateSelected = $('#id_ship_state').val();
+//if(!stateSelected) {
+//    $('#id_ship_state').css('color', '#c3ccd3');
+//};
+//$('#id_ship_state').change(function() {
+//     stateSelected = $(this).val();
+//    if(! stateSelected) {
+//        $(this).css('color', '#c3ccd3');
+//    } else {
+//        $(this).css('color', '#47646f');
+//    }
+//});
 
 //MD Bootstrap payment stepper
 $(document).ready(function () {
