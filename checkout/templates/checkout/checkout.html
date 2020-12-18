@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p class="checkout-subhead small text-left ml-2">
+                        <p class="checkout-subhead small text-left mt-3 ml-5">
                             Cart  >  Information  >  Shipping  >  Payment
                         </p>
                         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
@@ -129,7 +129,7 @@
                                                         <p class="small text-left">Save my information for a quicker checkout next time</p>
                                                         <p>
                                                             <div class="form-check float-left">
-                                                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
                                                                 <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
                                                             </div>
                                                         </p>
@@ -139,9 +139,6 @@
                                                 </div>
                                             </div>
                                             <div class="step-actions">
-                                                <span class="small text-left">
-                                                    <a href="{% url 'view_cart' %}" class="cart-continues">Return to Cart</a> 
-                                                </span>
                                                 <button class="float-right waves-effect waves-dark btn btn-sm bg-ltblue  white-text next-step">CONTINUE</button>
                                             </div>
                                         </div>

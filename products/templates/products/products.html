@@ -50,15 +50,12 @@
                                         </a>
                                         {% endif %}
                                         <div class="card-body">
-                                            {% if product.category %}
-                                                <h7 class="blue-ltblue pb-2 pt-1">{{ product.category.name }}</h7>
-                                            {% endif %}
-                                            <h6 class="font-weight-bold card-title pb-3">{{ product.name }}</h6>
+                                            <h6 class="font-weight-bold card-title pb-3">{{ product.product_family.name }}</h6>
                                             <p class="mb-0">Size: {{ product.size }}</p>
                                             <p class="mb-0">Pack: {{ product.pack }}</p>
                                             <p class="mb-0">Price: $ {{ product.price }}</p>
                                         </div>
-                                        <div class="card-footer text-center mt-4">
+                                        <div class="card-footer text-center">
                                             <a href="{% url 'product_detail' product.id %}" class="btn bg-ltblue white-text">View</a>
                                         </div>
                                     </div>

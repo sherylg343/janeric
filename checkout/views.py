@@ -10,8 +10,6 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from cart.contexts import cart_contents
 
-from cart.contexts import cart_contents
-
 import stripe
 import json
 
@@ -43,13 +41,14 @@ def checkout(request):
         form_data = {
             'ship_full_name': request.POST['ship_full_name'],
             'email': request.POST['email'],
-            'ship_comp_name': request.POST('ship_comp_name'),
+            'ship_comp_name': request.POST['ship_comp_name'],
             'ship_phone_number': request.POST['ship_phone_number'],
             'ship_street_address1': request.POST['ship_street_address1'],
             'ship_street_address2': request.POST['ship_street_address2'],
             'ship_city': request.POST['ship_city'],
             'ship_state': request.POST['ship_state'],
             'ship_zipcode': request.POST['ship_zipcode'],
+            'bil_full_name': request.POST['bill_full_name'],
             'bill_phone_number': request.POST['bill_phone_number'],
             'bill_street_address1': request.POST['bill_street_address1'],
             'bill_street_address2': request.POST['bill_street_address2'],

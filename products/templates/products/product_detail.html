@@ -19,6 +19,9 @@
                     <div class="col-10 offset-1">
                         <h5 class="headline mb-2">{{ product.product_family }}</h5>
                         <h6 class="headline text-gray mb-5"><strong>{{ product.product_family.brand_name }}</strong></h6>
+                        <p class="text-right mr-2">
+                            <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
+                        </p>
                     </div> 
                 </div>
                 <div class="row">

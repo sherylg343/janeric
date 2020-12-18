@@ -107,3 +107,8 @@ select option[value=""] {
     text-transform: uppercase;
     color: var(--clr-palettemedblue);
 }
+
+.form-check-input[type="checkbox"]+label, label.btn input[type="checkbox"]+label {
+    font-size: 0.9rem;
+    margin-left: -33rem;
+}
