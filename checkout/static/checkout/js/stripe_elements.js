@@ -12,7 +12,7 @@ var style = {
         color: '#1e383c',
         fontFamily: '"Roboto", sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '12px',
+        fontSize: '14px',
         '::placeholder': {
             color: '#c3ccd3'
         }
@@ -57,6 +57,7 @@ form.addEventListener('submit', function(ev) {
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
+    console.log(postData)
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {

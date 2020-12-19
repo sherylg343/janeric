@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "checkout.middleware.TimezoneMiddleware", #for local timezone code
 ]
 
 ROOT_URLCONF = 'janeric.urls'
@@ -82,6 +83,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 "django.template.context_processors.media",
                 'cart.contexts.cart_contents',
+                ### other context_processors
+                "checkout.context_processors.common_variables", #for local timezone code
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -160,6 +163,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CLIENT_DEFAULT_TIME_ZONE = 'America/Los_Angeles'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

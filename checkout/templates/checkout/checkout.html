@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-12">
                         <p>
-                            <h5 class="headline ml-4 mb-3">Checkout</h5>
+                            <h5 id="checkout" class="headline ml-4 mb-3">Checkout</h5>
                         </p>
                         <p class="text-right mr-2">
                             <a href="{% url 'view_cart' %}" class="cart-continues">Return to Cart</a>  
@@ -84,14 +84,28 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p class="checkout-subhead small text-left mt-3 ml-5">
-                            Cart  >  Information  >  Shipping  >  Payment
-                        </p>
+                        <ul class="checkout-subhead list-unstyled text-left mt-3 ml-3 d-inline-flex">
+                           <li class="pr-2">
+                               Checkout
+                            </li> 
+                           <li class="pr-2"> > </li>
+                           <li class="pr-2">
+                               <a href="#contact">Contact</a>
+                            </li>
+                           <li class="pr-2"> > </li>
+                           <li class="pr-2">
+                               <a href="#contact">Shipping</a>
+                            </li>    
+                           <li class="pr-2"> > </li>
+                            <li>
+                                 <a href="#pymt">Payment</a>
+                            </li>
+                        </ul>
                         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                             {% csrf_token %}
                                 <ul class="stepper linear">
-                                    <li class="step active">
-                                        <div data-step-label="Contact Information" class="step-title waves-effect waves-light"></div>
+                                    <li id="contact" class="step active">
+                                        <div data-step-label="Contact" class="step-title waves-effect waves-light"></div>
                                         <div class="step-new-content">
                                             <div class="row">
                                                 <div class="md-form col-12 ml-auto">
@@ -109,8 +123,8 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="step">
-                                        <div data-step-label="Shipping Information"  class="step-title waves-effect waves-dark"></div>
+                                    <li id="shipping" class="step">
+                                        <div data-step-label="Shipping" class="step-title waves-effect waves-dark"></div>
                                         <div class="step-new-content">
                                             <div class="row">
                                                 <div class="md-form col-12 ml-auto">
@@ -137,12 +151,12 @@
                                                 </div>
                                             </div>
                                             <div class="step-actions">
-                                                <button class="float-right waves-effect waves-dark btn btn-sm bg-ltblue  white-text next-step">CONTINUE</button>
+                                                <button class="float-right waves-effect waves-dark btn btn-sm bg-ltblue white-text next-step">CONTINUE</button>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="step">
-                                        <div data-step-label="Payment Information"  class="step-title waves-effect waves-dark"></div>
+                                    <li id="pymt" class="step">
+                                        <div data-step-label="Payment"  class="step-title waves-effect waves-dark"></div>
                                         <div class="step-new-content">
                                             <div class="row">
                                                 <div class="md-form col-12 ml-auto">
@@ -215,4 +229,6 @@
     })
     </script>
 {% endblock %}
+
+#id_stripe_public_key
 

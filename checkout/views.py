@@ -20,6 +20,7 @@ import json
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
+        print(pid)
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
@@ -27,10 +28,12 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
+        print(HttpResponse)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+        print(HttpResponse)
 
 
 def checkout(request):
@@ -63,6 +66,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
+            print(pid)
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
@@ -105,6 +109,7 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
+    print(intent)
 
     # Attempt to prefill the form with any info
     # the user maintains in their profile
@@ -163,9 +168,11 @@ def checkout_success(request, order_number):
         order.save()
 
         # Save the user's info
-        if save_info:    
+        if save_info:
+            profile.defaultship_full_name = order.ship_full_name
             profile.defaultship_comp_name = order.ship_comp_name
             profile.defaultship_street_address1 = order.ship_street_address1
+            profile.defaultship_street_address2 = order.ship_street_address2
             profile.defaultship_city = order.ship_city
             profile.defaultship_state = order.ship_state
             profile.defaultship_zipcode = order.ship_zipcode

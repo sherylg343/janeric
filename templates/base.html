@@ -200,6 +200,9 @@
             var ps = new PerfectScrollbar(sideNavScrollbar);
             //Activate Toast Messages
             $('.toast').toast('show');
+            //Detect client time zone
+            const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.cookie = 'timezone=' + encodeURIComponent(timeZoneName) + '; path=/';
         });
     </script> 
   </body>
