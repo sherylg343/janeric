@@ -3,6 +3,8 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.http.response import JsonResponse  # new
+from django.views.decorators.csrf import csrf_exempt  # new
 
 from .forms import USZipCodeField, USStateSelect, OrderForm
 from .models import Order, OrderLineItem
@@ -14,6 +16,13 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
+
+
+@csrf_exempt
+def stripe_config(request):
+    if request.method == 'GET':
+        stripe_config = {'stripePublicKey': settings.STRIPE_PUBLIC_KEY}
+        return JsonResponse(stripe_config, safe=False)
 
 
 @require_POST
