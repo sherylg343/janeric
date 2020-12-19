@@ -8,6 +8,7 @@ class OrderForm(forms.ModelForm):
     bill_zipcode = USZipCodeField()
     """ Widget code from Nafees Anwar on stackoverflow 4/30/19 """
     ship_state = forms.CharField(widget=USStateSelect)
+    bill_state = forms.CharField(widget=USStateSelect)
 
     class Meta:
         model = Order

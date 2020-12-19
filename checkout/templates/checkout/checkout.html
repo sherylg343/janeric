@@ -115,7 +115,6 @@
                                             <div class="row">
                                                 <div class="md-form col-12 ml-auto">
                                                 <fieldset class="rounded px-3 mb-5">
-                                                    <legend class="fieldset-label small text-left px-2 w-auto">Shipping Information</legend>
                                                     {{ order_form.ship_full_name | as_crispy_field }}
                                                     {{ order_form.ship_comp_name | as_crispy_field }}
                                                     {{ order_form.ship_street_address1 | as_crispy_field }}
@@ -124,17 +123,16 @@
                                                     {{ order_form.ship_state | as_crispy_field }}
                                                     {{ order_form.ship_zipcode | as_crispy_field }}
                                                     {{ order_form.ship_phone_number | as_crispy_field }}
-                                                    <div class="form-check form-check-inline mr-0 float-left">
-                                                        {% if user.is_authenticated %}
-                                                        <p class="small text-left">Save my information for a quicker checkout next time</p>
-                                                        <p>
-                                                            <div class="form-check float-left">
-                                                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
-                                                                <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
-                                                            </div>
+                                                    
+                                                    {% if user.is_authenticated %}
+                                                        <p class="small text-left mb-0">Save my information for a quicker checkout next time
                                                         </p>
-                                                        {% endif %}
-                                                    </div>
+                                                        <div class="form-check text-left mt-0">
+                                                            <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info">
+                                                            <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
+                                                        </div>
+                                                    {% endif %}
+                                                 
                                                 </fieldset>
                                                 </div>
                                             </div>
@@ -148,8 +146,11 @@
                                         <div class="step-new-content">
                                             <div class="row">
                                                 <div class="md-form col-12 ml-auto">
+                                                    <div class="form-check text-left mt-0">
+                                                        <input class="form-check-input" type="checkbox" id="id-same-as-ship" name="same-as-ship">
+                                                        <label class="form-check-label small text-dkblue mb-4" for="id-same-as-ship">Same as shipping address</label>
+                                                    </div>
                                                 <fieldset class="rounded px-3 mb-5">
-                                                    <legend class="fieldset-label small text-left px-2 w-auto">Billing Information</legend>
                                                     {{ order_form.bill_full_name | as_crispy_field }}
                                                     {{ order_form.bill_street_address1 | as_crispy_field }}
                                                     {{ order_form.bill_street_address2 | as_crispy_field }}

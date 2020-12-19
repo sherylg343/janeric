@@ -113,10 +113,11 @@ form.addEventListener('submit', function(ev) {
 });
 
 //make state select placeholder gray
-//const stateSelected = $('#id_ship_state').val();
+//let stateSelected = $('#id_ship_state').val();
 //if(!stateSelected) {
 //    $('#id_ship_state').css('color', '#c3ccd3');
 //};
+
 //$('#id_ship_state').change(function() {
 //     stateSelected = $(this).val();
 //    if(! stateSelected) {
@@ -126,7 +127,60 @@ form.addEventListener('submit', function(ev) {
 //    }
 //});
 
-//MD Bootstrap payment stepper
+let shipFullName = $('#id_ship_full_name');
+let shipStreet1 = $('#id_ship_street_address1');
+let shipStreet2 = $('#id_ship_street_address2');
+let shipCity =  $('#id_ship_city');
+let shipState =  $('#id_ship_state');
+let shipZipCode = $('#id_ship_zipcode');
+let shipPhone = $('#id_ship_phone_number');
+let billFullName = $('#id_bill_full_name');
+let billStreet1 = $('#id_bill_street_address1');
+let billStreet2 = $('#id_bill_street_address2');
+let billCity = $('#id_bill_city');
+let billState = $('#id_bill_state');
+let billZipCode = $('#id_bill_zipcode');
+let billPhone = $('#id_bill_phone_number');
+
 $(document).ready(function () {
+    //MD Bootstrap payment stepper
     $('.stepper').mdbStepper();
+
+    //Add gray to SelectState when page loads and change when selected
+    $(shipState).css('color', '#c3ccd3');
+
+    $(shipState).change(function () {
+       $(shipState).css('color', '#47646f'); 
+    })
+
+    $(billState).css('color', '#c3ccd3');
+
+    $(billState).change(function () {
+       $(billState).css('color', '#47646f'); 
+    })
+    
 })
+
+$('input[name=same-as-ship]:checkbox').change(
+    function() {
+        if ($(this).is(':checked')) {
+            billFullName.val(shipFullName.val());
+            billStreet1.val(shipStreet1.val());
+            billStreet2.val(shipStreet2.val());
+            billCity.val(shipCity.val());
+            billState.val(shipState.val());
+            billZipCode.val(shipZipCode.val());
+            billPhone.val(shipPhone.val());
+        } else {
+            billFullName.val("");
+            billStreet1.val("");
+            billStreet2.val("");
+            billCity.val("");
+            billState.val("");
+            billZipCode.val("");
+            billPhone.val("");
+        }
+        $
+    })
+
+

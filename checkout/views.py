@@ -114,7 +114,6 @@ def checkout(request):
             order_form = OrderForm(initial={
                 'ship_full_name': profile.defaultship_full_name,
                 'email': profile.user.email,
-                'defaultship_comp_name': profile.user.defaultship_comp_name,
                 'ship_street_address1': profile.defaultship_street_address1,
                 'ship_street_address2': profile.defaultship_street_address2,
                 'ship_city': profile.defaultship_city,
@@ -164,19 +163,14 @@ def checkout_success(request, order_number):
         order.save()
 
         # Save the user's info
-        if save_info:
-            profile_data = {
-                'defaultship_full_name': order.ship_full_name,
-                'defaultship_street_address1': order.ship_street_address1,
-                'default_street_address2': order.ship_street_address2,
-                'defaultship__city': order.ship_city,
-                'defaultship_state': order.ship_state,
-                'defaultship_postcode': order.ship_zipcode,
-                'defaultship_phone_number': order.ship_phone_number,
-            }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
+        if save_info:    
+            profile.defaultship_comp_name = order.ship_comp_name
+            profile.defaultship_street_address1 = order.ship_street_address1
+            profile.defaultship_city = order.ship_city
+            profile.defaultship_state = order.ship_state
+            profile.defaultship_zipcode = order.ship_zipcode
+            profile.defaultship_phone_number = order.ship_phone_number
+            profile.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
