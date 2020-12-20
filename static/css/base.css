@@ -110,6 +110,11 @@ body {
 #cart-empty p {
     margin-left: 4rem;
 }
+
+.form-border {
+    border: 1px solid #1e383c;
+}
+
 /* ----- Images, Buttons, Links ----*/
 a:hover, a:focus,
 nav-link:focus, nav-link:hover {
