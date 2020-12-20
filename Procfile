@@ -1,1 +1,1 @@
-web: gunicorn janeric.wsgi.application
+web: gunicorn janeric.wsgi:application
