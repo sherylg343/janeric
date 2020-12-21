@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="col-10 offset-1 col-md-5 col-lg-4 offset-lg-1">
+                    <div class="col-10 offset-1 col-md-3 col-lg-4 offset-lg-1">
                         <div id="detail-image" class="image-container my-5">
                             {% if product.image %}
                                 <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
@@ -38,11 +38,11 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-10 offset-1 col-md-5 col-lg-4 offset-lg-1">
+                    <div class="col-10 offset-1 col-md-7 col-lg-6 offset-lg-1">
                         <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
-                                <div id="product-selector" class="col-10 col-md-5">
+                                <div id="product-selector" class="col-10 col-md-5 mt-3">
                                      <select id="prod-detail-select" class="mdb-select md-form">
                                         <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{{ product.size }}, Pack of {{ product.pack }} - ${{ product.price }}</option>
                                         {% for item in family_products %}
