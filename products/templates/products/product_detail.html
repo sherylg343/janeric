@@ -16,7 +16,7 @@
             </div>
             <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 pt-5 head-row mb-5">
                 <div class="row">
-                    <div class="col-10 offset-1">
+                    <div class="col-10 offset-1 mt-4">
                         <h5 class="headline mb-2">{{ product.product_family }}</h5>
                         <h6 class="headline text-gray mb-5"><strong>{{ product.product_family.brand_name }}</strong></h6>
                         <p class="text-right mr-2">
@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="col-10 offset-1 col-md-3 col-lg-4 offset-lg-1">
+                    <div class="col-10 offset-1 col-md-5 col-lg-4 offset-lg-1">
                         <div id="detail-image" class="image-container my-5">
                             {% if product.image %}
                                 <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
@@ -38,7 +38,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-10 offset-1 col-md-7 col-lg-6 offset-lg-1">
+                    <div class="col-10 offset-1 col-md-5 col-lg-6 offset-lg-1 mt-md-5">
                         <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
@@ -80,7 +80,7 @@
                         </form>
                         </div>
                          <div class="row"> 
-                            <div class="col-8 mt-2 offset-2 col-md-5 offset-md-0 col-lg-4">
+                            <div class="col-8 mt-2 offset-2 col-md-4 offset-md-4">
                                 <div class="product-details-container mt-md-5 text-left">
                                     <p>{{ product.description | linebreaks }}</p>
                                 </div>
