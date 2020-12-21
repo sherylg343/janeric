@@ -4,10 +4,11 @@
         <div class="row input-group">
             <div class="col-10 offset-1">
                 <div class="def-number-input number-input cart safari_only mb-5">
-                    <button id="decrement-qty2_{{ item.product_id }}" data-item_id="{{ item.product_id }}" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;" class="minus decrement-qty update-link"></button>
+                    <button id="decrement-qty2_{{ item.product_id }}" data-item_id="{{ item.product_id }}" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;" class="minus decrement-qty"></button>
                     <input class="form-control form-control-sm quantity qty_input" name="quantity" value="{{ item.quantity }}" min="1" max="99" type="number" data_item_id="{{ item.product_id }}" id="id_qty2_{{ item.product_id }}">
-                    <button id="increment-qty2_{{ item.product_id }}" data-item_id="{{ item.product_id }}" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;" class="plus increment-qty update-link"></button>
+                    <button id="increment-qty2_{{ item.product_id }}" data-item_id="{{ item.product_id }}" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;" class="plus increment-qty"></button>
                 </div> 
+                <a class="update-link"><small>Update</small></a> 
             </div>
         </div>
     </div>
