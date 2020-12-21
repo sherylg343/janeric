@@ -75,15 +75,12 @@
                             {% endif %}
                             <input type="hidden" id="redirect-url" name="redirect_url" value="{{ request.path }}">
                             <input type="hidden" id="selected-product-id" name="product_id" value="{{ product.id }}">
-                        </form>
-                        </div>
-                         <div class="row"> 
                             <div class="col-8 mt-2 offset-2">
                                 <div class="product-details-container mt-md-5 text-left">
                                     <p>{{ product.description | linebreaks }}</p>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <div class="col-12 mt-3 mb-5">
                         </div>
                     </div> 
