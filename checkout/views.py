@@ -28,13 +28,11 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
-        print("success")
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
-        print(HttpResponse)
 
 
 def checkout(request):
@@ -67,7 +65,6 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            print(pid)
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
@@ -110,7 +107,6 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-    print(intent)
 
     # Attempt to prefill the form with any info
     # the user maintains in their profile
