@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="col-10 offset-1 col-md-5 col-lg-4 offset-lg-1">
+                    <div class="col-10 offset-1 col-lg-4 offset-lg-1">
                         <div id="detail-image" class="image-container my-5">
                             {% if product.image %}
                                 <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
@@ -38,7 +38,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-10 offset-1 col-md-5 col-lg-6 offset-lg-1 mt-md-5">
+                    <div class="col-10 offset-1 col-lg-6 offset-lg-1 mt-md-5">
                         <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
@@ -53,7 +53,7 @@
                                     </select>
                                     <label class="mdb-main-label"><strong>Size, Pack & Price</strong></label>
                                 </div>
-                                <div class="col-8 col-md-4 prod-detail-qty">
+                                <div class="col-8 col-lg-4 prod-detail-qty">
                                     <label for="quantity1"><strong>Quantity  </strong>
                                     </label>
                                     <div class="def-number-input number-input safari_only mb-5">
@@ -64,19 +64,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-large btn-ltblue white-text">Add to Cart</button>
-                                </div>
-                                {% if request.user.is_superuser %}
-                                    <small class="col-12 mt-3 text-center ml-3">
-                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                    </small>
-                                {% endif %}
-                                <input type="hidden" id="redirect-url" name="redirect_url" value="{{ request.path }}">
-                                <input type="hidden" id="selected-product-id" name="product_id" value="{{ product.id }}">
+                            <div class="col-10 offset-1 text-center">
+                                <button type="submit" class="btn btn-large btn-ltblue white-text">Add to Cart</button>
                             </div>
+                            {% if request.user.is_superuser %}
+                                <small class="col-12 mt-3 text-center ml-3">
+                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                </small>
+                            {% endif %}
+                            <input type="hidden" id="redirect-url" name="redirect_url" value="{{ request.path }}">
+                            <input type="hidden" id="selected-product-id" name="product_id" value="{{ product.id }}">
                         </form>
                         </div>
                          <div class="row"> 
