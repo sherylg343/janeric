@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="col-10 offset-1 col-lg-4 offset-lg-1">
+                    <div class="col-10 offset-1 col-md-3 col-lg-4 offset-lg-1">
                         <div id="detail-image" class="image-container my-5">
                             {% if product.image %}
                                 <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
@@ -38,7 +38,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-10 offset-1 col-lg-6 offset-lg-1 mt-md-5">
+                    <div class="col-10 offset-1 col-md-9 col-lg-6 offset-lg-1 mt-md-5">
                         <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
@@ -53,7 +53,7 @@
                                     </select>
                                     <label class="mdb-main-label"><strong>Size, Pack & Price</strong></label>
                                 </div>
-                                <div class="col-8 col-lg-4 prod-detail-qty">
+                                <div class="col-8 col-md-9 col-lg-4 prod-detail-qty">
                                     <label for="quantity1"><strong>Quantity  </strong>
                                     </label>
                                     <div class="def-number-input number-input safari_only mb-5">
@@ -78,7 +78,7 @@
                         </form>
                         </div>
                          <div class="row"> 
-                            <div class="col-8 mt-2 offset-2 col-md-4 offset-md-4">
+                            <div class="col-8 mt-2 offset-2">
                                 <div class="product-details-container mt-md-5 text-left">
                                     <p>{{ product.description | linebreaks }}</p>
                                 </div>
