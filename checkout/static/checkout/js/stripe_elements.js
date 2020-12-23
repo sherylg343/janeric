@@ -113,20 +113,6 @@ form.addEventListener('submit', function(ev) {
     })   
 });
 
-//make state select placeholder gray
-//let stateSelected = $('#id_ship_state').val();
-//if(!stateSelected) {
-//    $('#id_ship_state').css('color', '#c3ccd3');
-//};
-
-//$('#id_ship_state').change(function() {
-//     stateSelected = $(this).val();
-//    if(! stateSelected) {
-//        $(this).css('color', '#c3ccd3');
-//    } else {
-//        $(this).css('color', '#47646f');
-//    }
-//});
 
 let shipFullName = $('#id_ship_full_name');
 let shipStreet1 = $('#id_ship_street_address1');
@@ -160,9 +146,7 @@ $(document).ready(function () {
        $(billState).css('color', '#47646f'); 
     })
     
-})
-
-$('input[name=same-as-ship]:checkbox').change(
+    $('input[name=same-as-ship]:checkbox').change(
     function() {
         if ($(this).is(':checked')) {
             billFullName.val(shipFullName.val());
@@ -181,7 +165,9 @@ $('input[name=same-as-ship]:checkbox').change(
             billZipCode.val("");
             billPhone.val("");
         }
-        $
     })
+})
+
+
 
 
