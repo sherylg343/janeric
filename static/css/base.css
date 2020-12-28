@@ -63,6 +63,7 @@ body {
     text-transform: uppercase;
     color: var(--clr-palettedkblue);
     text-align: left;
+    padding-bottom: 1rem;
 }
 
 .text-navy {
