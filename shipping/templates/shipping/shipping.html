@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+    
+{% block page_header %}
+<div class="container header-container">
+  <div class="row mt-5 mb-5">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %} 
+
+
+{% block content %}
+    <div class="container-fluid" id="cart-container">
+        <div class="row">
+            <div id="cart-top-section" class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
+                {% include 'includes/side-menu.html' %}
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            <h5 class="headline mb-3">Shipping Information</h5>
+                        </p>
+                        <p class="text-right mr-2">
+                            <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Terms and Conditions</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            Orders are processed between 3-5 business days*. Janeric will contact you if an item is out of stock or if additional information is required for credit verification.
+                        </p>
+                        <p>
+                            *Note: Orders placed after Friday after 9:00amPST or over the weekend will not begin being processed until the following Monday. Our hours of operation are Monday through Friday. We are closed on all major holidays.
+                        </p>
+                        <p>
+                            Janeric is not responsible for lost or stolen packages that are confirmed delivered by tracking. The customer is responsible for any loss or damage of these items. 
+                        </p>
+                        <p>
+                            Still have questions? See 
+                            <a href="">Terms and Conditions</a>
+                            for more details.
+                        </p>
+                        <p>
+                            If you have any questions regarding your order, please do contact Janeric at 
+                            <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Rates and Delivery</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            If you wish to expedite your order, please do contact Janeric at 
+                            <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a>
+                        </p>
+                        <p>
+                            Where a single order results in multiple shipments, the shipping and handling will be calculated based on the items included in each shipment.
+                        </p>
+                        <p>
+                            When an order is shipped to multiple addresses, shipping and handling will be calculated separately for each address. Additional charges for Overnight and 2-Day Express will apply to each shipping address.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Domestic(contiguous United States)</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            All orders are shipped via ________ (FedEx or UPS?)
+                        </p>
+                        <p>
+                           Once your order has been shipped, you will receive an email with your tracking number. Please allow up to 24 hours for your tracking number to show any updates.
+                        </p>
+                        <p>
+                            Orders usually arrive within 7–10 business days (in-stock items only).
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">International</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            We are currently not offering international shipping. Please check back in at a later date for any updates. We apologize for any inconvenience. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

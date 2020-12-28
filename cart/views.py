@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 
 from django.contrib import messages
 
@@ -50,7 +51,7 @@ def adjust_cart(request, product_id):
 
 
 def remove_from_cart(request, product_id):
-    """Remove the item from the shopping bag"""
+    """Remove the item from the shopping cart"""
 
     try:
         product = get_object_or_404(Product, pk=product_id)

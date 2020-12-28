@@ -55,6 +55,15 @@ body {
     color: var(--clr-palettedkblue);
 }
 
+.subhead {
+    font-family: var(--ff-barlow);
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: var(--clr-palettedkblue);
+}
+
 .text-navy {
     color: var(--clr-palettedkblue);
 }
