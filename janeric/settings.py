@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'phone_field',
     'storages',
     'shipping',
+    'terms',
 ]
 
 MIDDLEWARE = [

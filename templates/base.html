@@ -178,7 +178,7 @@
         <div class="text-center footer-main d-flex justify-content-around">
             <div class="row">
                 <div class="col-6 pt-2">
-                    <ul class="list-unstyled mb-0 mt-4 mx-auto float-left">
+                    <ul class="list-unstyled mb-0 mt-4 mx-auto justify-content-start">
                         <li class="mb-3">
                             <h7 class="headline text-uppercase"><strong>Enquiries</strong></h7>
                         </li>
@@ -200,10 +200,10 @@
                             <h7 class="headline text-uppercase"><strong>Information</strong></h7>
                         </li>
                         <li class="mb-3">
-                           <a href="#"><strong>Shipping Information</strong></a> 
+                           <a href="{% url 'shipping' %}"><strong>Shipping</strong></a> 
                         </li>
                         <li>
-                           <a href="#"><strong>Terms & Conditions</strong></a>  
+                           <a href="{% url 'terms' %}"><strong>Terms & Conditions</strong></a>  
                         </li>
                     </ul>   
                 </div>

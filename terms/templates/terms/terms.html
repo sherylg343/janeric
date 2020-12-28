@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+    
+{% block page_header %}
+<div class="container header-container">
+  <div class="row mt-5 mb-5">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %} 
+
+
+{% block content %}
+    <div class="container-fluid" id="cart-container">
+        <div class="row">
+            <div id="cart-top-section" class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
+                {% include 'includes/side-menu.html' %}
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            <h5 class="headline mb-3">Terms and Conditions</h5>
+                        </p>
+                        <p class="text-right mr-2">
+                            <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            Janeric, LLC. Does not offer returns. All sales are final. 
+                        </p>
+                        <p>
+                            If you received a faulty or damaged item from our online store, please contact us at 
+                            <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Products</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                          Descriptions for our products are subject to change without notice.  
+                        </p>
+                        <p>
+                            Even though Janeric, LLC.  tries to be as precise as possible, we do not warrant that our products descriptions and/or content of this website are error free. We recommend you contact us at <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a> prior to you purchasing the product(s) with any questions you might have regarding the specific item.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Pricing</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            Prices for our products are subject to change without notice. 
+                            Janeric does not offer price adjustments or price matching. 
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Payment Options</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            We accept American Express, Visa, Master Card and Discover credit card payments.
+                        </p>
+                        <p>
+                            We do not accept personal checks, money orders, direct bank deposits or PayPal.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Verification Upon Shipping</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            Please ensure that you are using the same billing address and contact information as it appears on your credit statement. If your information does not match, your order may be delayed or cancelled.  When specifying shipping address, please ensure the information is correct, or your order will be delayed or cancelled.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <h7 class="subhead">Order Modifications and Cancellations</h7>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <p>
+                            Once an order is submitted, it can not be modified or cancelled.
+                        </p>
+                        <p>
+                            Multiple orders can not be combined.
+                        </p>
+                        <p>
+                            Orders will not be refunded for packages that are not accepted by the recipient upon delivery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
