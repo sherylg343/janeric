@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'storages',
     'shipping',
     'terms',
+    'about',
 ]
 
 MIDDLEWARE = [
