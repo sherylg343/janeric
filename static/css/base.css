@@ -271,7 +271,7 @@ ul.navbar-nav {
 }
 
 .side-nav2 .collapsible a {
-    width: fit-content;
+    width: 12rem;
 }
 
 .side-nav2.collapsible-header li i {
