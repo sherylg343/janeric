@@ -1,45 +1,97 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+<h3 style="text-align: center">
+    <a href="https://github.com/sherylg343/janeric">
+        <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" />
+    </a>
+</h3>
 
-Welcome sherylg343,
+<h1 style="text-align: center">
+Janeric LLC Website
+</h1>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+<div style="text-align: center">
 
-## Gitpod Reminders
+[View website deployed through Heroku](https://janeric.herokuapp.com/)
+</div>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents <a name="table-of-contents"></a> 
 
-`python3 -m http.server`
+1. [Project Purpose](#purpose)
 
-A blue button should appear to click: *Make Public*,
+2. [UX](#ux)
 
-Another blue button should appear to click: *Open Browser*.
+3. [Features](#features)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+4. [Future_Goals](#future)
 
-A blue button should appear to click: *Make Public*,
+5. [Technology Used](#technology-used)
 
-Another blue button should appear to click: *Open Browser*.
+6. [Testing](#testing) - text in another document [TESTING](TESTING.md)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+7. [Deployment](#deployment)
 
-## Updates Since The Instructional Video
+8. [Credits](#credits)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+9. [Disclaimer](#disclaimer)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+[Back to Top](#table-of-contents)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Project Purpose <a name="purpose"></a> 
+Janeric LLC was formed during the beginning of the coronavirus pandemic, with 
+the goal of selling personal protective equipment in volume to organizations. 
+As an established business owner, Eric Parsells approached is wife and children
+about starting the business as a learning opportunity and a way to help 
+frontline workers.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Management intended to develop a website using BigCommerce, but accepted the 
+developer's offer to build the site for free as a final school project. The 
+purpose of the website is provide a channel to sell products to all users of 
+personal protective equipment within the United States.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Project Goals
+The primary goal of the website is to generate sales so the site needs to be 
+user-friendly and enable both established account users and guest users to 
+easily select and purchase products.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+A secondary goal for the second phase of the project is to add information 
+about the UV equipment that kills cornoviruses and other micro-organisms.  
+Since this is a product that requires a more consultative sales approach,
+the purpose of that product section on the site will be to educate and generate
+sales leads.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Target Audience
+The client states that their target audience is not segmented, it is all users
+and purchasers of personal protective equipment within the contiguous United
+States.
 
---------
+<p>
 
-Happy coding!
+[Back to Top](#Table-of-Contents)
+</p>
+---
+
+## UX <a name="ux"></a>
+
+### Targeted Visitors
+The client's targeted visitors are users and purchasers of personal protective
+equipment, with a focus on those buying for organizations. 
+
+### User Stories
+The following was based upon the user stories for the Boutique Ado project, but
+revised to fit the needs of the Janeric website.
+
+<h9 style="text-align: center">
+        <img src="{{ MEDIA_URL }}user-stories.png" alt="JANERIC" />
+</h9>
+
+<p>
+
+[Back to Top](#Table-of-Contents)
+</p>
+---
+
+
+## Features <a name="features"></a>
+
+### Use of Five Planes of UX in Project Design
+#### Strategy Plane
