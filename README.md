@@ -410,31 +410,135 @@ ALLOWED_HOSTS = ['janeric.herokuapp.com', 'localhost']
 16. Commit and push changes
 
 ### On Heroku website do the following:
-3. Click on app name and then click on Settings in menu bar at top
+1. Click on app name and then click on Settings in menu bar at top
 of page
-4. In middle of page, in "Config Vars" section, click on box that reads, 
+2. In middle of page, in "Config Vars" section, click on box that reads, 
 "Reveal Config Vars"
-5. Go to a django key generator website and obtain a django secret key
-5. Go back to the Config Vars section with be "key" and "value" input boxes. 
+3. Go to a django key generator website and obtain a django secret key
+4. Go back to the Config Vars section with be "key" and "value" input boxes. 
 For all applicable variables, such as Secret Key, database url, and Stripe 
 secret keys, and Development(True): input key and value and click "add".
-6. Once all variables have been input, click on "Deploy" in menu bar.
-7. In "Deployment Method" section, click on "GitHub"
-8. Under section heading "Search for a repository to connect to,"
+5. Once all variables have been input, click on "Deploy" in menu bar.
+6. In "Deployment Method" section, click on "GitHub"
+7. Under section heading "Search for a repository to connect to,"
 type in repository name following GitHub display name and hit return
 or the "Search" button.
-9. The name of the repo found in GitHub will be printed below,
+8. The name of the repo found in GitHub will be printed below,
 click on the "Connect" button across from it, if it is correct.
-10. The app is now connected to the specified GitHub repository.
-11. To enable automatic deployment, scroll down to "Automatic Deploys"
+9. The app is now connected to the specified GitHub repository.
+10. To enable automatic deployment, scroll down to "Automatic Deploys"
 section and click on button "Enable Automatic Deploys."
-12. In menu button, click on "Settings" and scroll down to section
+11. In menu button, click on "Settings" and scroll down to section
 titled "Domains" and you will find your domain address:
 Your app can be found at 
 [https://janeric.herokuapp.com/](https://janeric.herokuapp.com/)
-13. After instigating automatic deployment, all changes committed
+12. After instigating automatic deployment, all changes committed
 to the GitHub repository will be reflected in the deployed site on
 Heroku.
+
+### On Amazon AWS website do the following:
+1. Create an account or sign into an existing account
+2. In the Search bar next to services, search for S3 and then click on it
+3. Under "Buckets" header, click the orange button titled "Create Bucket."
+This bucket is a container to store data in S3.
+4. Under "Create Bucket" in the "General Configuration" box, type in 
+Bucket Name, suggest using same name as used for Heroku app for ease.
+5. In "Region" select input, select the region closest to your location.
+6. In the "Bucket settings for Block Public Access" box, UNCHECK the box 
+next to "Block all public access."
+7. Scroll down and check the box next to the statement "I acknowledge that 
+the current settings might result in this bucket and the objects within
+becoming public."
+8. Scroll down and click the orange "Create Bucket" button.
+9. Back on the "Buckets" page, click on the bucket name link that you just
+created.
+10. Click on the "Properties" tab across the top.
+11. Scroll down to section titled "Static website hosting" and click "Edit"
+button.
+12. Click the "Enable" button under the subtitle "Static website hosting"
+and under subtitle "Hosting type," click button next to "Host a static
+website."
+13. Scroll down to subtitle "Index document" and type in "index.html" and
+beneath subtitle "Error document" type in "error.html."
+14. Scroll down and click orange button titled "Save changes."
+15. Click on the Permissions tab to make 3 changes.
+16. Scrolling down to the "Cross-origin resource sharing (CORS)" section, click
+on "Edit" button and then type or paste in the following to provide the 
+required access between the Heroku app and the S3 bucket, then click to "Save changes":
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+17. Before making the additional changes in Permissions tab, we need to create
+a user to access the S3 bucket. To do this we will use AWS' IAM (Identity &
+Access Management). Since we will be shifting between S3 and IAM, open AWS in 
+a new browser tab. On AWS go to Management Console and use the Search bar
+at the top and type in "IAM".  Click on "IAM" under the "Services" category.
+18. Once in the IAM section, click on "Groups" in the left menu. Once that
+screen appears, click on the blue button titled "Create New Group."
+19. On the next screen, type in a name in the input box next to "Group
+Name." For a group name, suggest using "manage-" as prefix to bucket name as
+a group name. Then click the blue button titled "Next Step."
+20. Click the "Next Step" button again as we don't have a policy to attach
+to it yet. Then click on the "Create Group" button.
+21. Back on the IAM dashboard page, click on "Policies" in left menu, under
+"Access management." Then click the "Create policy" blue button and on the
+next screen click on the "JSON" tab.
+22. Click on the "Import managed policy" link in top right.
+23. In the next screen, type in S3 in the search bar and then select the
+option "AmazonS3FullAccess." Click the blue "Import" button.
+24. Since we don't want to actually allow full access to our whole account, 
+only the new bucket and everything in it, go back to S3 Buckets page browser 
+tab, click on the bucket using and then click on the Permissions tab.
+25. Scroll down to the "Bucket policy" section and click the "Edit" button.
+26. Copy the text below the sub-heading "Bucket ARN."
+27. Go back to the IAM browser tab where you left off in the "JSON" tab.
+Within the JSON code, delete the "*" next to the key "Resource" and replace
+with the aarn code just copied so it looks like the following:
+        "Resource": [
+            "arn: . . .",
+            "arn: . . . /*"
+        ]
+This will include the bucket and also all files and folders in the bucket.
+28. Click the "Review Policy" button and add the following:
+* Name: suggest using the bucket name with "-policy" as a suffix to it.
+* Description: suggest "Access to S3 bucket for {app-name} static files.
+* Click "Create Policy" button.
+29. You will be back to the policy page where there is message that the
+policy has been created and listing its name. Now you want to attach the
+policy to the group created in IAM.
+* Click on "Groups" in left menu.
+* Click on the link for the group name just created.
+* Click the "Permissions" tab.
+* Click "Attach Policy" button.
+* Use search bar to search for the policy name created in #28 and select it.
+* Click "Attach Policy" button.
+30. Create a user in IAM by clicking "Users" in the left menu.
+31. Click the blue "Add User" button in top left.
+32. Type in a "User name," suggest using the bucket name with "-staticfiles-
+user" as suffix.
+33. In the "Select AWS access type" section, under "Access type" click the 
+box next to "Programmatic access" and then click the "Next: Permissions" button.
+33. Make sure you are in teh "Add user to group" section and then click on
+the name link for the group name recently created. Then click the "Next" buttons
+until reach screen with "Create user" button and click it.
+34. Click on the "Download .csv" button downloads a file that contains this
+user's access key and secret access key which will be used to authenticate
+the user in our Django app. IMPORTANT: be sure to download and SAVE this file
+as you will not be able to download and access it again.
+
+
+
 
 
 
