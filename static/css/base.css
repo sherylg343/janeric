@@ -644,6 +644,9 @@ margin-top: -.3rem;
     #top-nav-header, ul.navbar-nav {
         font-size: 1rem !important;
     }
+    .footer-main {
+        padding-left: 10rem;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -655,5 +658,8 @@ margin-top: -.3rem;
     }
     .prod-detail-qty label {
         margin-right: .5rem;
+    }
+    .footer-main {
+        padding-left: 15rem;
     }
 }

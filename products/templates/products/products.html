@@ -24,7 +24,7 @@
                     <div class="col-12 mt-3">
                         <h5 class="headline mb-0">Products</h5>
                         {% for c in current_categories %}
-                        <h9 class="text-ltblue mb-5">{{ c.name }} - {{ c.division }}</h9>
+                        <h9 class="text-ltblue mb-5">- {{ c.name }} -</h9>
                         {% endfor %}
                     </div> 
                     <div class="product-container mt-5 col-10 offset-1">
@@ -55,7 +55,7 @@
                                                 <p class="mb-0">Size: {{ product.get_size_display }}</p>
                                             {% endif %}
                                             {% if product.pack %}
-                                            <p class="mb-0">Case: {{ product.pack }}</p>
+                                            <p class="mb-0">Case of {{ product.pack }}</p>
                                             {% endif %}
                                             <p class="mb-0">Price: $ {{ product.price }}</p>
                                         </div>
