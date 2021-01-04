@@ -116,6 +116,10 @@ body {
     border-bottom: 5px solid var(--clr-palettegray) !important;
 }
 
+.category-badge-border {
+    border: 2px solid bar(--clr-palettegray);
+}
+
 #cart-empty p {
     margin-left: 4rem;
 }
@@ -136,6 +140,12 @@ a, .nav-link {
 
 a:hover, a:active, .nav-link:hover, .nav-link:active  {
     color: var(--clr-logoblue) !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: var(--clr-white) !important;
+    color: var(--clr-logoblue) !important;
+    border: 2px solid var(--clr-logoblue) !important;
 }
 
 .card img {
