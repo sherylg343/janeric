@@ -235,7 +235,7 @@ a:hover, a:active, .nav-link:hover, .nav-link:active  {
     min-height: 100vh;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 8rem;
 }
 
 .side-menu a {

@@ -32,7 +32,7 @@ class Product_Family(models.Model):
 
 class Product(models.Model):
     BOTTLE_SIZES = (
-        ('8oz', "8 oz."),
+        ('8oz.', "8 oz."),
         ('16oz', "16 oz."),
         ('18oz', "18 oz."),
         ('32oz', "32 oz."),

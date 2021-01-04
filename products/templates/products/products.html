@@ -51,8 +51,12 @@
                                         {% endif %}
                                         <div class="card-body">
                                             <h6 class="font-weight-bold card-title pb-3">{{ product.product_family.name }}</h6>
-                                            <p class="mb-0">Size: {{ product.size }}</p>
-                                            <p class="mb-0">Pack: {{ product.pack }}</p>
+                                            {% if product.size %}
+                                                <p class="mb-0">Size: {{ product.get_size_display }}</p>
+                                            {% endif %}
+                                            {% if product.pack %}
+                                            <p class="mb-0">Case: {{ product.pack }}</p>
+                                            {% endif %}
                                             <p class="mb-0">Price: $ {{ product.price }}</p>
                                         </div>
                                         <div class="card-footer text-center">
