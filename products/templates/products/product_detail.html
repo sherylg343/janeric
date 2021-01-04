@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div id="product-selector" class="col-10 offset-1">
                                      <select id="prod-detail-select" class="mdb-select md-form">
-                                        <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{% if item.size %}{{ product.get_size_display }} - {% endif %}{% if item.pack %}Case of {{ product.pack }} - {% endif %}${{ product.price }}</option>
+                                        <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{% if product.size %}{{ product.get_size_display }} - {% endif %}{% if product.pack %}Case of {{ product.pack }} - {% endif %}${{ product.price }}</option>
                                         {% for item in family_products %}
                                             {% if item.size != product.size or item.pack != product.pack %}
                                                 <option value="{{ item.size }}-{{ item.pack }}-{{ item.price }}" data-id="{{ item.id }}">{% if item.size %}{{ item.get_size_display }} - {% endif %}{% if item.pack %}Case of {{ item.pack }} - {% endif %}${{ item.price }}</option>
