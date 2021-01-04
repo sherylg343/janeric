@@ -173,15 +173,13 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer font-small pl-0 pr-0">
+    <footer class="page-footer text-center font-small">
         <!-- Footer Text -->
-        <div class="text-center footer-main d-flex justify-content-around">
+        <div class="container p-4">
             <div class="row">
                 <div class="col-6 pt-2">
+                    <h7 class="headline text-uppercase"><strong>Enquiries</strong></h7>
                     <ul class="list-unstyled mb-0 mt-4 mx-auto justify-content-start">
-                        <li class="mb-3">
-                            <h7 class="headline text-uppercase"><strong>Enquiries</strong></h7>
-                        </li>
                         <li class="mb-2">
                             <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a>
                         </li>
@@ -195,15 +193,13 @@
                     </ul>
                 </div>
                 <div class="col-6 pt-2"> 
-                    <ul class="list-unstyled mb-0 mt-4 mx-auto justify-content-center">
+                    <h7 class="headline text-uppercase"><strong>Information</strong></h7>
+                    <ul class="list-unstyled mb-0 mt-4 mx-auto">
                         <li class="mb-3">
-                            <h7 class="headline text-uppercase"><strong>Information</strong></h7>
-                        </li>
-                        <li class="mb-3">
-                           <a href="{% url 'shipping' %}"><strong>Shipping</strong></a> 
+                        <a href="{% url 'shipping' %}"><strong>Shipping</strong></a> 
                         </li>
                         <li>
-                           <a href="{% url 'terms' %}"><strong>Terms & Conditions</strong></a>  
+                        <a href="{% url 'terms' %}"><strong>Terms & Conditions</strong></a>  
                         </li>
                     </ul>   
                 </div>
