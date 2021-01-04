@@ -116,8 +116,10 @@ body {
     border-bottom: 5px solid var(--clr-palettegray) !important;
 }
 
-.category-badge-border {
-    border: 2px solid bar(--clr-palettegray);
+.category-badge {
+    border: 2px solid var(--clr-palettegray);
+    color: var(--clr-palettegray);
+    background-color: var(--clr-white);
 }
 
 #cart-empty p {
