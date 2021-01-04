@@ -438,21 +438,21 @@ color: var(--clr-navy);
 }
 
 .prod-detail-qty {
-    margin-left: 3.7rem;
+    margin-left: 5rem;
 }
 
 .prod-detail-qty label {
     color: var(--clr-paletteltblue);
     font-size: .9rem;
+    margin-left: -5.5rem;
 }
 
 @media not all and (min-resolution:.001dpcm) {
 @supports (-webkit-appearance: none) and (stroke-color:transparent) {
-
-.number-input.def-number-input.safari_only button:before,
-.number-input.def-number-input.safari_only button:after {
-margin-top: -.3rem;
-}
+    .number-input.def-number-input.safari_only button:before,
+    .number-input.def-number-input.safari_only button:after {
+        margin-top: -.3rem;
+    }
 }
 }
 
@@ -622,6 +622,10 @@ margin-top: -.3rem;
    .prod-detail-qty label {
         margin-right: 1.5rem;
     } 
+    .footer-main {
+        padding-top: 2rem;
+        padding-left: 4rem;
+    }
 }
 
 @media (min-width: 992px) {
