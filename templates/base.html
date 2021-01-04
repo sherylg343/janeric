@@ -173,11 +173,11 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer text-center text-md-start font-small">
+    <footer class="page-footer font-small">
         <!-- Footer Text -->
-        <div class="container footer-main p-4">
+        <div class="container-fluid text-center text-md-left footer-main">
             <div class="row">
-                <div class="col-6 pt-2">
+                <div class="col-md-6 mt-3">
                     <h7 class="headline text-uppercase"><strong>Enquiries</strong></h7>
                     <ul class="list-unstyled mb-0 mt-4 mx-auto justify-content-start">
                         <li class="mb-2">
@@ -192,9 +192,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-6 pt-2"> 
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-6 mb-3"> 
                     <h7 class="headline text-uppercase"><strong>Information</strong></h7>
-                    <ul class="list-unstyled mb-0 mt-4 mx-auto">
+                    <ul class="list-unstyled mb-0 mt-3">
                         <li class="mb-3">
                         <a href="{% url 'shipping' %}"><strong>Shipping</strong></a> 
                         </li>
