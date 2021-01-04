@@ -613,7 +613,7 @@ margin-top: -.3rem;
         margin-left: 1rem;
     } 
     .select-wrapper>label.mdb-main-label.active {
-        line-height: 1.5 !important;
+        line-height: 1 !important;
         font-size: 1rem ;
     }
     .cart-img img {
@@ -624,7 +624,7 @@ margin-top: -.3rem;
     } 
     .footer-main {
         padding-top: 2rem;
-        padding-left: 4rem;
+        padding-left: 6rem;
     }
 }
 
@@ -635,6 +635,9 @@ margin-top: -.3rem;
     #product-selector {
         margin-left: 2rem;
     } 
+    .prod-detail-qty {
+        margin-left: 1.5rem;
+    }
     .prod-detail-qty label {
         margin-left: 1.5rem;
     }
@@ -647,7 +650,10 @@ margin-top: -.3rem;
     .nav-logo img {
         width: 225px;
     }
+    .prod-detail-qty {
+        margin-left: 5.5rem;
+    }
     .prod-detail-qty label {
-        margin-right: 4.5rem;
+        margin-right: .5rem;
     }
 }

@@ -42,7 +42,7 @@
                         <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
-                                <div id="product-selector" class="col-10 offset-1">
+                                <div id="product-selector" class="col-10 offset-1 col-md-8 offset-md-2">
                                      <select id="prod-detail-select" class="mdb-select md-form">
                                         <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{% if product.size %}{{ product.get_size_display }} - {% endif %}{% if product.pack %}Case of {{ product.pack }} - {% endif %}${{ product.price }}</option>
                                         {% for item in family_products %}
