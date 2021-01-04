@@ -22,7 +22,7 @@
                 </div> 
                 <div class="row">
                     <div class="col-12 mt-3">
-                        <h5 class="headline mb-0">Products</h5>
+                        <h5 class="headline pb-4">Products</h5>
                         {% for c in current_categories %}
                         <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
                             <span class="p-3 mt-2 badge-span">{{ c.name }}</span>
