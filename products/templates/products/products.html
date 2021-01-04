@@ -24,11 +24,9 @@
                     <div class="col-12 mt-3">
                         <h5 class="headline mb-0">Products</h5>
                         {% for c in current_categories %}
-                        <h6>
-                            <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                                <span class="p-3 mt-2 badge text-gray">{{ c.name }}</span>
-                            </a>
-                        </h6>
+                        <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                            <span class="p-3 mt-2 badge-span">{{ c.name }}</span>
+                        </a>
                         {% endfor %}
                     </div> 
                     <div class="product-container mt-5 col-10 offset-1">

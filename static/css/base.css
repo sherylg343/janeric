@@ -116,10 +116,12 @@ body {
     border-bottom: 5px solid var(--clr-palettegray) !important;
 }
 
-.category-badge {
-    border: 2px solid var(--clr-palettegray);
-    color: var(--clr-palettegray);
+.badge-span {
+    border: 4px solid var(--clr-palettegray);
+    color: var(--clr-palettegray) !important;
     background-color: var(--clr-white);
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 #cart-empty p {
