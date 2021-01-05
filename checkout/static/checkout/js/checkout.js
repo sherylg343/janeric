@@ -15,6 +15,7 @@ let billPhone = $('#id_bill_phone_number');
 const $steps = $('.step'); 
 
 $(document).ready(function () {
+    console.log("function working");
     //MD Bootstrap payment stepper
     $('.stepper').mdbStepper();
 
@@ -34,15 +35,19 @@ $(document).ready(function () {
     /*MD Bootstrap provided code to keep step 2 from collapsing after
     preloading */
     $("#step2-btn").change(function() { 
+        console.log("listener working");
         $steps.each(function(index, step) { 
             let $stepContent = $(step).children('.step-new-content'); 
             if(index < 1 ) {
+                console.log("0");
                 $stepContent.css('display', 'none'); 
                 $(step).attr("class","step done"); 
-            } else if(index === 1 ) { 
+            } else if(index === 1 ) {
+                console.log("1"); 
                 $stepContent.css('display', 'block'); 
                 $(step).attr("class","step active"); 
-            } else { 
+            } else {
+                console.log("2"); 
                 $stepContent.css('display', 'none'); 
                 $(step).attr("class","step"); 
             } 
@@ -69,6 +74,6 @@ $(document).ready(function () {
             billZipCode.val("");
             billPhone.val("");
         }
-    })
-})
+    });
+});
 
