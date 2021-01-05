@@ -18,6 +18,28 @@ $(document).ready(function() {
     const billZipCode = $('#id_bill_zipcode');
     const billPhone = $('#id_bill_phone_number');
 
+    /* Load shipping address to billing address when requested */
+    $('input[name=same-as-ship]:checkbox').change(function() {
+        if ($(this).is(':checked')) {
+            billFullName.val(shipFullName.val());
+            billStreet1.val(shipStreet1.val());
+            billStreet2.val(shipStreet2.val());
+            billCity.val(shipCity.val());
+            billState.val(shipState.val());
+            billZipCode.val(shipZipCode.val());
+            billPhone.val(shipPhone.val());
+        } else {
+            billFullName.val("");
+            billStreet1.val("");
+            billStreet2.val("");
+            billCity.val("");
+            billState.val("");
+            billZipCode.val("");
+            billPhone.val("");
+        }
+    });
+
+
     /* Add gray to SelectState when page loads and change when selected */
     $(shipState).css('color', '#c3ccd3');
 
