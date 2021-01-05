@@ -133,6 +133,7 @@ const $steps = $('.step');
 $(document).ready(function () {
     //MD Bootstrap payment stepper
     $('.stepper').mdbStepper();
+    console.log("function working");
 
     //Add gray to SelectState when page loads and change when selected
     $(shipState).css('color', '#c3ccd3');
@@ -166,7 +167,7 @@ $(document).ready(function () {
 
     /*MD Bootstrap provided code to keep step 2 from collapsing after
     preloading */
-    const $steps = $('.step'); 
+//    const $steps = $('.step'); 
 //    $(shipFullName).change(function() { 
 //       console.log("listener working");
 //        $steps.each(function(index, step) { 
