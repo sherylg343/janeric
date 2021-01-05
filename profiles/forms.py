@@ -1,7 +1,7 @@
 from django import forms
 from localflavor.us.forms import USStateSelect, USZipCodeField
 from .models import UserProfile
- 
+
 
 class UserProfileForm(forms.ModelForm):
     defaultship_zipcode = USZipCodeField()
