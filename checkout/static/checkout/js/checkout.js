@@ -17,57 +17,57 @@ const $steps = $('.step');
 $(document).ready(function () {
     //MD Bootstrap payment stepper
     $('.stepper').mdbStepper();
+});
 
-    //Add gray to SelectState when page loads and change when selected
-    $(shipState).css('color', '#c3ccd3');
+//Add gray to SelectState when page loads and change when selected
+$(shipState).css('color', '#c3ccd3');
 
-    $(shipState).change(function () {
-       $(shipState).css('color', '#47646f');
+$(shipState).change(function () {
+    $(shipState).css('color', '#47646f');
+});
+
+$(billState).css('color', '#c3ccd3');
+
+$(billState).change(function () {
+    $(billState).css('color', '#47646f'); 
+});
+
+/*MD Bootstrap provided code to keep step 2 from collapsing after
+preloading */
+$("#step2-btn").change(function() { 
+    $steps.each(function(index, step) { 
+        let $stepContent = $(step).children('.step-new-content'); 
+        if(index < 1 ) {
+            $stepContent.css('display', 'none'); 
+            $(step).attr("class","step done"); 
+        } else if(index === 1 ) { 
+            $stepContent.css('display', 'block'); 
+            $(step).attr("class","step active"); 
+        } else { 
+            $stepContent.css('display', 'none'); 
+            $(step).attr("class","step"); 
+        } 
     });
+});
 
-    $(billState).css('color', '#c3ccd3');
-
-    $(billState).change(function () {
-       $(billState).css('color', '#47646f'); 
-    });
-
-    /*MD Bootstrap provided code to keep step 2 from collapsing after
-    preloading */
-    $("#step2-btn").change(function() { 
-        $steps.each(function(index, step) { 
-            let $stepContent = $(step).children('.step-new-content'); 
-            if(index < 1 ) {
-                $stepContent.css('display', 'none'); 
-                $(step).attr("class","step done"); 
-            } else if(index === 1 ) { 
-                $stepContent.css('display', 'block'); 
-                $(step).attr("class","step active"); 
-            } else { 
-                $stepContent.css('display', 'none'); 
-                $(step).attr("class","step"); 
-            } 
-        });
-    });
-
-    /* Load shipping address to billing address when requested */
-    $('input[name=same-as-ship]:checkbox').change(
-    function() {
-        if ($(this).is(':checked')) {
-            billFullName.val(shipFullName.val());
-            billStreet1.val(shipStreet1.val());
-            billStreet2.val(shipStreet2.val());
-            billCity.val(shipCity.val());
-            billState.val(shipState.val());
-            billZipCode.val(shipZipCode.val());
-            billPhone.val(shipPhone.val());
-        } else {
-            billFullName.val("");
-            billStreet1.val("");
-            billStreet2.val("");
-            billCity.val("");
-            billState.val("");
-            billZipCode.val("");
-            billPhone.val("");
-        }
-    });
+/* Load shipping address to billing address when requested */
+$('input[name=same-as-ship]:checkbox').change(
+function() {
+    if ($(this).is(':checked')) {
+        billFullName.val(shipFullName.val());
+        billStreet1.val(shipStreet1.val());
+        billStreet2.val(shipStreet2.val());
+        billCity.val(shipCity.val());
+        billState.val(shipState.val());
+        billZipCode.val(shipZipCode.val());
+        billPhone.val(shipPhone.val());
+    } else {
+        billFullName.val("");
+        billStreet1.val("");
+        billStreet2.val("");
+        billCity.val("");
+        billState.val("");
+        billZipCode.val("");
+        billPhone.val("");
+    }
 });
