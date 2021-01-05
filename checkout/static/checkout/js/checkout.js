@@ -55,24 +55,5 @@ $(document).ready(function() {
     });*/
 
     /* Load shipping address to billing address when requested */
-    $('input[name=same-as-ship]:checkbox').change(function() {
-        if ($(this).is(':checked')) {
-            billFullName.val(shipFullName.val());
-            billStreet1.val(shipStreet1.val());
-            billStreet2.val(shipStreet2.val());
-            billCity.val(shipCity.val());
-            billState.val(shipState.val());
-            billZipCode.val(shipZipCode.val());
-            billPhone.val(shipPhone.val());
-        } else {
-            billFullName.val("");
-            billStreet1.val("");
-            billStreet2.val("");
-            billCity.val("");
-            billState.val("");
-            billZipCode.val("");
-            billPhone.val("");
-        }
-    });
 });
 
