@@ -145,7 +145,26 @@ $(document).ready(function () {
     $(billState).change(function () {
        $(billState).css('color', '#47646f'); 
     })
-    
+
+    /*MD Bootstrap provided code to keep step 2 from collapsing after
+    preloading */
+    const $steps = $('.step'); 
+    $("#ship-form").change(function() { 
+        $steps.each(function(index, step) { 
+            let $stepContent = $(step).children('.step-new-content') 
+            if(index < 1 ) { 
+                $stepContent.css('display', 'none'); 
+                $(step).attr("class","step done"); 
+            } else if(index === 1 ) { 
+                $stepContent.css('display', 'block'); 
+                $(step).attr("class","step active"); 
+            } else { 
+                $stepContent.css('display', 'none'); 
+                $(step).attr("class","step"); 
+            } 
+        })
+    })
+
     $('input[name=same-as-ship]:checkbox').change(
     function() {
         if ($(this).is(':checked')) {
