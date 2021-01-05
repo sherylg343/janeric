@@ -33,6 +33,5 @@ urlpatterns = [
     path('shipping/', include('shipping.urls')),
     path('terms/', include('terms.urls')),
     path('about/', include('about.urls')),
-"""    path('favicon.ico', RedirectView.as_view(
-        url=staticfiles_storage.url('img/favicon.ico'))),"""
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
