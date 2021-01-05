@@ -128,6 +128,7 @@ let billCity = $('#id_bill_city');
 let billState = $('#id_bill_state');
 let billZipCode = $('#id_bill_zipcode');
 let billPhone = $('#id_bill_phone_number');
+const $steps = $('.step'); 
 
 $(document).ready(function () {
     //MD Bootstrap payment stepper
