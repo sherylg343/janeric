@@ -140,23 +140,6 @@ $(document).ready(function () {
 
     $(shipState).change(function () {
        $(shipState).css('color', '#47646f');
-       console.log("listener working");
-        $steps.each(function(index, step) { 
-            let $stepContent = $(step).children('.step-new-content') 
-           if(index < 1 ) {
-                console.log(index);
-                $stepContent.css('display', 'none'); 
-                $(step).attr("class","step done"); 
-            } else if(index === 1 ) { 
-                console.log(index);
-                $stepContent.css('display', 'block'); 
-                $(step).attr("class","step active"); 
-            } else { 
-               console.log(index);
-                $stepContent.css('display', 'none'); 
-                $(step).attr("class","step"); 
-            } 
-        }) 
     })
 
     $(billState).css('color', '#c3ccd3');
@@ -167,26 +150,25 @@ $(document).ready(function () {
 
     /*MD Bootstrap provided code to keep step 2 from collapsing after
     preloading */
-//    const $steps = $('.step'); 
-//    $(shipFullName).change(function() { 
-//       console.log("listener working");
-//        $steps.each(function(index, step) { 
-//            let $stepContent = $(step).children('.step-new-content') 
-//            if(index < 1 ) {
-//                console.log(index);
-//                $stepContent.css('display', 'none'); 
-//                $(step).attr("class","step done"); 
-//            } else if(index === 1 ) { 
-//                console.log(index);
-//                $stepContent.css('display', 'block'); 
-//                $(step).attr("class","step active"); 
-//            } else { 
-///                console.log(index);
-//                $stepContent.css('display', 'none'); 
-//                $(step).attr("class","step"); 
-//            } 
-//        })
-//    })
+    $("#step2-btn").change(function() { 
+       console.log("listener working");
+        $steps.each(function(index, step) { 
+            let $stepContent = $(step).children('.step-new-content'); 
+            if(index < 1 ) {
+                console.log(index);
+                $stepContent.css('display', 'none'); 
+                $(step).attr("class","step done"); 
+            } else if(index === 1 ) { 
+                console.log(index);
+                $stepContent.css('display', 'block'); 
+                $(step).attr("class","step active"); 
+            } else { 
+                console.log(index);
+                $stepContent.css('display', 'none'); 
+                $(step).attr("class","step"); 
+            } 
+        });
+    });
 
     $('input[name=same-as-ship]:checkbox').change(
     function() {
