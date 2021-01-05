@@ -150,15 +150,19 @@ $(document).ready(function () {
     preloading */
     const $steps = $('.step'); 
     $("#ship-form").change(function() { 
+        console.log("listener working");
         $steps.each(function(index, step) { 
             let $stepContent = $(step).children('.step-new-content') 
-            if(index < 1 ) { 
+            if(index < 1 ) {
+                console.log(index);
                 $stepContent.css('display', 'none'); 
                 $(step).attr("class","step done"); 
             } else if(index === 1 ) { 
+                console.log(index);
                 $stepContent.css('display', 'block'); 
                 $(step).attr("class","step active"); 
             } else { 
+                console.log(index);
                 $stepContent.css('display', 'none'); 
                 $(step).attr("class","step"); 
             } 
