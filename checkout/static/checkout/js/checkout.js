@@ -1,4 +1,4 @@
-let shipFullName = $('#id_ship_full_name');
+/*let shipFullName = $('#id_ship_full_name');
 let shipStreet1 = $('#id_ship_street_address1');
 let shipStreet2 = $('#id_ship_street_address2');
 let shipCity =  $('#id_ship_city');
@@ -13,7 +13,7 @@ let billState = $('#id_bill_state');
 let billZipCode = $('#id_bill_zipcode');
 let billPhone = $('#id_bill_phone_number');
 const $steps = $('.step'); 
-
+/*
 $(document).ready(function () {
     console.log("function working");
     //MD Bootstrap payment stepper
@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     /*MD Bootstrap provided code to keep step 2 from collapsing after
-    preloading */
+    preloading 
     $("#step2-btn").change(function() { 
         console.log("listener working");
         $steps.each(function(index, step) { 
@@ -54,7 +54,7 @@ $(document).ready(function () {
         });
     });
 
-    /* Load shipping address to billing address when requested */
+    /* Load shipping address to billing address when requested
     $('input[name=same-as-ship]:checkbox').change(
     function() {
         if ($(this).is(':checked')) {
@@ -75,5 +75,5 @@ $(document).ready(function () {
             billPhone.val("");
         }
     });
-});
+});*/
 
