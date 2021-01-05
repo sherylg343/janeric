@@ -14,7 +14,7 @@ let billZipCode = $('#id_bill_zipcode');
 let billPhone = $('#id_bill_phone_number');
 const $steps = $('.step'); 
 
-
+$(document).ready(function () {
     //MD Bootstrap payment stepper
     $('.stepper').mdbStepper();
 
@@ -70,3 +70,4 @@ const $steps = $('.step');
             billPhone.val("");
         }
     });
+});
