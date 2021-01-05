@@ -8,7 +8,8 @@
 {% endblock %}
 
 {% block extra_js %}
-   <script type="text/javascript" src="{% static 'js/addons-pro/steppers.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'js/addons-pro/steppers.min.js' %}"></script>
+    <script src="{% static 'checkout/js/checkout.js' %}"></script> 
 {% endblock %}
 
 
@@ -220,10 +221,4 @@
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
-    <script type="text/javascript">
-        //MD Bootstrap payment stepper
-        $(document).ready(function () {
-        $('.stepper').mdbStepper();
-    })
-    </script>
 {% endblock %}
