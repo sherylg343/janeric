@@ -22,13 +22,13 @@ $(document).ready(function() {
     //Add gray to SelectState when page loads and change when selected
     $(shipState).css('color', '#c3ccd3');
 
-    $(shipState).change(function () {
+    $(shipState).change(function() {
         $(shipState).css('color', '#47646f');
     });
 
     $(billState).css('color', '#c3ccd3');
 
-    $(billState).change(function () {
+    $(billState).change(function() {
         $(billState).css('color', '#47646f'); 
     });
 
@@ -55,8 +55,7 @@ $(document).ready(function() {
     });
 
     /* Load shipping address to billing address when requested */
-    $('input[name=same-as-ship]:checkbox').change(
-    function() {
+    $('input[name=same-as-ship]:checkbox').change(function() {
         if ($(this).is(':checked')) {
             billFullName.val(shipFullName.val());
             billStreet1.val(shipStreet1.val());
