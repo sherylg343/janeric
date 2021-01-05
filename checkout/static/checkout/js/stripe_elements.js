@@ -149,7 +149,7 @@ $(document).ready(function () {
     /*MD Bootstrap provided code to keep step 2 from collapsing after
     preloading */
     const $steps = $('.step'); 
-    $("#ship-form").change(function() { 
+    $("#id_ship_full_name").change(function() { 
         console.log("listener working");
         $steps.each(function(index, step) { 
             let $stepContent = $(step).children('.step-new-content') 
