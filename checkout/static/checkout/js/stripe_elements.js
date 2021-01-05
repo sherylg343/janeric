@@ -141,7 +141,7 @@ $(billState).change(function() {
     $(billState).css('color', '#47646f'); 
 });
 
-/* Load shipping address to billing address when requested */
+/* Load shipping address to billing address when requested 
 $('input[name=same-as-ship]:checkbox').change(function() {
     if ($(this).is(':checked')) {
         billFullName.val(shipFullName.val());
@@ -160,4 +160,4 @@ $('input[name=same-as-ship]:checkbox').change(function() {
         billZipCode.val("");
         billPhone.val("");
     }
-});
+});*/

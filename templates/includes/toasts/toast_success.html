@@ -28,8 +28,8 @@
                         </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.size %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small">Pack: {{ item.pack }}</p>
+                            <p class="my-0 small">Size: {% if item.product.product_family.name %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small">Case of {{ item.pack }}</p>
                             <p class="my-0 small text-muted mb-2">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
