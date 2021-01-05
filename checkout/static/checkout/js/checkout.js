@@ -33,8 +33,8 @@ $(document).ready(function() {
     });
 
     /*MD Bootstrap provided code to keep step 2 from collapsing after
-    preloading */
-    $("#step2-btn").change(function() { 
+    preloading 
+    $("").change(function() { 
         console.log("listener working");
         $steps.each(function(index, step) { 
             let $stepContent = $(step).children('.step-new-content'); 
@@ -52,7 +52,7 @@ $(document).ready(function() {
                 $(step).attr("class","step"); 
             } 
         });
-    });
+    });*/
 
     /* Load shipping address to billing address when requested */
     $('input[name=same-as-ship]:checkbox').change(function() {
