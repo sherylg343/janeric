@@ -27,9 +27,13 @@
                             {% endif %}
                         </div>
                         <div class="col-9">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.product_family.name %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small">Case of {{ item.pack }}</p>
+                            <p class="my-0"><strong>{{ item.product.product_family.name }}</strong></p>
+                            {% if item.product.size %}
+                                <p class="my-0 small">Size: {{ item.product.size }}</p>
+                            {% endif %}
+                            {% if item.product.pack %}
+                                <p class="my-0 small">Case of {{ item.product.pack }}</p>
+                            {% endif %}
                             <p class="my-0 small text-muted mb-2">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
