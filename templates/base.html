@@ -224,6 +224,13 @@
             //Detect client time zone
             const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
             document.cookie = 'timezone=' + encodeURIComponent(timeZoneName) + '; path=/';
+            // Sticky sidebar from MD Bootstrap
+            $(function () {
+                $(".sticky").sticky({
+                    topSpacing: 128,
+                    stopper: "#sticky-stopper"
+                });
+            });
         });
     </script> 
   </body>
