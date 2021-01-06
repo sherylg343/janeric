@@ -64,28 +64,12 @@ body {
     padding-bottom: 1rem;
 }
 
-.text-navy {
-    color: var(--clr-palettedkblue);
-}
-
 .bg-logoblue {
     background: var(--clr-logoblue);
 }
 
-.bg-gray {
-    background: var(--clr-palettegray);
-}
-
 .bg-ltblue {
     background: var(--clr-paletteltblue);
-}
-
-.bg-medblue {
-    background: var(--clr-palettemedblue);
-}
-
-.bg-dkblue {
-    background: var(--clr-palettedkblue);
 }
 
 .bg-blush {
@@ -481,7 +465,6 @@ color: var(--clr-navy);
     border: 1px solid var(--clr-palettedkblue);
 }
 
-/* ---------- Containers -------------*/
 #search-row.row {
    margin-bottom: -1.5rem;
 }
@@ -490,6 +473,7 @@ color: var(--clr-navy);
     margin-left: 2.75rem;
 }
 
+/* ---------- Containers -------------*/
 .footer-main {
     color: var(--clr-paletteltblue) !important;
     background: var(--clr-paletteblush) !important;

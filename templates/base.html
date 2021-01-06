@@ -173,7 +173,7 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="page-footer font-small">
+    <footer id="footer" class="page-footer font-small">
         <!-- Footer Text -->
         <div class="container-fluid text-center text-md-left footer-main">
             <div class="row">
@@ -228,7 +228,7 @@
             $(function () {
                 $(".sticky").sticky({
                     topSpacing: 128,
-                    stopper: "#sticky-stopper"
+                    stopper: "#footer"
                 });
             });
         });
