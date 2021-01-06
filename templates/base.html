@@ -162,15 +162,14 @@
         {% endfor %}
     </div>
     {% endif %} 
-
+    <main>
     {% block page_header %} 
     {% endblock %} 
     
     {% block content %} 
     {% endblock %} 
+    </main>
     
-    {% block postloadjs %}
-    {% endblock %}
 
     <!-- Footer -->
     <footer id="footer" class="page-footer font-small">
@@ -184,11 +183,11 @@
                             <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website">customerservice@janericllc.com</a>
                         </li>
                         <li class="mb-2">
-                            <p>XXX.XXX.XXX</p>
+                            <p>888.444.5555</p>
                         </li>
                         <li>
-                            <p class="mb-0">PO Box xxx</p>
-                            <p class="mt-0">Petaluma, CA  94952</p>
+                            <p class="mb-0">PO Box 2567</p>
+                            <p class="mt-0">Petaluma, CA  94953</p>
                         </li>
                     </ul>
                 </div>
@@ -211,27 +210,8 @@
             <a href="https://janeric.com/" class="text-left"> janericllc.com.</a> All Rights Reserved.        
         </div>
     </footer>
-
-    <script>
-        $(document).ready(function() {
-            // SideNav Button Initialization
-            $(".button-collapse").sideNav2();
-            // SideNav Scrollbar Initialization
-            var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-            var ps = new PerfectScrollbar(sideNavScrollbar);
-            //Activate Toast Messages
-            $('.toast').toast('show');
-            //Detect client time zone
-            const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            document.cookie = 'timezone=' + encodeURIComponent(timeZoneName) + '; path=/';
-            // Sticky sidebar from MD Bootstrap
-            $(function () {
-                $(".sticky").sticky({
-                    topSpacing: 128,
-                    stopper: "#footer"
-                });
-            });
-        });
-    </script> 
+    {% block postloadjs %}
+        <script src="{% static 'js/base.js' %}"></script>
+    {% endblock %}
   </body>
 </html>

@@ -1,3 +1,8 @@
+.md-form input[type="text"] {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
