@@ -537,10 +537,115 @@ user's access key and secret access key which will be used to authenticate
 the user in our Django app. IMPORTANT: be sure to download and SAVE this file
 as you will not be able to download and access it again.
 
+### In GitHub Repository do the following to connect Django to S3 bucket:
+1. Install 2 new packages and create new requirements file:
+* $pip3 install boto3
+* $pip3 install django-storages
+* $pip3 freeze > requirements.txt
+2. Go to the projects level settings.py file and do the following:
+* under INSTALLED_APPS add 'storages',
+* below MEDIA_ROOT, add the following:
+if 'USE_AWS" IN os.environ:
+     AWS_STORAGE_BUCKET_NAME = '{bucket name}' 
+     AWS_S3_REGION_NAME = 'us-east-2' or your applicable region
+     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+     AWS_SECRET_ACCESS_KEY_ID = os.environ.get('AWS_SECRET_ACCESS_KEY_ID')
+
+### On Heroku website do the following:
+1. Go to your app, click on 'Settings" and then click to reveal "Config Var"
+2. Add the following as new config variable key and value pairs:
+* AWS_ACCESS_KEY_ID, {paste in value from .csv file downloaded}
+* AWS_SECRET_ACCESS_KEY_ID, {paste in value from .csv file downloaded}
+* USE_AWS, True
+3. Scroll up the Config Var and remove the DISABLE_COLLECTSTATIC variable
+
+### In GitHub Repository do the following:
+1. Go back to project level settings.py file and continue connecting Django
+to our S3 bucket by adding:
+AWS_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.S3.amazonaws.com'
+2. Tell Django that in production we want to use S3 to store static files:
+* At root level, create file called custom_storages.py
+* Inside this file add:
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
 
 
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
 
 
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+3. Go back to project level settings.py file and add the following:
+* #Static and Media files
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
+* Also add the following to override and explicity set the URL's for 
+static and media files using our custom domain and the new locations
+#Override static and media URLs in production
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+4. Add additional setting that tells browser it's ok to cache static
+files for a long time since they don't change very often and this
+improves performance of site for users. Place this below MEDIA_ROOT 
+variable:
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+5. Save file and commit and push to GitHub. This will trigger an 
+automatic deployment to Heroku and the collectstatic action.
+
+### On AWS site, visit S3 dashboard:
+1. Confirm that all static files were added to the bucket in 
+static labelled folders.
+2. To add media files to S3 do the following:
+* Click on bucket name link in dashboard
+* Click on "Objects" tab in bucket overview
+* Click "Create folder" button
+* Enter folder name: media and click "Create folder" button
+* Click on the media folder name link
+* Click on "Upload" button
+* Click on "Add files" button
+* In computer finder/directory window, select files to be added and drag and drop
+files to media folder
+* Scroll down and click on "Add/Upload Options" link
+* Go to "Access Control List (ACL)" and click to give "Everyone" public access
+to "Read" these files
+* Scroll down and click box to acknowledge the effects of this change
+* Click "Upload" button
+
+### Go to {heroku app name}.herokuapp.com/admin/:
+1. Log in as superuser
+2. Go to email address table and find superuser email address and click
+on boxes next to "Verified" and "Primary"
+3. If the email address does not exist, go to deployed site and log in,
+forcing the creating of the email address, then back to admin page to
+complete action #2.
+
+### On Stripe.com website dashboard do the following:
+1. Click on Webhooks
+2. Click "Add endpoint"
+3. New endpoint should be url for Heroku app, formatted as follows:
+[https://janeric.com/checkout/wh](https://janeric.com/checkout/wh)
+3. Scroll down and click on link stating "receive all events"
+4. Click "Add endpoint"
+5. Click "reveal secret" and copy secret for this endpoint
+
+### On Heroku website do the following:
+1. Go to your app, click on 'Settings" and then click to "reveal config var"
+2. Add the following as new config variable key and value pairs:
+* STRIPE_WH_SECRET, secret copied from stripe for new endpoint
+* reference project env.py file for next two variable values:
+STRIPE_SECRET_KEY
+STRIPE_PUBLIC_KEY
+and add to variable listed
+
+DEPLOYMENT IS COMPLETE!!
 
 ### How to Run this Project Locally
 To run the project locally, make a clone of it from GitHub:
@@ -562,3 +667,16 @@ as follows:
 [Back to Top](#Table-of-Contents)
 </p>
 ---
+
+## Credits <a name="credits"></a>
+
+### Images
+All images were supplied by the client, Janeric LLC
+
+### Contents
+All content was provided by the client, Janeric LLC
+
+### Code
+1. 
+5. Code for Favicon came from blog article "Add a Custom Favicon to your
+Django Web App," April 17, 2020 by [<ordinary>coders](https://www.ordinarycoders.com/blog/article/add-a-custom-favicon-to-your-django-web-app#:~:text=If%20you%20are%20still%20getting,folder%20%3E%20static%20%3E%20img%20folder.)
