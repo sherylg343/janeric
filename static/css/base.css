@@ -117,8 +117,8 @@ body {
 }
 
 .badge-span {
-    border: 2px solid var(--clr-palettegray);
-    color: var(--clr-palettegray) !important;
+    border: 2px solid var(--clr-paletteltblue);
+    color: var(--clr-paletteltblue) !important;
     background-color: var(--clr-white);
     border-radius: 0 !important;
     box-shadow: none !important;
