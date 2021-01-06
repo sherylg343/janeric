@@ -315,6 +315,7 @@ ul.navbar-nav {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    margin-top: -.6rem;
 }
 
 /*----------- Quanity Input - MD Bootstrap ----------*/
