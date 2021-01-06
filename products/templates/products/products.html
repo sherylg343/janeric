@@ -63,7 +63,6 @@
                                         </div>
                                         <div class="card-footer text-center">
                                             <a href="{% url 'product_detail' product.id %}" class="btn bg-ltblue white-text">View</a>
-                                            <a href="{% url 'view_cart' %}" class="btn bg-logoblue white-text">Buy Now</a>
                                         </div>
                                         {% if request.user.is_superuser %}
                                             <small class="ml-3">
