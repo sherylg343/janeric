@@ -128,20 +128,7 @@ const billState = $('#id_bill_state');
 const billZipCode = $('#id_bill_zipcode');
 const billPhone = $('#id_bill_phone_number');
 
-/* Add gray to SelectState when page loads and change when selected */
-$(shipState).css('color', '#c3ccd3');
-
-$(shipState).change(function() {
-    $(shipState).css('color', '#47646f');
-});
-
-$(billState).css('color', '#c3ccd3');
-
-$(billState).change(function() {
-    $(billState).css('color', '#47646f'); 
-});
-
-/* Load shipping address to billing address when requested 
+/* Load shipping address to billing address when requested */
 $('input[name=same-as-ship]:checkbox').change(function() {
     if ($(this).is(':checked')) {
         billFullName.val(shipFullName.val());
@@ -160,4 +147,4 @@ $('input[name=same-as-ship]:checkbox').change(function() {
         billZipCode.val("");
         billPhone.val("");
     }
-});*/
+});
