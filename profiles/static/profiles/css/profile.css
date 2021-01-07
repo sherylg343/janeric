@@ -9,7 +9,7 @@
 }
 
 #profile-update-form .form-control {
-    color: #c3ccd3;
+    color: #47646f;
     font-size: .8rem !important;
 }
 
@@ -25,4 +25,9 @@
 .order-history {
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;
+}
+
+#profile-update-form input[type="text"] {
+    padding-left: .75rem;
+    padding-right: .75rem;
 }

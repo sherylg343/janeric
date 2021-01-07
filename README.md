@@ -677,6 +677,34 @@ All images were supplied by the client, Janeric LLC
 All content was provided by the client, Janeric LLC
 
 ### Code
-1. 
-5. Code for Favicon came from blog article "Add a Custom Favicon to your
+1. Code to display user's local time came from "Auto time zone in Django," 
+August 30, 2019, [JackJackAttack!](https://xjlin0.github.io/tech/2019/08/30/auto-time-zone-in-django/)
+2. Code for Favicon came from blog article "Add a Custom Favicon to your
 Django Web App," April 17, 2020 by [<ordinary>coders](https://www.ordinarycoders.com/blog/article/add-a-custom-favicon-to-your-django-web-app#:~:text=If%20you%20are%20still%20getting,folder%20%3E%20static%20%3E%20img%20folder.)
+3. Component code from [MDBootstrap](https://mdbootstrap.com/) - great components and
+great supporting code on site and forum.
+
+### Acknowledgements
+Many thanks to Code Institute tutors and alumni who provided assistance
+throughout the development phase, with special appreciation extended towards:
+
+* Brian Macharia - mentor; Brian provided extraordinary guidance and 
+insight that enabled me to tackle this project.
+* Code Institute Tutors: Michael, Samantha, Scott, Anna, Roman, Michael and Igor
+with special thanks to Tim for not only his assistance but also sharing the 
+new task manager videos with me.
+
+<p>
+
+[Back to Top](#Table-of-Contents)
+</p>
+---
+
+
+## Disclaimer <a name="disclaimer"></a>
+Please note the content and images on this website are for educational purposes only.
+
+<p>
+
+[Back to Top](#Table-of-Contents)
+</p>

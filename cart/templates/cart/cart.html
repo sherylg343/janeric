@@ -15,16 +15,17 @@
 {% block content %}
 <main>
     <div class="container-fluid" id="cart-container">
-        <div class="row">
+        <div class="row cover-row">
             <div id="cart-top-section" class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 bg-blush side-menu-col">
                 {% include 'includes/side-menu.html' %}
             </div>
             <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
                 <div class="row">
-                    <h5 class="headline mb-3">Cart</h5>
-                    <p class="text-right mr-2">
-                        <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
-                    </p>
+                    <div class="col-12">
+                        <h5 class="headline mb-3">Cart</h5>
+                        <p class="text-right mr-2">
+                            <a href="{% url 'products' %}" class="cart-continues">Keep Shopping</a>  
+                        </p>
                     </div> 
                 </div>
                 <div class="row">
