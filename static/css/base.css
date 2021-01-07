@@ -227,7 +227,6 @@ a.category-badge > span.badge:hover {
 }
 
 col.side-menu-col {
-    background: var(--clr-paletteblush);
     font-weight: 400;
     margin-left: -1.5rem;
     min-height: 100vh;
