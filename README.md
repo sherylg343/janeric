@@ -309,6 +309,8 @@ visual styling decisions, especially relative to screen sizes
 Font Styles
 * [tinyjpg](https://tinyjpg.com/) - used to reduce image file sizes
 * [Nu_html_checker] (https://validator.w3.org/) - html validator
+* [W3C_CSS_Validation](https://jigsaw.w3.org/css-validator/#validate_by_uri) - 
+css code validator
 * [JSHint](https://jshint.com/) - JavaScript validator that recognizes jQuery
 * [JSDoc](https://jsdoc.app/) - for comments in JavaScript file
 * [stackOverflow](https://stackoverflow.com/) - questions forum helped with
@@ -690,9 +692,8 @@ throughout the development phase, with special appreciation extended towards:
 
 * Brian Macharia - mentor; Brian provided extraordinary guidance and 
 insight that enabled me to tackle this project.
-* Code Institute Tutors: Michael, Samantha, Scott, Anna, Roman, Michael and Igor
-with special thanks to Tim for not only his assistance but also sharing the 
-new task manager videos with me.
+* Code Institute Tutors: Cormac, Samantha, Igor, Scott, Kevin, Haley, Miklos
+and Johann.
 
 <p>
 
