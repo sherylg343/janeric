@@ -68,31 +68,35 @@
         <li>
             <a class="collapsible-header waves-effect" href="{% url 'about' %}">About Us</a>
         </li>
-        <li><a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website"  class="collapsible-header waves-effect" >Contact Us</a>
+        <li><a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website"  class="collapsible-header waves-effect">Contact Us</a>
         </li>
       </ul>
     </li>
   </ul>
 </div>
-<li class="list-inline-item nav-logo">
-    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-        <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
-        />
-    </a>
-</li>
-<li class="list-inline-item">
-    <a
-    class="{% if grand_total %}font-weight-bold{% endif %} nav-link text-ltblue"
-    href="{% url 'view_cart' %}">
-        <div class="text-center">
-            <div><i class="fas fa-shopping-cart"></i></div>
-            <p class="my-0">
-                {% if grand_total %} 
-                    ${{ grand_total|floatformat:2 }} 
-                {% else %} 
-                    $0.00 
-                {% endif %}
-            </p>
-        </div>
-    </a>
-</li>
+<div>
+    <ul>
+        <li class="list-inline-item nav-logo">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" 
+                />
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a
+            class="{% if grand_total %}font-weight-bold{% endif %} nav-link text-ltblue"
+            href="{% url 'view_cart' %}">
+                <div class="text-center">
+                    <div><i class="fas fa-shopping-cart"></i></div>
+                    <p class="my-0">
+                        {% if grand_total %} 
+                            ${{ grand_total|floatformat:2 }} 
+                        {% else %} 
+                            $0.00 
+                        {% endif %}
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

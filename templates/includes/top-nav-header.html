@@ -4,7 +4,7 @@
             <a class="nav-link" href="{% url 'products' %}">Shop All</a>
         </li>   
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" id="ppe-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 PPE
             </a>
@@ -17,8 +17,7 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="hand-sanitizer-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Hand Sanitizer
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="hand-sanitizer-link">
@@ -34,7 +33,7 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal</a>
+            <a class="nav-link dropdown-toggle" id="personal-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal</a>
             <div class="dropdown-menu border-0"     aria-labelledby="personal-link">
                 <a href="{% url 'products' %}?category=Body Wash and Shampoo" class="dropdown-item">
                     Body Wash and Shampoo
@@ -45,7 +44,7 @@
             <a class="nav-link" href="{% url 'about' %}">About Us</a>
         </li>
         <li class="nav-item">
-            <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website" class="nav-link" >
+            <a href="mailto:customerservice@janericllc.com?subject=Enquiry from Website" class="nav-link">
                 Contact Us
             </a>
         </li>
