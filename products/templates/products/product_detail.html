@@ -47,17 +47,17 @@
                             <div class="row">
                                 <div id="product-selector" class="col-10 offset-1">
                                      <select id="prod-detail-select" class="mdb-select md-form">
-                                        <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" select>{% if product.size %}{{ product.get_size_display }} - {% endif %}{% if product.pack %}Case of {{ product.pack }} - {% endif %}${{ product.price }}</option>
+                                        <option value="{{ product.size }}-{{ product.pack }}-{{ product.price }}" data-id="{{ product.id }}" selected>{% if product.size %}{{ product.get_size_display }} - {% endif %}{% if product.pack %}Case of {{ product.pack }} - {% endif %}${{ product.price }}</option>
                                         {% for item in family_products %}
                                             {% if item.size != product.size or item.pack != product.pack %}
                                                 <option value="{{ item.size }}-{{ item.pack }}-{{ item.price }}" data-id="{{ item.id }}">{% if item.size %}{{ item.get_size_display }} - {% endif %}{% if item.pack %}Case of {{ item.pack }} - {% endif %}${{ item.price }}</option>
                                             {% endif %}
                                         {% endfor %}
                                     </select>
-                                    <label class="mdb-main-label mb-3"><strong>Price</strong></label>
+                                    <label for="prod-detail-select" class="mdb-main-label mb-3"><strong>Price</strong></label>
                                 </div>
                                 <div class="col-10 offset-1 prod-detail-qty">
-                                    <label for="quantity1"><strong>Quantity  </strong>
+                                    <label for="id_qty_{{ product.id }}"><strong>Quantity  </strong>
                                     </label>
                                     <div class="def-number-input number-input safari_only mb-5 ml-md-5">
                                         <button id="decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}" 
