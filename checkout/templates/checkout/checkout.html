@@ -114,9 +114,11 @@
                                                 <div class="md-form col-12 ml-auto">
                                                 <fieldset class="rounded px-3 mb-5">
                                                     {{ order_form.email | as_crispy_field }}
+                                                    {% if not user.is_authenticated %}
                                                     <legend class="fieldset-label small text-left px-2 w-auto">
-                                                        Already have an account? 
-                                                        <a class="text-info" href="{% url 'account_login' %}">Log in</a> 
+                                                        Already have an account or want to create one? 
+                                                        <a class="text-info" href="{% url 'account_login' %}">Log in</a> or
+                                                        <a class="text-info" href="{% url 'account_signup' %}">Register</a>
                                                     </legend>
                                                  </fieldset>
                                                 </div>
@@ -142,12 +144,14 @@
                                                     {{ order_form.ship_phone_number | as_crispy_field }}
                                                     
                                                     {% if user.is_authenticated %}
+                                                        {% if not default_ship_full_name %}
                                                         <p class="small text-left mb-0">Save my information for a quicker checkout next time
                                                         </p>
                                                         <div class="form-check text-left mt-0">
                                                             <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info">
                                                             <label class="form-check-label small text-dkblue" for="id-save-info">Remember Me</label>
                                                         </div>
+                                                        {% endif %}
                                                     {% endif %}
                                                  
                                                 </fieldset>
