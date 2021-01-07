@@ -226,11 +226,10 @@ a.category-badge > span.badge:hover {
     height: auto;
 }
 
-.col.side-menu-col {
+.side-menu-col {
     font-weight: 400;
     margin-left: -1.5rem;
     min-height: 100vh;
-    position: fixed;
     top: 5rem;
 }
 
