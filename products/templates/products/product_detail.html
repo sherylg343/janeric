@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load static %} 
 
-{% block extra_title %}Product{% endblock %}
+{% block extra_title %}| Product{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -11,6 +11,7 @@
 {% endblock %} 
 
 {% block content %}
+<main>
     <div class="container-fluid">
         <div class="row">
             <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
@@ -91,6 +92,7 @@
             </div>
         </div>
     </div>
+</main>
 {% endblock %}
 
 {% block postloadjs %}
