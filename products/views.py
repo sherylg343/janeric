@@ -5,7 +5,7 @@ from django.db.models import Q
 
 
 from .models import Product, Category, Product_Family
-from .forms import ProductForm
+from .forms import ProductForm, ProductFamilyForm
 
 
 def all_products(request):
@@ -78,6 +78,33 @@ def add_product(request):
         form = ProductForm()
 
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_product_family(request):
+    """ Add a product-family to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductFamilyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product family!')
+        else:
+            messages.error(request,
+                           ('Failed to add product family. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductFamilyForm()
+
+    template = 'products/add_product_family.html'
     context = {
         'form': form,
     }
