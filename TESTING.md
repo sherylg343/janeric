@@ -528,3 +528,190 @@ Shopping Cart.
  <br>
 Test Result: Successful
  </p>
+
+ **Test #25:
+ <p>
+ Action Taken: From the Product Detail page, click on "Add to Cart" button
+ for a Gallon size of Club Basics Body Wash and Shampoo Ocean Mist while
+in Chrome Dev Tools with iPad screen selected. Quantity selected is 5.
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and pop up message
+appears stating the product selected was added to cart.
+* The product name in header is correctly
+* The product count in cart (5) is stated correctly.
+* The product image, product family name, size, case and quantity listed
+in product detail section of message are all correct. 
+* The individual unit cost is $21.20 so the Total of $106.00 is correct.
+* The "View Cart" button in the pop-up window does take me to the 
+Shopping Cart.
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #26:
+ <p>
+ Action Taken: From the Product Detail page, click on "Add to Cart" button
+ for a Gallon size of Club Basics Body Wash and Shampoo Ocean Mist while
+in Chrome Dev Tools with responsive screen with width of 1100 selected. 
+Quantity selected is 5.
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and pop up message
+appears stating the product selected was added to cart.
+* The product name in header is correctly
+* The product count in cart (5) is stated correctly.
+* The product image, product family name, size, case and quantity listed
+in product detail section of message are all correct. 
+* The individual unit cost is $21.20 so the Total of $106.00 is correct.
+* The "View Cart" button in the pop-up window does take me to the 
+Shopping Cart.
+ <br>
+Test Result: Successful
+ </p>
+
+**Test #27:
+ <p>
+ Action Taken: From the Product Detail page, click on "Add to Cart" button
+ for a KN-95 Respirator Mask while in Chrome Dev Tools with a responsive
+screen width of 1300 selected. Quantity selected is 10.
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and pop up message
+appears stating the product selected was added to cart.
+* The product name in header is correctly
+* The product count in cart (10) is stated correctly.
+* The product image, product family name, size, case of 10 and quantity 
+of 10 listed in product detail section of message are all correct. 
+* The individual unit cost is $99.80 so the Total of $998.00 is correct.
+* The "View Cart" button in the pop-up window does take me to the 
+Shopping Cart.
+ <br>
+Test Result: Successful
+ </p>
+
+#### Cart template
+ **Test #28:
+ <p>
+ Action Taken: On the Cart page while in Chrome Dev Tools with
+Pixel 2 screen selected increase the quantity selected button from 2
+to 3 and click "Update" link.
+ <br>
+ "Before" State: Quantity of 2, price per unit is $84.70 and Product Subtotal
+ is $169.40.
+ <br>
+"After" State: 
+* Message box pops up stating "Updated Club Basics Body Wash and Shampoo Ocean
+Mist - Gallon Case of 4 quantity to 3."
+* Total product count shows 3
+* When close pop up the quantity in cart shows 3 and Product Subtotal is
+now $254.10.
+ <br>
+Test Result: Successful
+Secondary Test: 
+Action Taken: Click "Remove From Cart" link.
+ <br>
+ "Before" State: Quantity of 3 as described above.
+ <br>
+"After" State: 
+* Message box pops up stating "Removed Club Basics Body Wash and Shampoo Ocean
+Mist - Gallon Case of 4 from your cart."
+* When close pop up the message in the cart is "Your shopping cart is empty!"
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #29:
+ <p>
+ Action Taken: On the Cart page while in Chrome Dev Tools with
+iPad screen selected have quantity of 5 Floor Markers in cart.  Click the 
+- button and decrease the quantity selected button from 5 to 2 and 
+click "Update" link.
+ <br>
+ "Before" State: Quantity of 5, price per unit is $149.00 and Product Subtotal
+ is $175.00.
+ <br>
+"After" State: 
+* Message box pops up stating "Updated Mix and Match set of 5 12 ft. x 12 ft.
+Floor Markers quantity to 2."
+* Total product count shows 2
+* When close pop up the quantity in cart shows 2 and Product Subtotal is
+now $298.00.
+ <br>
+Test Result: Successful
+Secondary Test: 
+Action Taken: Click "Remove From Cart" link.
+ <br>
+ "Before" State: Quantity of 3 as described above.
+ <br>
+"After" State: 
+* Message box pops up stating "Removed Mix and Match set of 5 12 ft. x 12 ft.
+Floor Markers from your cart."
+* When close pop up the message in the cart is "Your shopping cart is empty!"
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #30:
+ <p>
+ Action Taken: On the Cart page while in Chrome Dev Tools with
+responsive screen with width of 1100, selected have quantity of 6 HS Pure - 
+16 oz. - 24/case.  Click the - button and decrease the quantity selected button from 6 to 3 and click "Update" link.
+ <br>
+ "Before" State: Quantity of 6, price per unit is $179.52 and Product Subtotal
+ is $1077.12.
+ <br>
+"After" State: 
+* Message box pops up stating "Updated HS Pure - 16 oz. - 24/case 
+quantity to 3."
+* Total product count shows 3.
+* When close pop up the quantity in cart shows 2 and Product Subtotal is
+now $538.56.
+ <br>
+Test Result: Successful
+Secondary Test: 
+Action Taken: Click "Remove From Cart" link.
+ <br>
+ "Before" State: Quantity of 3 as described above.
+ <br>
+"After" State: 
+* Message box pops up stating "Removed HS Pure - 16 oz. - 24.case from your
+cart."
+* When close pop up the message in the cart is "Your shopping cart is empty!"
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #31:
+ <p>
+ Action Taken: On the Cart page while in Chrome Dev Tools with
+responsive screen with width of 1300, selected have quantity of 2 Open 
+Back Level 2 CPE Gown (Set of 360).  Click the + button and increase the 
+quantity selected button from 2 to 3 and click "Update" link.
+ <br>
+ "Before" State: Quantity of 2, price per unit is $1256.40 and Product Subtotal
+ is $2512.80.
+ <br>
+"After" State: 
+* Message box pops up stating "Updated Open Back Level 2 CPE Gown (Set of 360) 
+quantity to 3."
+* Total product count shows 3.
+* When close pop up the quantity in cart shows 2 and Product Subtotal is
+now $3769.20.
+ <br>
+Test Result: Successful
+Secondary Test: 
+Action Taken: Click "Remove From Cart" link.
+ <br>
+ "Before" State: Quantity of 3 as described above.
+ <br>
+"After" State: 
+* Message box pops up stating "Removed Open Back Level 2 CPE Gown (Set of 360) 
+from your cart."
+* When close pop up the message in the cart is "Your shopping cart is empty!"
+ <br>
+Test Result: Successful
+ </p>

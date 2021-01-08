@@ -1,4 +1,5 @@
-.md-form input[type="text"] {
+.md-form input[type="text"],
+input[type="email"] {
     padding-left: .75rem;
     padding-right: .75rem;
 }
