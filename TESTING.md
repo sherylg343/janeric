@@ -286,4 +286,156 @@ Test Result: Successful
 Test Result: Successful
  </p>
 
- 
+ #### Search bar
+ **Test #15:
+ <p>
+ Action Taken: Click in search bar and type Sanitizer
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: bottom border turns to blue with light blue background
+while typing
+* All gel and dispense products appear in search results
+* Side menu stays in place while scrolling
+* Product cards are centered with margin on all sides
+* Footer is where it should be, all copy readable and centered
+* Back to top button is consistently located and functions as expected
+<br>
+Test Result: Successful
+NOTE: when first conducted this test, only dispensers appeared so added
+product family to the query and now functions fully
+ </p>
+
+  **Test #16:
+ <p>
+ Action Taken: Click in search bar and type Gowns
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: bottom border turns to blue with light blue background
+while typing
+* Both gown and KN-95 mask products appear in search results
+* Side menu stays in place while scrolling
+* Product cards are centered with margin on all sides
+* Footer is where it should be, all copy readable and centered
+* Back to top button is consistently located and functions as expected
+<br>
+Test Result: Successful
+NOTE: I checked to make sure the category for KN-95 mask was correctly
+and it was, but the reason it appeared is that its description states that
+it is compatible with other protective equipment such as Face Shields and
+Gowns - so it was appropriate for it to appear
+ </p>
+
+ #### Products template
+ **Test #17:
+ <p>
+ Action Taken: Click on "PPE" link in mobile side nav and then click on 
+ "All PPE" while in Chrome Dev Tools with iPhone 6/7/8 screen selected
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Products page 
+* headline is clear
+* badges showing PPE categories are readable, though Thermometer is overlapping
+two of them, but they are all readable
+* All badge links work correctly - taking me to new page containing that
+category of products
+* Product cards are centered with margin on all sides
+* Footer is where it should be, all copy readable and centered
+* Back to top button is consistently located and functions as expected
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #18:
+ <p>
+ Action Taken: Click on "PPE" link in mobile side nav and then click on 
+ "All PPE" while in Chrome Dev Tools with iPhone 6/7/8 screen selected
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Products page 
+* headline is clear
+* badges showing PPE categories fill row across and they are all readable
+* All badge links work correctly - taking me to new page containing that
+category of products
+* There are 2 columns of product cards with space all around them
+* Footer is where it should be, all copy readable and centered
+* Back to top button is consistently located and functions as expected
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #19:
+ <p>
+ Action Taken: Click on "PPE" link in side menu and then click on 
+ "All PPE" while in Chrome Dev Tools with Response screen size 1000 
+ width selected
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Products page 
+* headline is clear
+* badges showing PPE categories are readable, though Thermometer is overlapping
+two of them, but they are all readable
+* All badge links work correctly - taking me to new page containing that
+category of products
+* Product cards are in 2 columns centered with margin on all sides
+* Footer is where it should be, all copy readable and centered
+* Back to top button is sticking to bottom of screen and only appears once
+scroll down - this seems to be the planned action for desktop screens
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #20:
+ <p>
+ Action Taken: Click on "PPE" link in side menu and then click on 
+ "All PPE" while in Chrome Dev Tools with Response screen size 1300 
+ width selected
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Products page 
+* headline is clear
+* badges showing PPE categories are readable, though Thermometer is overlapping
+two of them, but they are all readable
+* All badge links work correctly - taking me to new page containing that
+category of products
+* Product cards are in three columns, centered with appropriate margin 
+on all sides
+* Footer is where it should be, all copy readable and centered
+* Back to top button is sticking to bottom of screen and only appears once
+scroll down - this seems to be the planned action for desktop screens
+<br>
+Test Result: Successful
+NOTE: the Floor Markers image with arrows bleeds to the edges of
+the card, but doesn't overflow. This is a horizontal image and I decided
+it was more important to show as much of product as possible rather than
+crop the image to fit space better.
+ </p>
+
+ #### Product Detail template
+ **Test #21:
+ <p>
+ Action Taken: From the Products page, click on "View" button for a
+ dispenser stand while in Chrome Dev Tools with iPhone 6/7/8 screen selected
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and screen jumps to Products Detail page. 
+* Headline is clear and brand name is visible, as is "Keep Shopping" link
+* Product image is centered
+* Price is clear - select button doesn't work for this product as there
+is only one option in product family
+* The quantity + and - buttons work appropriately 
+* Description centered under "Add to Cart" button
+* Footer is where it should be, all copy readable and centered
+* Back to top button is consistently located and functions as expected
+<br>
+Test Result: Successful
+Secondary Tests:
+Delete link successfully deleted button (wnat to add confirmation before
+deletion as future feature)
+ </p>

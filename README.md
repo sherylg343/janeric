@@ -291,6 +291,10 @@ warning messages.
 * Buttons clearly state the action the user will take, e.g. view and buy now.
 * The search bar appears on all pages at the top of the page in the
 same spot.
+* The quantity button has limits put on it to avoid problems, it won't go
+below 1 or above 99. Also, in the cart and "Update" link was added so that
+a quantity is selected prior to adjusting value rather than it updating with
+every click of the selector which could cause performance issues.
 
 <p>
 
@@ -300,6 +304,11 @@ same spot.
 
 
 ## Future Goals <a name="future-goals"></a>
+
+### Complete Product Information
+A number of product photos, 1 SKU and 1 price are still due from
+the client. These need to be received and added to product model
+ASAP.
 
 ### Improve website performance
 Currently, the website pages scored between 8 and 63 on performance
@@ -327,6 +336,10 @@ page and saved in the UserProfile model.
 ### Automated testing for order and payment process added
 The developer needs to spend more time learning about automated
 testing for Django to implement it properly.
+
+### Confirmation message and action before deleting product
+Add a message and require a secondary action before deletion
+is processed
 
 ### Add UV Lighting products, educational information and contact form
 This sales process is not yet well-defined so once it is, additional

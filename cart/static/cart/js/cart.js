@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //Update quantity on click
+    //Update link updates quantity on click
     $('.update-link').click(function(e) {
         const form = $(this).closest('.update-form');
         form.submit();
