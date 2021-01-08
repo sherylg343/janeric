@@ -382,6 +382,7 @@ two of them, but they are all readable
 * All badge links work correctly - taking me to new page containing that
 category of products
 * Product cards are in 2 columns centered with margin on all sides
+* Main content scrolls but side menu is fixed
 * Footer is where it should be, all copy readable and centered
 * Back to top button is sticking to bottom of screen and only appears once
 scroll down - this seems to be the planned action for desktop screens
@@ -405,6 +406,7 @@ two of them, but they are all readable
 category of products
 * Product cards are in three columns, centered with appropriate margin 
 on all sides
+* Main content scrolls but side menu is fixed
 * Footer is where it should be, all copy readable and centered
 * Back to top button is sticking to bottom of screen and only appears once
 scroll down - this seems to be the planned action for desktop screens
@@ -432,10 +434,97 @@ is only one option in product family
 * The quantity + and - buttons work appropriately 
 * Description centered under "Add to Cart" button
 * Footer is where it should be, all copy readable and centered
-* Back to top button is consistently located and functions as expected
 <br>
 Test Result: Successful
 Secondary Tests:
 Delete link successfully deleted button (wnat to add confirmation before
-deletion as future feature)
+deletion as future feature) and message confirmed product was deleted
+
+Update link took me to template to Edit the product and received Alert
+message stating the product to be edited. I clicked "Cancel" link and
+was sent back to Product page with all products listed.
+ </p>
+
+ **Test #22:
+ <p>
+ Action Taken: From the Products page, click on "View" button for a
+ dispenser stand while in Chrome Dev Tools with iPad screen selected
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and screen jumps to Products Detail page. 
+* Headline is clear and brand name is visible, as is "Keep Shopping" link
+* Product image is in left column with ample margin around it
+* Price is clear - select button doesn't work for this product as there
+is only one option in product family
+* Description centered below the image and "Add to Cart" button
+* Footer is where it should be, all copy readable and centered
+<br>
+Test Result: Successful
+Secondary Test: Clicked on quantity + and - buttons to verify the minimum
+and maximum ranges. The - button would not decrease the value below 1 and
+the + would not increase the value past 99.
+Test Result: Successful
+
+**Test #23:
+ <p>
+ Action Taken: From the Products page, click on "View" button for a
+ dispenser stand while in Chrome Dev Tools with responsive screen 
+ with width of 1000 selected
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and screen jumps to Products Detail page. 
+* Headline is clear and brand name is visible, as is "Keep Shopping" link
+* Main content scrolls but side menu is fixed
+* Product image is in left column with ample margin around it
+* Price is clear - select button doesn't work for this product as there
+is only one option in product family
+* Description centered below the image and "Add to Cart" button
+* Footer is where it should be, all copy readable and centered
+<br>
+Test Result: Successful
+
+**Test #23:
+ <p>
+ Action Taken: From the Products page, click on "View" button for a
+HP Pure Hand Sanitizer, Size: Gallon, Case of 4 while in Chrome Dev Tools with responsive screen with width of 1300 selected
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and screen jumps to Products Detail page. 
+* Headline is clear and brand name is visible, as is "Keep Shopping" link
+* Main content scrolls but side menu is fixed
+* Product image is way too big, taller than the buttons on the right
+* Price is clear - select button provides size and case options and when
+click on a different option, the page reloads to that page and that
+product's size, case and price is selected under "Price" label
+* Description centered below the image and "Add to Cart" button
+* Footer is where it should be, all copy readable and centered
+<br>
+Test Result: Fails
+CSS change: #detail-image-img gains a max-height attribute and value of
+250px. 
+Second Test Result: Successful
+
+ #### Product Detail template
+ **Test #24:
+ <p>
+ Action Taken: From the Product Detail page, click on "Add to Cart" button
+ for a 8 oz., Case of 24, Hand Sanitizer gel while in Chrome Dev Tools with
+iPhone 6/7/8 screen selected. Quantity selected is 2.
+ <br>
+ "Before" State: View button is dark gray with white text
+ <br>
+"After" State: White text turns blue when click button and pop up message
+appears station the product selected was added to cart.
+* The product name in header is correctly
+* The product count in cart (2) is stated correctly.
+* The product image, product family name, size, case and quantity listed
+in product detail section of message are all correct. 
+* The individual unit cost is $95.76 so the Total of $191.52 is correct.
+* The "View Cart" button in the pop-up window does take me to the 
+Shopping Cart.
+ <br>
+Test Result: Successful
  </p>
