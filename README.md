@@ -81,7 +81,7 @@ The following was based upon the user stories for the Boutique Ado project, but
 revised to fit the needs of the Janeric website.
 
 <h9 style="text-align: center">
-        <img src="{{ MEDIA_URL }}user-stories.png" alt="JANERIC" />
+        <img src="README-ASSETS/user-stories.png" alt="JANERIC" />
 </h9>
 
 <p>
@@ -196,18 +196,26 @@ The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
 
-[Mobile]()
+[Mobile](README-ASSETS/janeric-mobile1b.pdf)
 </div>
 
 <div style="text-align:center;">
 
-[Tablet]()
+[Tablet](README-ASSETS/janeric-iPad1.pdf)
 </div>
 
 <div style="text-align:center;">
 
-[Desktop]()
+[Desktop](README-ASSETS/janeric-desktop1c.pdf)
 </div>
+
+#### SPECIAL NOTE regarding Wirefram Mock-Ups: 
+The mock-ups were reviewed by the client and they made a number of
+changes to the layout of the pages. Due to the project deadline and
+the client's time constraints, a second round of mock-ups was not
+done before work began on the website. Additionally, these changes
+are not reflected in the mock-ups attached because the developer's
+free Balsamiq trial expired prior to the end of the project.
 
 #### Surface Plane
 1. Background: 
