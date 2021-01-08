@@ -1047,7 +1047,7 @@ Test Result: Successful
 Test Result: Successful except for State field text color
  </p>
 
- **Test #43:
+ **Test #50:
  <p>
  Action Taken: click checkbox next to "Same as shipping address"
  <br>
@@ -1060,7 +1060,7 @@ Test Result: Successful except for State field text color
 Test Result: Successful
  </p>
 
- **Test #44:
+ **Test #51:
  <p>
  Action Taken: enter test credit card number in payment field
  <br>
@@ -1074,7 +1074,7 @@ section of the field
 Test Result: Successful
  </p>
 
-  **Test #45:
+  **Test #52:
  <p>
  Action Taken: Click on "Pay Now" button
  <br>
@@ -1085,6 +1085,69 @@ Test Result: Successful
 * pop up box appears stating "Order successfully proccessed. Your
 order number is ... A confirmation email will be sent to {email address}."
 * When close pop up box, see "Thank You" page with summary of order.
+ <br>
+Test Result: Successful
+ </p>
+
+ skipped doing the checkout tests in screen size 1300 as layout was the same
+
+#### Profile template
+ **Test #53:
+ <p>
+ Action Taken: In Profile template in Pixel 2 screen size in Chrome
+ Dev Tools, changed state from NY to NM and clicked "Update 
+ Information" button
+ <br>
+ "Before" State: State field says New York in dark text
+ <br>
+"After" State: 
+* New Mexico appears in state field in dark text
+* pop up box appears stating "Profile updated successfully."
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #54:
+ <p>
+ Action Taken: In Profile template in Pixel 2 screen size in Chrome
+ Dev Tools, changed street address1 and clicked "Update 
+ Information" button
+ <br>
+ "Before" State: address field said "41 Placid Ter"
+ <br>
+"After" State: 
+* address1 field said "21 Eastlake Rd." in dark text
+* pop up box appears stating "Profile updated successfully."
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #55:
+ <p>
+ Action Taken: In Profile template in Pixel 2 screen size in Chrome
+ Dev Tools, changed street address1 and clicked "Update 
+ Information" button
+ <br>
+ "Before" State: address field said "41 Placid Ter"
+ <br>
+"After" State: 
+* address1 field said "21 Eastlake Rd." in dark text
+* pop up box appears stating "Profile updated successfully."
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #56:
+ <p>
+ Action Taken: In Profile template in responsive screen 
+ in width size of 1100 in Chrome Dev Tools, changed city and clicked 
+ "Update Information" button
+ <br>
+ "Before" State: address field said "Ithaca"
+ <br>
+"After" State: 
+* address1 field said "Durango" in dark text
+* pop up box appears stating "Profile updated successfully."
  <br>
 Test Result: Successful
  </p>
