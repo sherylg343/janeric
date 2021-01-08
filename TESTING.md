@@ -55,8 +55,235 @@ were used.
  when the data is preloaded.
  2. Tied to #1, checkout.js was created to hold the non-stripe
  jQuery code and it was loaded at top of file so that the 
- linear stepper component used works correctly.
- 2. The hero image ONLY works as specified by MD Bootstrap, which
+ linear stepper component used works correctly. However, the State
+ field color change code and the shipping to billing address code
+ were not working together so the shipping to billing address code
+ is in the Stripe js file. Working with tutors, it appears it many
+ be a timing/loading issue. With some additional time, it likely
+ can be resolved.
+ 3. The hero image ONLY works as specified by MD Bootstrap, which
  requires inline CSS styling and I was unable to use the main
  tags around the code. It's not best practices, but was the ONLY
  way it worked.
+ 4. The client gave me a no-reply email address which is part of
+ their gmail group. I obtained the password for django, but it
+ is not working so I'm waiting to hear back in case there is
+ a typo in the gmail address of which I'm not aware. So additional
+ testing and troubleshooting is needed for email addresses.
+
+ #### Part One: Initial Navigation
+
+ ##### Mobile Screen Version (side slide navigation menu)
+**Test #1:
+ <p>
+ Action Taken: Click on Janeric logo 
+ <br>
+ "Before" State: Logo
+ <br>
+"After" State: Logo is same and screen jumps to home page
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #2:
+ <p>
+ Action Taken: Click on "Shop All" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to "Products" 
+page with all products displayed
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #3:
+ <p>
+ Action Taken: Click on "PPE" and then click on "Gowns"
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to "Products - Gowns" 
+page with corresponding products displayed
+<br>
+Test Result: Successful
+ </p>
+
+Additional tests: this test was also conducted for all of the 
+additional navigation links in the side slide navigation menu:
+PPE-Masks, PPE-Social Distancing Signage, 
+PPE-Thermometers, PPE-All PPE, Hand Sanitizer-Gel, Hand 
+Sanitizer-Dispenser, Hand Sanitizer-All Hand Sanitizer, 
+Personal-Body Wash and Shampoo, My Account-Product Management,
+My Account-My Profile, My Account-Log In, My Account-Register,
+My Account-Log Out, About Us.
+
+For all of the links mentioned above, the before state was
+identical to the state described above, in the "After" State
+the link changed color and I was directed to the appropriate
+page. Several of the links required two clicks (as indicated in
+Test #3 and all of the dropdown menus were functioning 
+appropriately.
+
+**Test #4: 
+<p>
+Action Taken: Click on "Contact Us" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to a new
+email draft directed to customerservice@janericllc.com
+<br>
+Test Result: Successful
+</p>
+
+##### Large Screen Version (top navigation on home page)
+**Test #5:
+ <p>
+ Action Taken: Click on Janeric logo 
+ <br>
+ "Before" State: Logo
+ <br>
+"After" State: Logo is same and screen jumps to home page
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #6:
+ <p>
+ Action Taken: Click on "Shop All" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to "Products" 
+page with all products displayed
+<br>
+Test Result: Successful
+ </p>
+
+Additional tests: this test was also conducted for all of the 
+additional navigation links in the side slide navigation menu:
+PPE-Gowns, PPE-Masks, PPE-Social Distancing Signage, 
+PPE-Thermometers, PPE-All PPE, Hand Sanitizer-Gel, Hand 
+Sanitizer-Dispenser, Hand Sanitizer-All Hand Sanitizer, 
+Personal-Body Wash and Shampoo, My Account-Product Management,
+My Account-My Profile, My Account-Log In, My Account-Register,
+My Account-Log Out, About Us. 
+
+For all of the links mentioned above, the before state was
+identical to the state described above, in the "After" State
+the link changed color and I was directed to the appropriate
+page. Several of the links required two clicks and all of the
+dropdown menus were functioning appropriately.
+
+**Test #7: 
+<p>
+Action Taken: Click on "Contact Us" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to a new
+email draft directed to customerservice@janericllc.com
+<br>
+Test Result: Successful
+</p>
+
+**Test #8: 
+<p>
+Action Taken: Click on shopping cart icon 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to cart
+page
+<br>
+Test Result: Successful
+</p>
+
+##### Large Screen Version (side menu on Cart page)
+**Test #9:
+ <p>
+ Action Taken: Click on "Shop All" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to "Products" 
+page with all products displayed
+<br>
+Test Result: Successful
+ </p>
+
+**Test #10:
+ <p>
+ Action Taken: Click on "PPE" and then click on "Gowns"
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to "Products - Gowns" 
+page with corresponding products displayed
+<br>
+Test Result: Successful
+ </p>
+
+ Additional tests: this test was also conducted for all of the 
+additional navigation links in the side slide navigation menu:
+PPE-Gowns, PPE-Masks, PPE-Social Distancing Signage, 
+PPE-Thermometers, PPE-All PPE, Hand Sanitizer-Gel, Hand 
+Sanitizer-Dispenser, Hand Sanitizer-All Hand Sanitizer, 
+Personal-Body Wash and Shampoo, My Account-Product Management,
+My Account-My Profile, My Account-Log In, My Account-Register,
+My Account-Log Out, About Us. 
+
+For all of the links mentioned above, the before state was
+identical to the state described above, in the "After" State
+the link changed color and I was directed to the appropriate
+page. Several of the links required two clicks and all of the
+dropdown menus were functioning appropriately.
+
+**Test 11: 
+<p>
+Action Taken: Click on "Contact Us" 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Link turns bright blue and screen jumps to a new
+email draft directed to customerservice@janericllc.com
+<br>
+Test Result: Successful
+</p>
+
+#### Footer links
+**Test 12: 
+<p>
+Action Taken: Click on email address in footer 
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to a new email draft directed to customerservice@janericllc.com
+<br>
+Test Result: Successful
+</p>
+
+**Test #13:
+ <p>
+ Action Taken: Click on "Shipping" link in footer
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Shipping page 
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #14:
+ <p>
+ Action Taken: Click on "Terms and Conditions" link in footer
+ <br>
+ "Before" State: Link is gray/blue
+ <br>
+"After" State: Screen jumps to Terms and Conditions page 
+<br>
+Test Result: Successful
+ </p>
+
+ 

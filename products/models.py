@@ -32,6 +32,9 @@ class Product_Family(models.Model):
     def get_brand_name(self):
         return self.brand_name
 
+    def get_name(self):
+        return self.name
+
 
 class Product(models.Model):
     BOTTLE_SIZES = (
