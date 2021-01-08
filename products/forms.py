@@ -23,3 +23,4 @@ class ProductForm(forms.ModelForm):
             self.fields['product_family'].choices = pf_names
             for field_name, field in self.fields.items():
                 field.widget.attrs['class'] = 'form-border rounded-0'
+
