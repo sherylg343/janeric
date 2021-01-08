@@ -1,38 +1,38 @@
 //make state select placeholder gray
 const stateSelected = $('#div_id_defaultship_state').val();
 
-const defaultShipFullName = $('#id_defaultship_full_name');
-const defaultShipCompName = $('#id_defaultship_comp_name');
-const defaultShipFullName = $('#id_ship_full_name');
-const defaultShipStreet1 = $('#id_defaultship_street_address1');
-const defaultShipStreet2 = $('#id_defaultship_street_address2');
-const defaultShipCity =  $('#id_defaultship_city');
-const defaultShipState =  $('#id_defaultship_state');
-const defaultShipZipCode = $('#id_defaultship_zipcode');
-const defaultShipPhone = $('#id_defaultship_phone_number');
+const profileDefaultShipFullName = $('#id_defaultship_full_name');
+const profileDefaultShipCompName = $('#id_defaultship_comp_name');
+const profileDefaultShipFullName = $('#id_ship_full_name');
+const profileDefaultShipStreet1 = $('#id_defaultship_street_address1');
+const profileDefaultShipStreet2 = $('#id_defaultship_street_address2');
+const profileDefaultShipCity =  $('#id_defaultship_city');
+const profileDefaultShipState =  $('#id_defaultship_state');
+const profileDefaultShipZipCode = $('#id_defaultship_zipcode');
+const profileDefaultShipPhone = $('#id_defaultship_phone_number');
 
 $(document).ready(function() {
-    if ($(defaultShipFullName).val('')) {
-        $(defaultShipFullName).css('color', '#c3ccd3');
-        $(defaultShipCompName).css('color', '#c3ccd3');
-        $(defaultShipStreet1).css('color', '#c3ccd3');
-        $(defaultShipStreet2).css('color', '#c3ccd3');
-        $(defaultShipCity).css('color', '#c3ccd3');
-        $(defaultShipState).css('color', '#c3ccd3');
-        $(defaultShipZipCode).css('color', '#c3ccd3');
-        $(defaultShipPhone).css('color', '#c3ccd3');
+    if ($(profileDefaultShipFullName).val('')) {
+        $(profileDefaultShipFullName).css('color', '#c3ccd3');
+        $(profileDefaultShipCompName).css('color', '#c3ccd3');
+        $(profileDefaultShipStreet1).css('color', '#c3ccd3');
+        $(profileDefaultShipStreet2).css('color', '#c3ccd3');
+        $(profileDefaultShipCity).css('color', '#c3ccd3');
+        $(profileDefaultShipState).css('color', '#c3ccd3');
+        $(profileDefaultShipZipCode).css('color', '#c3ccd3');
+        $(profileDefaultShipPhone).css('color', '#c3ccd3');
     } else {
-        $(defaultShipFullName).css('color', '#47646f');
-        $(defaultShipCompName).css('color', '#47646f');
-        $(defaultShipStreet1).css('color', '#47646f');
-        $(defaultShipStreet2).css('color', '#47646f');
-        $(defaultShipCity).css('color', '#47646f');
-        $(defaultShipState).css('color', '#47646f');
-        $(defaultShipZipCode).css('color', '#47646f');
-        $(defaultShipPhone).css('color', '#47646f');
+        $(profileDefaultShipFullName).css('color', '#47646f');
+        $(profileDefaultShipCompName).css('color', '#47646f');
+        $(profileDefaultShipStreet1).css('color', '#47646f');
+        $(profileDefaultShipStreet2).css('color', '#47646f');
+        $(profileDefaultShipCity).css('color', '#47646f');
+        $(profileDefaultShipState).css('color', '#47646f');
+        $(profileDefaultShipZipCode).css('color', '#47646f');
+        $(profileDefaultShipPhone).css('color', '#47646f');
     }
 
-    $(defaultShipState).change(function() {
+    $(profileDefaultShipState).change(function() {
         $(this).css('color', '#47646f');
     });
 });
