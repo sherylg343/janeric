@@ -15,6 +15,9 @@ class Category(models.Model):
     def get_division(self):
         return self.division
 
+    def get_name(self):
+        return self.name
+
 
 class Product_Family(models.Model):
     class Meta:
@@ -24,9 +27,6 @@ class Product_Family(models.Model):
     brand_name = models.CharField(max_length=254)
 
     def __str__(self):
-        return self.name
-
-    def get_name(self):
         return self.name
 
     def get_brand_name(self):
