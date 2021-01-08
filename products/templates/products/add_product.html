@@ -18,18 +18,14 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu-col bg-blush">
                 {% include 'includes/side-menu.html' %}
             </div>
             <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
                 <div class="row">
                     <div class="col-12 mb-4">
-                        <p>
-                            <h5 id="checkout" class="headline ml-4 mb-3">Product Management</h5>
-                        </p>
-                        <p class="text-center">
-                           <h7 class="head-row text-muted">Add a Product</h7> 
-                        </p>
+                        <h5 class="headline mb-3">Product Management</h5>
+                        <h7 class="text-muted">Add a Product</h7> 
                     </div> 
                 </div>
                 <div class="row">
@@ -45,7 +41,7 @@
                             {% endfor %}
                             <div class="text-right">
                                 <a href="{% url 'products' %}">Cancel</a>
-                               <button id="submit-button" class="btn btn-large bg-ltblue white-text">Add Product</button>                   
+                               <button id="submit-button" class="btn btn-large bg-ltblue white-text">Add Product</button>        
                             </div>
                         </form>
                     </div> 

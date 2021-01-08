@@ -50,7 +50,7 @@
                 <ul> 
                     {% if request.user.is_authenticated %} 
                         {% if request.user.is_superuser %}
-                            <li><a href="" class="waves-effect">Product Management</a>
+                            <li><a href="{% url 'add_product' %}" class="waves-effect">Product Management</a>
                             </li>
                         {% endif %}
                             <li><a href="{% url 'profile' %}" class="waves-effect">My Profile</a>
