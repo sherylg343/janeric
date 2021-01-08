@@ -14,12 +14,12 @@ class ProductForm(forms.ModelForm):
 
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
-            categories = Category.ovjects.all()
+            categories = Category.objects.all()
             cat_names = [(c.id, c.get_name()) for c in categories]
             product_families = Product_Family.objects.all()
             pf_names = [(pf.id, pf.get_name()) for pf in product_families]
 
-            self.fields['category'].choices = name
-            self.fields['product_family'] = name
+            self.fields['category'].choices = cat_names
+            self.fields['product_family'].choices = pf_names
             for field_name, field in self.fields.items():
                 field.widget.attrs['class'] = 'form-border rounded-0'
