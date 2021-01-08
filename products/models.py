@@ -26,6 +26,9 @@ class Product_Family(models.Model):
     def __str__(self):
         return self.name
 
+    def get_name(self):
+        return self.name
+
     def get_brand_name(self):
         return self.brand_name
 
