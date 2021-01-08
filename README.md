@@ -102,7 +102,7 @@ those you care about safe."
 
 An evaluation was conducted to determine which customer needs the website 
 should address first. These customer needs are listed and reviewed in the 
-[Strategy Trade-Off Analysis](). 
+[Strategy Trade-Off Analysis](README-ASSETS/janeric-strategy-tradeoff.pdf). 
 
 The UV Lighting sales process and materials were not yet developed, so
 they were rated lower in importance and will be added in the second phase.
