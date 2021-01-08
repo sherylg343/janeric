@@ -159,7 +159,7 @@ a.category-badge > span.badge:hover {
 
 #detail-image img {
     width: auto !important;
-    height: 225px !important;
+    height: auto !important;
     object-fit: cover;
 }
 
