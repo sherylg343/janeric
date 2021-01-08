@@ -10,7 +10,7 @@ $(document).ready(function() {
         const csrfToken = "{{ csrf_token }}";
         const productId = $(this).attr('id').split('remove_')[1];
         const url = `/cart/remove/${productId}/`;
-        const data = {'csrfmiddlewaretoken': csrfToken}
+        const data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
         .done(function() {
