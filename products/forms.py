@@ -31,10 +31,3 @@ class ProductFamilyForm(forms.ModelForm):
         model = Product_Family
         fields = '__all__'
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        product_families = Product_Family.objects.all()
-        division_names = [(
-            pf.id, pf.get_division()) for pf in product_families]
-
-        self.fields['product_family'].choices = division_names

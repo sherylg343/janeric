@@ -97,6 +97,7 @@ def product_families(request):
     context = {
         'product_families': product_families,
     }
+
     return render(request, 'products/product_families.html', context)
 
 
@@ -140,7 +141,7 @@ def edit_product_family(request, product_family_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product family!')
-#            return redirect(reverse('product_families'))
+            return redirect(reverse('product_families'))
         else:
             messages.error(request,
                            ('Failed to update product family. '
