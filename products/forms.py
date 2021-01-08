@@ -22,9 +22,9 @@ class ProductForm(forms.ModelForm):
         brand_names = [(pf.id, pf.get_brand_name()) for pf in product_families]
 
         self.fields['category'].choices = cat_names
-        self.fields['category'].choices = div_names
+        self.fields['division'].choices = div_names
         self.fields['product_family'].choices = pf_names
-        self.fields['product_family'].choices = brand_names
+        self.fields['brand_name'].choices = brand_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-border rounded-0'
 
