@@ -249,9 +249,35 @@ The side-menu for larger screens in not as conventional, however, it was
 specifically requested by the client.
 
 Defensive Design: as mentioned previously, this was a key concept considered
-in designing the website and to facilitate ease and pleasure of use.
-
-NEEDS More
+in designing the website and to provide security for both users and store
+owners.
+* Account menu options are limited based on whether a user is logged in
+or not. Also, only a superuser has access to the Product Management page.
+* A number of design factors were built in to protect the ordering and
+payment process:
+1. If the normal ordering process is interrupted, a back-up process is
+provided using the webhook handlers. 
+2. The back-up (webhook handler) process will try to place order 5 times 
+with wait time intervals in between to allow plenty of time and attempts 
+to complete order.
+3. Error messages are set up to alert user if a problem occurs with the
+order or payment process.
+* Allauth package provides verification of users and protection of 
+passwords
+* Address verification was addressed - a software package was installed
+to provide zip code verification and a state selector widget to improve 
+accuracy of addresses.
+* A checkbox provides the user with the option to use their shipping
+address as their billing address, minimizing input and errors.
+* A checkbox offers user option to save default shipping address,
+another way to minimize input time and errors.
+* Bootstrap toasts are used to provide user with immediate feedback
+about the results of actions taken. Messages are color-coded to provide
+additional feedback about the type of message, e.g. red headline for 
+warning messages.
+* Buttons clearly state the action the user will take, e.g. view and buy now.
+* The search bar appears on all pages at the top of the page in the
+same spot.
 
 <p>
 
@@ -262,6 +288,12 @@ NEEDS More
 
 ## Future Goals <a name="future-goals"></a>
 
+### Improve website performance
+Currently, the website pages scored between 8 and 63 on performance
+in Lighthouse reports. Text compression appears to be the best
+strategy for improving performance and that will be addressed
+before the site goes into production.
+
 ### Direct the deployed site to purchased domain
 Client has purchased domain name of www.janericllc.com and website
 needs to be redirected to that domain prior to launching
@@ -270,6 +302,18 @@ needs to be redirected to that domain prior to launching
 Given the complexity of US sales tax, a software package needs to be
 selected and installed to calculate the correct sales tax. TaxJar
 is currently being considered.
+
+### Add a Buy Now button to the products on search results page
+The client requested this feature and the products template
+needs to be reconfigured to allow posting of the product data.
+
+### Add checkbox to opt-in for marketing and promotions
+This checkbox will be placed in the email section of checkout
+page and saved in the UserProfile model.
+
+### Automated testing for order and payment process added
+The developer needs to spend more time learning about automated
+testing for Django to implement it properly.
 
 ### Add UV Lighting products, educational information and contact form
 This sales process is not yet well-defined so once it is, additional
@@ -323,6 +367,10 @@ css code validator
 * [JSDoc](https://jsdoc.app/) - for comments in JavaScript file
 * [stackOverflow](https://stackoverflow.com/) - questions forum helped with
 troubleshooting code
+* [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) - assess performance, accessibility
+and best practices of web pages
+* [Unicorn_Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) - tool to assist in troubleshooting
+issues in website
 
 <p>
 

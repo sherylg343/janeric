@@ -662,7 +662,7 @@ margin-top: -.3rem;
         padding-left: 10rem;
     }
     .head-row {
-    transform: translateX(35vw);
+        transform: translateX(30vw);
     }
     .headline {
         padding-top: 0;
@@ -681,5 +681,8 @@ margin-top: -.3rem;
     }
     .footer-main {
         padding-left: 15rem;
+    }
+    .head-row {
+        transform: translateX(25vw);
     }
 }
