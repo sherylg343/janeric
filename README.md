@@ -248,6 +248,19 @@ A mobile version has a menu icon and side-slide navbar for ease of use.
 The side-menu for larger screens in not as conventional, however, it was
 specifically requested by the client.
 
+Product Management: Because the product family name became a key
+element of the website (the family name is used in most places rather
+than the product name), the developer decided that the Product Management
+section should include the ability to add and edit these names, and the
+brand names which are part of the Product_Family model. Therefore, a
+template was added listing the product family names, their brand names
+and providing an edit button.  An "Add Product Family" button was also
+included at the top and bottom of the list for ease of use. A delete
+button was not included deliberately as that would delete necessary
+history for products. The navigation options for Product Management
+were changed to: Add a Product and Product Families. They were changed
+in both the desktop and mobile navigation sections.
+
 Defensive Design: as mentioned previously, this was a key concept considered
 in designing the website and to provide security for both users and store
 owners.
