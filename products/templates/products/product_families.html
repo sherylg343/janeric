@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+   <script type="text/javascript" src="{% static 'js/addons-pro/steppers.min.js' %}"></script> 
+{% endblock %}
+
+
+
+{% block page_header %}
+<div class="container header-container">
+  <div class="row mt-5 mb-5">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %} 
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 pt-5 side-menu-col bg-blush">
+                {% include 'includes/side-menu.html' %}
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9 text-center mt-4 head-row pt-5 mb-5">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h5 class="headline mb-3">Product Management</h5>
+                        <h7 class="text-muted">Product Families</h7> 
+                        <p class="text-right mr-2">
+                            <a href="{% url 'home' %}" class="cart-continues">Home</a>  
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1 col-md-6 offset-md-3">
+                       {% for p in product_families %}    
+                            <p class="my-0"><strong>Product Family Name:  </strong>{{ p.name }}</p>
+                            <p class="my-0 "><strong>Division: </strong>{{ p.division }}</p>
+                            <div class="text-center pb-3">
+                                <a href="{% url 'edit_product_family' product_family.id %}">Edit</a> | 
+                            </div>   
+                        {% endfor %}       
+                    </div>           
+                </div>   
+                <div class="row pt-4 pb-4">
+                    <div class="col-10 offset-1 col-md-6 offset-md-3">
+                        <a href="{% url 'add_product_family' %}" class="btn btn-large bg-ltblue white-text">Add a Product Family</a>      
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

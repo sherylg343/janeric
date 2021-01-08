@@ -86,6 +86,21 @@ def add_product(request):
 
 
 @login_required
+def product_families(request):
+    """ A view to show all product families """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product_families = Product_Family.objects.all()
+
+    context = {
+        'product_families': product_families,
+    }
+    return render(request, 'products/product_families.html', context)
+
+
+@login_required
 def add_product_family(request):
     """ Add a product-family to the store """
     if not request.user.is_superuser:
@@ -107,6 +122,37 @@ def add_product_family(request):
     template = 'products/add_product_family.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_product_family(request, product_family_id):
+    """ Edit a product family """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product_family = get_object_or_404(Product_Family, pk=product_family_id)
+    if request.method == 'POST':
+        form = ProductFamilyForm(request.POST, instance=product_family)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product family!')
+            return redirect(reverse('product_families'))
+        else:
+            messages.error(request,
+                           ('Failed to update product family. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductFamilyForm(instance=product_family)
+        messages.info(request, f'You are editing {product_family.name}')
+
+    template = 'products/edit_product_family.html'
+    context = {
+        'form': form,
+        'product_family': product_family,
     }
 
     return render(request, template, context)
