@@ -715,3 +715,252 @@ from your cart."
  <br>
 Test Result: Successful
  </p>
+
+ #### Checkout template
+ * The following tests were done while in Chrome Dev Tools with
+screen size set to iPhoneX
+ **Test #32:
+ <p>
+ Action Taken: typed email address in input box
+ <br>
+ "Before" State: gray placeholder states "Email Address *"
+ <br>
+"After" State: email address appears in input box in dark type
+ <br>
+Test Result: Successful
+Secondary Test 1: 
+Action Taken: Click "Continue" button.
+ <br>
+ "Before" State: Dark gray button with white text.
+ <br>
+"After" State: 
+* Step one closes and a dark gray circle with white check mark appears
+in its place
+* Shipping header with #2 in blue circle appears
+* My default shipping address appears in the fields in dark text
+* Those fields without text have a gray placeholder in field
+ <br>
+Test Result: Successful
+<br>
+Secondary Test 2 (no default shipping address stored): 
+Action Taken: Click "Continue" button.
+ <br>
+ "Before" State: Dark gray button with white text.
+ <br>
+"After" State: 
+* Step one closes and a dark gray circle with white check mark appears
+in its place
+* Shipping header with #2 in blue circle appears
+* Shipping fields appear with gray placeholders in field
+* When enter data into fields, text is dark colored
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #33:
+ <p>
+ Action Taken: typed address information into input box
+ as guest user
+ <br>
+ "Before" State: address input fields with gray placeholders stating
+ information to be input into fields
+ <br>
+"After" State: address information appears in input boxes in dark type
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #34:
+ <p>
+ Action Taken: click "Continue" button at bottom of shipping address
+ input fields
+ <br>
+ "Before" State: gray "Continue" button
+ <br>
+"After" State: 
+* Step 2 section with shipping address collapses
+* Step 3 appears in dark blue circle
+* Billing address fields appear with gray placeholders 
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #35:
+ <p>
+ Action Taken: click checkbox next to "Same as shipping address"
+ <br>
+ "Before" State: empty checkbox
+ <br>
+"After" State: 
+* blue checkmark appears next to "Same as shipping address"
+* billing address fields are filled with shipping address information
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #36:
+ <p>
+ Action Taken: click checkbox next to "Same as shipping address"
+ <br>
+ "Before" State: empty checkbox
+ <br>
+"After" State: 
+* blue checkmark appears next to "Same as shipping address"
+* billing address fields are filled with shipping address information
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #37:
+ <p>
+ Action Taken: enter test credit card number in payment field
+ <br>
+ "Before" State: empty field with gray placeholders
+ <br>
+"After" State: 
+* dark text fills field
+* as completed one section automatically tabbed over to next
+section of the field
+ <br>
+Test Result: Successful
+ </p>
+
+  **Test #38:
+ <p>
+ Action Taken: Click on "Pay Now" button
+ <br>
+ "Before" State: dark gray button says "Pay Now"
+ <br>
+"After" State: 
+* overlay appears with circling icon
+* pop up box appears stating "Order successfully proccessed. Your
+order number is ... A confirmation email will be sent to {email address}."
+* When close pop up box, see "Thank You" page with summary of order.
+ <br>
+Test Result: Successful
+ </p>
+
+ * The following tests were done while in Chrome Dev Tools with
+screen size set to iPad
+ **Test #39:
+ <p>
+ Action Taken: typed email address in input box
+ <br>
+ "Before" State: gray placeholder states "Email Address *"
+ <br>
+"After" State: email address appears in input box in dark type
+ <br>
+Test Result: Successful
+Secondary Test 1: 
+Action Taken: Click "Continue" button.
+ <br>
+ "Before" State: Dark gray button with white text.
+ <br>
+"After" State: 
+* Step one closes and a dark gray circle with white check mark appears
+in its place
+* Shipping header with #2 in blue circle appears
+* My default shipping address appears in the fields in dark text
+* Those fields without text have a gray placeholder in field
+ <br>
+Test Result: Successful
+<br>
+Secondary Test 2 (no default shipping address stored): 
+Action Taken: Click "Continue" button.
+ <br>
+ "Before" State: Dark gray button with white text.
+ <br>
+"After" State: 
+* Step one closes and a dark gray circle with white check mark appears
+in its place
+* Shipping header with #2 in blue circle appears
+* Shipping fields appear with gray placeholders in field
+* When enter data into fields, text is dark colored
+<br>
+Test Result: Successful
+ </p>
+
+ **Test #40:
+ <p>
+ Action Taken: typed address information into input box
+ as guest user
+ <br>
+ "Before" State: address input fields with gray placeholders stating
+ information to be input into fields
+ <br>
+"After" State: address information appears in input boxes in dark type
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #41:
+ <p>
+ Action Taken: click "Continue" button at bottom of shipping address
+ input fields
+ <br>
+ "Before" State: gray "Continue" button
+ <br>
+"After" State: 
+* Step 2 section with shipping address collapses
+* Step 3 appears in dark blue circle
+* Billing address fields appear with gray placeholders 
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #42:
+ <p>
+ Action Taken: click checkbox next to "Same as shipping address"
+ <br>
+ "Before" State: empty checkbox
+ <br>
+"After" State: 
+* blue checkmark appears next to "Same as shipping address"
+* billing address fields are filled with shipping address information
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #43:
+ <p>
+ Action Taken: click checkbox next to "Same as shipping address"
+ <br>
+ "Before" State: empty checkbox
+ <br>
+"After" State: 
+* blue checkmark appears next to "Same as shipping address"
+* billing address fields are filled with shipping address information
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #44:
+ <p>
+ Action Taken: enter test credit card number in payment field
+ <br>
+ "Before" State: empty field with gray placeholders
+ <br>
+"After" State: 
+* dark text fills field
+* as completed one section automatically tabbed over to next
+section of the field
+ <br>
+Test Result: Successful
+ </p>
+
+  **Test #45:
+ <p>
+ Action Taken: Click on "Pay Now" button
+ <br>
+ "Before" State: dark gray button says "Pay Now"
+ <br>
+"After" State: 
+* overlay appears with circling icon
+* pop up box appears stating "Order successfully proccessed. Your
+order number is ... A confirmation email will be sent to {email address}."
+* When close pop up box, see "Thank You" page with summary of order.
+ <br>
+Test Result: Successful
+ </p>
+
+
