@@ -1,6 +1,6 @@
 <h3 style="text-align: center">
     <a href="https://github.com/sherylg343/janeric">
-        <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" />
+        <img src="media/janeric-banner-logo.png" alt="JANERIC" />
     </a>
 </h3>
 
@@ -373,7 +373,7 @@ conjunction with Python to create and operate the website
 the live website preview
 
 ## Tools Used:
-* [PstgreSQL](https://www.postgresql.org/) - used with Heroku to manage data for
+* [PostgreSQL](https://www.postgresql.org/) - used with Heroku to manage data for
 the website
 * [AWS-S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#) - storage
 for static and media files for the website
@@ -386,7 +386,7 @@ visual styling decisions, especially relative to screen sizes
 * [GoogleFonts](https://fonts.google.com/) - Noto Sans JP and Hind Siliguri 
 Font Styles
 * [tinyjpg](https://tinyjpg.com/) - used to reduce image file sizes
-* [Nu_html_checker] (https://validator.w3.org/) - html validator
+* [NuHtmlChecker] (https://validator.w3.org/) - html validator
 * [W3C_CSS_Validation](https://jigsaw.w3.org/css-validator/#validate_by_uri) - 
 css code validator
 * [JSHint](https://jshint.com/) - JavaScript validator that recognizes jQuery

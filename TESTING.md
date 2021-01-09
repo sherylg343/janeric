@@ -1,6 +1,6 @@
 <h3 style="text-align: center">
     <a href="https://github.com/sherylg343/janeric">
-        <img src="{{ MEDIA_URL }}janeric-banner-logo.png" alt="JANERIC" />
+        <img src="media/janeric-banner-logo.png" alt="JANERIC" />
     </a>
 </h3>
 

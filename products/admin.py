@@ -33,6 +33,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'division'
     )
 
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product_Family, Product_FamilyAdmin)

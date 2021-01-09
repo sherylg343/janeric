@@ -103,7 +103,7 @@ def product_families(request):
 
 @login_required
 def add_product_family(request):
-    """ Add a product-family to the store """
+    """ Add a product_family to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
