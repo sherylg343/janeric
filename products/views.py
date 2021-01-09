@@ -113,6 +113,7 @@ def add_product_family(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added product family!')
+            return redirect(reverse('product_families'))
         else:
             messages.error(request,
                            ('Failed to add product family. '
