@@ -1184,9 +1184,10 @@ Test Result: Successful
  <br>
 "After" State: 
 * Text in input fields
-* Page changes to "Add a Product Family" page
+* page switches to "Product Families" page
+* Success pop up message does not appear
  <br>
-Test Result: Successful
+Test Result: Successful save, but message NOT appearing
  </p>
 
  #### Part 10: Edit a Product Family
@@ -1214,9 +1215,10 @@ Test Result: Successful
 "After" State: 
 * Revised text in Brand Name field
 * Dark gray button text turns bright blue
-* 
+* Page returns to "Product Families" page
+* Success message does NOT appear
  <br>
-Test Result: Successful
+Test Result: Successful update, but success message not appearing
  </p>
 
 #### Part 12: Add a Product 
