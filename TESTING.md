@@ -71,6 +71,13 @@ were used.
  a typo in the gmail address of which I'm not aware. So additional
  testing and troubleshooting is needed for email addresses.
 
+ ### Caveat
+ I fully acknowledge that the manual testing described below is not
+ comprehensive enough for the website to be ready to launch.
+ However, it represents a thorough general functional testing
+ of the website features and additional testing to anticipate
+ misuse of the site is planned for the future.
+
  #### Part One: Initial Navigation
 
  ##### Mobile Screen Version (side slide navigation menu)
@@ -252,7 +259,7 @@ email draft directed to customerservice@janericllc.com
 Test Result: Successful
 </p>
 
-#### Footer links
+#### Part Two: Footer links
 **Test 12: 
 <p>
 Action Taken: Click on email address in footer 
@@ -286,7 +293,7 @@ Test Result: Successful
 Test Result: Successful
  </p>
 
- #### Search bar
+ #### Part Three: Search bar
  **Test #15:
  <p>
  Action Taken: Click in search bar and type Sanitizer
@@ -327,7 +334,7 @@ it is compatible with other protective equipment such as Face Shields and
 Gowns - so it was appropriate for it to appear
  </p>
 
- #### Products template
+ #### Part 4: Products template
  **Test #17:
  <p>
  Action Taken: Click on "PPE" link in mobile side nav and then click on 
@@ -418,7 +425,7 @@ it was more important to show as much of product as possible rather than
 crop the image to fit space better.
  </p>
 
- #### Product Detail template
+ #### Part 5: Product Detail template
  **Test #21:
  <p>
  Action Taken: From the Products page, click on "View" button for a
@@ -507,7 +514,7 @@ CSS change: #detail-image-img gains a max-height attribute and value of
 250px. 
 Second Test Result: Successful
 
- #### Product Detail template
+ #### Part 6: Product Detail template
  **Test #24:
  <p>
  Action Taken: From the Product Detail page, click on "Add to Cart" button
@@ -593,7 +600,7 @@ Shopping Cart.
 Test Result: Successful
  </p>
 
-#### Cart template
+#### Part 7: Cart template
  **Test #28:
  <p>
  Action Taken: On the Cart page while in Chrome Dev Tools with
@@ -716,7 +723,7 @@ from your cart."
 Test Result: Successful
  </p>
 
- #### Checkout template
+ #### Part 8: Checkout template
  * The following tests were done while in Chrome Dev Tools with
 screen size set to iPhoneX
  **Test #32:
@@ -1091,7 +1098,7 @@ Test Result: Successful
 
  skipped doing the checkout tests in screen size 1300 as layout was the same
 
-#### Profile template
+#### Part 9: Profile template
  **Test #53:
  <p>
  Action Taken: In Profile template in Pixel 2 screen size in Chrome
@@ -1148,6 +1155,130 @@ Test Result: Successful
 "After" State: 
 * address1 field said "Durango" in dark text
 * pop up box appears stating "Profile updated successfully."
+ <br>
+Test Result: Successful
+ </p>
+
+ #### Part 10: Add a Product Family
+ **Test #57:
+ <p>
+ Action Taken: On Product Families page, click "Add a Product Family"
+ <br>
+ "Before" State: Dark gray button with white text stating "Add a 
+ Product Family"
+ <br>
+"After" State: 
+* White button text turns bright blue
+* Page changes to "Add a Product Family" page
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #58:
+ <p>
+ Action Taken: On Add a Product Family page, add test text in 
+ Name and Brand Name input fields and click "Add Product Family" 
+ button
+ <br>
+ "Before" State: empty fields with labels above them
+ <br>
+"After" State: 
+* Text in input fields
+* Page changes to "Add a Product Family" page
+ <br>
+Test Result: Successful
+ </p>
+
+ #### Part 10: Edit a Product Family
+**Test #59:
+ <p>
+ Action Taken: On Product Families page, click "Edit" link below
+ the new Test Product Family
+ <br>
+ "Before" State: Gray link that says "Edit"
+ <br>
+"After" State: Page changes to "Edit a Product Family" page
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #60:
+ <p>
+ Action Taken: On Edit a Product Family page, revise test text in 
+ Name and Brand Name input fields and click "Update Product Family" 
+ button
+ <br>
+ "Before" State: Name and Brand Name fields with test text
+ in them
+ <br>
+"After" State: 
+* Revised text in Brand Name field
+* Dark gray button text turns bright blue
+* 
+ <br>
+Test Result: Successful
+ </p>
+
+#### Part 12: Add a Product 
+ **Test #61:
+ <p>
+ Action Taken: In nav bar, clicked on "Add a Product"
+ <br>
+ "Before" State: Gray "Add a Product" link
+ <br>
+"After" State: 
+* Link turns bright blue
+* Page changes to "Add a Product" page
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #62:
+ <p>
+ Action Taken: On Add a Product page, add test text in 
+ all input fields and click "Add Product" 
+ button
+ <br>
+ "Before" State: empty fields with labels above them
+ <br>
+"After" State: 
+* Text in input fields
+* Pop up message appears stating "Successfully added product"
+* Page changes to product detail page for the new product
+ <br>
+Test Result: Successful
+ </p>
+
+ #### Part 13: Edit a Product
+**Test #63:
+ <p>
+ Action Taken: On product detail page for new product, click "Edit" 
+ link 
+ <br>
+ "Before" State: Gray link that says "Edit"
+ <br>
+"After" State: 
+* Edit link turns bright blue
+* Page changes to "Edit Product" page
+ <br>
+Test Result: Successful
+ </p>
+
+ **Test #64:
+ <p>
+Action Taken: On "Edit Product" page, revise test text in 
+input fields and click "Update Product" button 
+button
+ <br>
+ "Before" State: Fields complete with text text
+ in them
+ <br>
+"After" State: 
+* Revised text in description field, removed image and changed size
+* Dark gray button text turns bright blue in button
+* Pop up box displays message stating "Successfully updated product!"
+* Screen changes to product detail page where product is displayed
+so you can verify changes - and they were all made.
  <br>
 Test Result: Successful
  </p>
